@@ -1,50 +1,50 @@
-.m-wizard.m-wizard--2 .m-wizard__head {
-	position: relative;
-	margin: 0rem 0 0rem 0;
-	padding: 45px 5rem 0px 5rem;
-}
-.label-info {
-	background-color: #5bc0de;
-}
-.form-control[readonly] {
-	border-color: #ebedf2!important;
-	color: #575962!important;
-	background-color: #ebedf2!important;
-}
-.m-form .m-form__group {
-	margin-bottom: 0;
-	padding-top: 0px;
-	padding-bottom: 5px;
-}
-
-span.label {
-	display: inline;
-	padding: .3em .6em .3em;
-	font-size: 75%;
-	font-weight: 700;
-	line-height: 1;
-	color: #fff;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: baseline;
-	border-radius: .25em;
-}
-.showicon{
-	padding-top: 10px;
-	width: 48px;
-	position: absolute;
-	top: 0;
-	right: 0;
-}
-.ic_add, .ic_remove {
-	margin: 0px 5px 0 0px;
-	height: 18px;
-	float: left;
-	width: 13px;
-}
-.ic_add {
-	background: url(http://yteviec.com/templates/yteviec/images/icons/icon_add_13x13.gif) 0 2px no-repeat;
-}
-.ic_remove {
-	background: url(http://yteviec.com/templates/yteviec/images/icons/icon_del_13x16.gif) no-repeat;
+.m-wizard.m-wizard--2 .m-wizard__head {
+	position: relative;
+	margin: 0rem 0 0rem 0;
+	padding: 45px 5rem 0px 5rem;
+}
+.label-info {
+	background-color: #5bc0de;
+}
+.form-control[readonly] {
+	border-color: #ebedf2!important;
+	color: #575962!important;
+	background-color: #ebedf2!important;
+}
+.m-form .m-form__group {
+	margin-bottom: 0;
+	padding-top: 0px;
+	padding-bottom: 5px;
+}
+
+span.label {
+	display: inline;
+	padding: .3em .6em .3em;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+.showicon{
+	padding-top: 10px;
+	width: 48px;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+.ic_add, .ic_remove {
+	margin: 0px 5px 0 0px;
+	height: 18px;
+	float: left;
+	width: 13px;
+}
+.ic_add {
+	background: url(http://yteviec.com/templates/yteviec/images/icons/icon_add_13x13.gif) 0 2px no-repeat;
+}
+.ic_remove {
+	background: url(http://yteviec.com/templates/yteviec/images/icons/icon_del_13x16.gif) no-repeat;
 }

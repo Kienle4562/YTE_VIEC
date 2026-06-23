@@ -1,68 +1,68 @@
-.form-control[readonly]{
-	border-color: #ebedf2;
-	background-color: #ebedf2;
-	color: #575962;
-}
-.headTool:first-child{
-    margin-right: 0px;
-}
-.alert-warning:not(.m-alert--outline){
-    color: black;
-}
-#TableLoadDataBooking thead th {
-    vertical-align: bottom;
-    border-bottom-width: 1px !important;
-    border-bottom: 2px solid #b7b7b7;
-    background: #f4f3f8;
-}
-.tt-menu {
-  border: 0;
-  margin: 0;
-  min-width: 275px;
-  padding: 5px 0;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px; }
-.tt-menu .tt-dataset .tt-suggestion {
-    padding: 5px 15px;
-    font-size: 1rem; }
-
-.form-control.tt-hint {
-  color: #7b7e8a; }
-
-.tt-menu {
-  background: #ffffff;
-  -webkit-box-shadow: 0px 0px 15px 1px rgba(69, 65, 78, 0.2);
-  -moz-box-shadow: 0px 0px 15px 1px rgba(69, 65, 78, 0.2);
-  box-shadow: 0px 0px 15px 1px rgba(69, 65, 78, 0.2);
-  }
-.tt-menu .tt-dataset .tt-suggestion {
-    color: #575962;
-    /* cursor: pointer; */
-    }
-.tt-menu .tt-dataset .tt-suggestion .tt-highlight {
-      color: #27282c;
-      font-weight: 500; }
-.tt-menu .tt-dataset .tt-suggestion:hover {
-      background: #f4f5f8; }
-	  
-#TableLoadDataBooking thead th:first-child {
-    width: 30px;
-}
-.tableFixHead    { overflow-y: auto; max-height: 220px; }
-.tableFixHead th { position: sticky; top: 0; z-index:99 }
-[data-field="ten_thu_quy"]{
-    display:none !important;
-}
-.m-pricing-table-1__price
-{
-	font-size: 18px;
-    font-weight: bold;
+.form-control[readonly]{
+	border-color: #ebedf2;
+	background-color: #ebedf2;
+	color: #575962;
+}
+.headTool:first-child{
+    margin-right: 0px;
+}
+.alert-warning:not(.m-alert--outline){
+    color: black;
+}
+#TableLoadDataBooking thead th {
+    vertical-align: bottom;
+    border-bottom-width: 1px !important;
+    border-bottom: 2px solid #b7b7b7;
+    background: #f4f3f8;
+}
+.tt-menu {
+  border: 0;
+  margin: 0;
+  min-width: 275px;
+  padding: 5px 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px; }
+.tt-menu .tt-dataset .tt-suggestion {
+    padding: 5px 15px;
+    font-size: 1rem; }
+
+.form-control.tt-hint {
+  color: #7b7e8a; }
+
+.tt-menu {
+  background: #ffffff;
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(69, 65, 78, 0.2);
+  -moz-box-shadow: 0px 0px 15px 1px rgba(69, 65, 78, 0.2);
+  box-shadow: 0px 0px 15px 1px rgba(69, 65, 78, 0.2);
+  }
+.tt-menu .tt-dataset .tt-suggestion {
+    color: #575962;
+    /* cursor: pointer; */
+    }
+.tt-menu .tt-dataset .tt-suggestion .tt-highlight {
+      color: #27282c;
+      font-weight: 500; }
+.tt-menu .tt-dataset .tt-suggestion:hover {
+      background: #f4f5f8; }
+	  
+#TableLoadDataBooking thead th:first-child {
+    width: 30px;
+}
+.tableFixHead    { overflow-y: auto; max-height: 220px; }
+.tableFixHead th { position: sticky; top: 0; z-index:99 }
+[data-field="ten_thu_quy"]{
+    display:none !important;
+}
+.m-pricing-table-1__price
+{
+	font-size: 18px;
+    font-weight: bold;
 }

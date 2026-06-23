@@ -1,37 +1,37 @@
 @charset "UTF-8";
-/**
-$m--root-font: (
-    size: (
-        desktop: 13px,
-        tablet: 13px,
-        mobile: 13px
-    ), 
-    weight: 300, 
-    color: (
-        light: #333333, 
-        dark: #efefef
-    )
-);
+/**
+$m--root-font: (
+    size: (
+        desktop: 13px,
+        tablet: 13px,
+        mobile: 13px
+    ), 
+    weight: 300, 
+    color: (
+        light: #333333, 
+        dark: #efefef
+    )
+);
 */
-/*
-$table-inverse-bg:              $gray-900 !default;
-$table-inverse-accent-bg:       rgba($white, .05) !default;
-$table-inverse-hover-bg:        rgba($white, .075) !default;
-$table-inverse-border-color:    lighten($gray-900, 7.5%) !default;
-$table-inverse-color:           $body-bg !default;
+/*
+$table-inverse-bg:              $gray-900 !default;
+$table-inverse-accent-bg:       rgba($white, .05) !default;
+$table-inverse-hover-bg:        rgba($white, .075) !default;
+$table-inverse-border-color:    lighten($gray-900, 7.5%) !default;
+$table-inverse-color:           $body-bg !default;
 */
-/*
-sm: 544px,
-md: 768px,
-lg: 992px,
-xl: 1200px
+/*
+sm: 544px,
+md: 768px,
+lg: 992px,
+xl: 1200px
 */
-/*
-$table-inverse-bg:              $gray-900 !default;
-$table-inverse-accent-bg:       rgba($white, .05) !default;
-$table-inverse-hover-bg:        rgba($white, .075) !default;
-$table-inverse-border-color:    lighten($gray-900, 7.5%) !default;
-$table-inverse-color:           $body-bg !default;
+/*
+$table-inverse-bg:              $gray-900 !default;
+$table-inverse-accent-bg:       rgba($white, .05) !default;
+$table-inverse-hover-bg:        rgba($white, .075) !default;
+$table-inverse-border-color:    lighten($gray-900, 7.5%) !default;
+$table-inverse-color:           $body-bg !default;
 */
 /*!
  * Bootstrap v4.0.0 (https://getbootstrap.com)
@@ -7494,11 +7494,11 @@ a.text-dark:hover, a.text-dark:focus {
   .nav.nav-pills.nav-pills--danger .nav-item.show .nav-link i {
     color: #f0f0f0; }
 
-/*
-sm: 544px,
-md: 768px,
-lg: 992px,
-xl: 1200px
+/*
+sm: 544px,
+md: 768px,
+lg: 992px,
+xl: 1200px
 */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
@@ -19957,10 +19957,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--solid > span {
       background: #e2e5ec;
@@ -19988,10 +19988,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--brand.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--brand.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20018,10 +20018,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--metal.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--metal.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20048,10 +20048,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--light.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--light.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20078,10 +20078,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--accent.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--accent.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20108,10 +20108,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--focus.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--focus.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20138,10 +20138,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--primary.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--primary.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20168,10 +20168,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--success.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--success.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20198,10 +20198,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--info.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--info.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20228,10 +20228,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--warning.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--warning.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20258,10 +20258,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--danger.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--danger.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20297,10 +20297,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--solid > span {
       background: #e2e5ec;
@@ -20330,10 +20330,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--brand.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--brand.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20362,10 +20362,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--metal.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--metal.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20394,10 +20394,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--light.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--light.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20426,10 +20426,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--accent.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--accent.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20458,10 +20458,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--focus.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--focus.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20490,10 +20490,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--primary.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--primary.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20522,10 +20522,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--success.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--success.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20554,10 +20554,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--info.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--info.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20586,10 +20586,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--warning.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--warning.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20618,10 +20618,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--danger.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--danger.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -20657,10 +20657,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--solid > span {
       background: #bdc3d4;
@@ -20688,10 +20688,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--brand.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--brand.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20718,10 +20718,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--metal.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--metal.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20748,10 +20748,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--light.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--light.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20778,10 +20778,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--accent.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--accent.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20808,10 +20808,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--focus.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--focus.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20838,10 +20838,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--primary.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--primary.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20868,10 +20868,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--success.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--success.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20898,10 +20898,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--info.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--info.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20928,10 +20928,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--warning.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--warning.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20958,10 +20958,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-checkbox.m-checkbox--skin-dark.m-checkbox--danger.m-checkbox--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-checkbox.m-checkbox--skin-dark.m-checkbox--danger.m-checkbox--solid > span {
       border: 1px solid transparent !important; }
@@ -20997,10 +20997,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--solid > span {
       background: #bdc3d4;
@@ -21030,10 +21030,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--brand.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--brand.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21062,10 +21062,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--metal.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--metal.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21094,10 +21094,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--light.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--light.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21126,10 +21126,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--accent.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--accent.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21158,10 +21158,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--focus.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--focus.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21190,10 +21190,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--primary.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--primary.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21222,10 +21222,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--success.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--success.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21254,10 +21254,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--info.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--info.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21286,10 +21286,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--warning.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--warning.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21318,10 +21318,10 @@ body.m-portlet--fullscreen {
     opacity: 0.6 ;
     filter: alpha(opacity=60) ; }
   .m-radio.m-radio--skin-dark.m-radio--danger.m-radio--solid {
-    /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+    /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
     .m-radio.m-radio--skin-dark.m-radio--danger.m-radio--solid > span {
       border: 1px solid transparent !important; }
@@ -21361,10 +21361,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-brand.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-brand.m-checkbox--solid > span {
     background: #716aca;
@@ -21400,10 +21400,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-brand.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-brand.m-radio--solid > span {
     background: #716aca;
@@ -21439,10 +21439,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-metal.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-metal.m-checkbox--solid > span {
     background: #c4c5d6;
@@ -21478,10 +21478,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-metal.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-metal.m-radio--solid > span {
     background: #c4c5d6;
@@ -21517,10 +21517,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-light.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-light.m-checkbox--solid > span {
     background: #ffffff;
@@ -21556,10 +21556,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-light.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-light.m-radio--solid > span {
     background: #ffffff;
@@ -21595,10 +21595,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-accent.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-accent.m-checkbox--solid > span {
     background: #00c5dc;
@@ -21634,10 +21634,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-accent.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-accent.m-radio--solid > span {
     background: #00c5dc;
@@ -21673,10 +21673,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-focus.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-focus.m-checkbox--solid > span {
     background: #9816f4;
@@ -21712,10 +21712,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-focus.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-focus.m-radio--solid > span {
     background: #9816f4;
@@ -21751,10 +21751,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-primary.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-primary.m-checkbox--solid > span {
     background: #5867dd;
@@ -21790,10 +21790,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-primary.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-primary.m-radio--solid > span {
     background: #5867dd;
@@ -21829,10 +21829,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-success.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-success.m-checkbox--solid > span {
     background: #34bfa3;
@@ -21868,10 +21868,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-success.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-success.m-radio--solid > span {
     background: #34bfa3;
@@ -21907,10 +21907,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-info.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-info.m-checkbox--solid > span {
     background: #36a3f7;
@@ -21946,10 +21946,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-info.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-info.m-radio--solid > span {
     background: #36a3f7;
@@ -21985,10 +21985,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-warning.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-warning.m-checkbox--solid > span {
     background: #ffb822;
@@ -22024,10 +22024,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-warning.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-warning.m-radio--solid > span {
     background: #ffb822;
@@ -22063,10 +22063,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-checkbox.m-checkbox--state-danger.m-checkbox--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-checkbox.m-checkbox--state-danger.m-checkbox--solid > span {
     background: #f4516c;
@@ -22102,10 +22102,10 @@ body.m-portlet--fullscreen {
   filter: alpha(opacity=60) ; }
 
 .m-radio.m-radio--state-danger.m-radio--solid {
-  /*
-        &:hover > input:not([disabled]) ~ span {
-            background: $color-solid-bg-hover; 
-        }
+  /*
+        &:hover > input:not([disabled]) ~ span {
+            background: $color-solid-bg-hover; 
+        }
         */ }
   .m-radio.m-radio--state-danger.m-radio--solid > span {
     background: #f4516c;
@@ -22583,12 +22583,12 @@ body.m-portlet--fullscreen {
   -moz-box-shadow: none ;
   box-shadow: none ; }
 
-/*
-    <span class="m-switch">
-            <input type="checkbox" checked="checked" name="">
-            <span></span>
-        </label>
-    </span>
+/*
+    <span class="m-switch">
+            <input type="checkbox" checked="checked" name="">
+            <span></span>
+        </label>
+    </span>
 */
 .m-switch {
   display: inline-block;

@@ -1,65 +1,65 @@
-.keyRole {
-    width: 25%;
-    text-transform: uppercase;
-}
-
-.m-portlet .m-portlet__body {
-    padding-top: 0px;
-}
-
-.muted {
-    color: #999;
-}
-#AUTH_FUNC
-{
-    display: none;
-}
-.BorderListbox {
-    overflow: auto;
-    width: 235px;
-    height: 150px;
-    border: solid 1px #08c;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-}
-.BorderListbox .innerListbox {
-    padding: 2px 3px;
-    margin: 0;
-}
-.BorderListbox label {
-    font-weight: normal !important;
-    margin-bottom: 0px !important;
-    margin-top: 0px !important;
-    font-size: 14px;
-}
-label {
-    display: inline-block;
-    max-width: 100%;
-    margin-bottom: 5px;
-    margin-top: 10px;
-}
-h5 {
-    font-size: 14px;
-}
-.modal .m-form__group {
-    padding: 0px 25px !important;
-}
-
-.admintable{
-    margin-left: 15px;
-}
-
-.modal .m-portlet {
-    margin-bottom: 0px;
-}
-li[role=treeitem]{
-    float: left;
-    width: 25%;
-}
-.jstree-default .jstree-wholerow {
-    display: none;
-}
-.jstree-children > li > ul > li[role=treeitem]{
-    width: 100%;
+.keyRole {
+    width: 25%;
+    text-transform: uppercase;
+}
+
+.m-portlet .m-portlet__body {
+    padding-top: 0px;
+}
+
+.muted {
+    color: #999;
+}
+#AUTH_FUNC
+{
+    display: none;
+}
+.BorderListbox {
+    overflow: auto;
+    width: 235px;
+    height: 150px;
+    border: solid 1px #08c;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+.BorderListbox .innerListbox {
+    padding: 2px 3px;
+    margin: 0;
+}
+.BorderListbox label {
+    font-weight: normal !important;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    font-size: 14px;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+h5 {
+    font-size: 14px;
+}
+.modal .m-form__group {
+    padding: 0px 25px !important;
+}
+
+.admintable{
+    margin-left: 15px;
+}
+
+.modal .m-portlet {
+    margin-bottom: 0px;
+}
+li[role=treeitem]{
+    float: left;
+    width: 25%;
+}
+.jstree-default .jstree-wholerow {
+    display: none;
+}
+.jstree-children > li > ul > li[role=treeitem]{
+    width: 100%;
 }

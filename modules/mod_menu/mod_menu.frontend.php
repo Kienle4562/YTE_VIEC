@@ -18,7 +18,7 @@
 ?>
 <ul class="nav navbar-nav navbar-left">
 	<?php
-												if (!function_exists(menu))
+												if (!function_exists('menu'))
 												{
 													function menu($parentid = 0, $group_menu_id, $ext, $max_level, $current_level, &$params)
 													{

@@ -25,7 +25,7 @@
     <?php } ?>
 	<ul class="list-unstyled">
 		<?php
-        if (!function_exists(menu3))
+        if (!function_exists('menu3'))
         {
             function menu3($parentid = 0, $group_menu_id, $ext, $max_level, $current_level, &$params)
             {

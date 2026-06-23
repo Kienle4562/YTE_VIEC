@@ -1,0 +1,1 @@
+/home/viecyte/domains/viecyte.com/public_html/languages/

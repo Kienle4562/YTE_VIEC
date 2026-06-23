@@ -1,0 +1,99 @@
+.m-login.m-login--1 .m-login__wrapper {
+    overflow: hidden;
+    padding: 20px 2rem 2rem 2rem;
+}
+body, .btn{
+    font-family: Arial,Helvetica,sans-serif ;
+}
+.alert .close:before {
+    content: "x";
+}
+.m-brand.m-brand--skin-dark {
+    background: #fff;
+}
+.datepickerCSS
+{
+	/* width:140px !important; */
+}
+
+input.file-input {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    width: 105px;
+}
+.colorLight{
+	color: #FFF;
+}
+.t_align_left{
+	text-align: left;
+}
+.m-error-6 .m-error_container .m-error_subtitle > h1 {
+    font-size: 10rem;
+    margin-top: 0rem;
+    font-weight: 600;
+}
+.m-portlet.m-portlet--full-height{
+	height: auto;
+}
+
+.has-error{
+    color: #a94442;
+	margin: 0px;
+}
+input.required:invalid,
+select.required:invalid,
+textarea.required:invalid
+{
+    border: 1px solid #a94442;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+label {
+    margin-top: .5rem;
+}
+
+label.required:after
+{
+	content: "*";
+	margin-left: 5px;
+	color: red;
+	fonr-weight: bold;
+}
+.m-form__group.row .m-radio-inline {
+    margin-top: 0px;
+}
+.m_top_10{
+	margin-top: 10px;
+}
+.loadImg{
+    overflow: hidden;
+    position: absolute;
+    right: 15px;
+    width: 65px;
+    top: 26px;
+}
+.m-portlet .m-portlet__body {
+    padding: 1.0rem;
+}
+.m-portlet .m-portlet__head {
+    padding: 0 1.5rem;
+}
+input[type=color]{
+	width: 100%;
+	height: 30px;
+}
+.headTool {
+    float: right;
+    margin: 15px 8px 0px 0px;
+}
+@media (min-width: 992px) {
+	.modal-slg {
+		max-width: 1200px; 
+	} 
+}

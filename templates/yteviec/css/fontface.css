@@ -1,0 +1,259 @@
+@font-face {
+  font-family: 'OpenSans-Bold';
+  src: url('../font/OpenSans-Bold/OpenSans-Semibold.eot?20521014');
+  src: url('../font/OpenSans-Bold/OpenSans-Semibold.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/OpenSans-Bold/OpenSans-Semibold.woff?20521014') format('woff'),
+       url('../font/OpenSans-Bold/OpenSans-Semibold.ttf?20521014') format('truetype'),
+       url('../font/OpenSans-Bold/OpenSans-Semibold.svg?20521014#OpenSans-Bold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'OpenSans-Light';
+  src: url('../font/OpenSans-Light/OpenSans-Light.eot?20521014');
+  src: url('../font/OpenSans-Light/OpenSans-Light.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/OpenSans-Light/OpenSans-Light.woff?20521014') format('woff'),
+       url('../font/OpenSans-Light/OpenSans-Light.ttf?20521014') format('truetype'),
+       url('../font/OpenSans-Light/OpenSans-Light.svg?20521014#OpenSans-Light') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'segoe-normal';
+  src: url('../font/segoe-font/segoe-normal/segoe-normal.eot?20521014');
+  src: url('../font/segoe-font/segoe-normal/segoe-normal.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/segoe-font/segoe-normal/segoe-normal.woff?20521014') format('woff'),
+       url('../font/segoe-font/segoe-normal/segoe-normal.ttf?20521014') format('truetype'),
+       url('../font/segoe-font/segoe-normal/segoe-normal.svg?20521014#segoe-normal') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'segoe-ui-webfont';
+  src: url('../font/segoe-font/segoe-ui-webfont/segoe-ui-webfont.eot?20521014');
+  src: url('../font/segoe-font/segoe-ui-webfont/segoe-ui-webfont.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/segoe-font/segoe-ui-webfont/segoe-ui-webfont.woff?20521014') format('woff'),
+       url('../font/segoe-font/segoe-ui-webfont/segoe-ui-webfont.ttf?20521014') format('truetype'),
+       url('../font/segoe-font/segoe-ui-webfont/segoe-ui-webfont.svg?20521014#segoe-ui-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'segoe-negreta-webfont';
+  src: url('../font/segoe-font/segoe-negreta-webfont/segoe-negreta-webfont.eot?20521014');
+  src: url('../font/segoe-font/segoe-negreta-webfont/segoe-negreta-webfont.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/segoe-font/segoe-negreta-webfont/segoe-negreta-webfont.woff?20521014') format('woff'),
+       url('../font/segoe-font/segoe-negreta-webfont/segoe-negreta-webfont.ttf?20521014') format('truetype'),
+       url('../font/segoe-font/segoe-negreta-webfont/segoe-negreta-webfont.svg?20521014#segoe-negreta-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'segoe-light-webfont';
+  src: url('../font/segoe-font/segoe-light-webfont/segeo-ui-light-webfont.eot?20521014');
+  src: url('../font/segoe-font/segoe-light-webfont/segeo-ui-light-webfont.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/segoe-font/segoe-light-webfont/segeo-ui-light-webfont.woff?20521014') format('woff'),
+       url('../font/segoe-font/segoe-light-webfont/segeo-ui-light-webfont.ttf?20521014') format('truetype'),
+       url('../font/segoe-font/segoe-light-webfont/segeo-ui-light-webfont.svg?20521014#segoe-light-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'segoe-cursivai-webfont';
+  src: url('../font/segoe-font/segoe-cursivai-webfont/segoe-ui-cursivai-webfont.eot?20521014');
+  src: url('../font/segoe-font/segoe-cursivai-webfont/segoe-ui-cursivai-webfont.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/segoe-font/segoe-cursivai-webfont/segoe-ui-cursivai-webfont.woff?20521014') format('woff'),
+       url('../font/segoe-font/segoe-cursivai-webfont/segoe-ui-cursivai-webfont.ttf?20521014') format('truetype'),
+       url('../font/segoe-font/segoe-cursivai-webfont/segoe-ui-cursivai-webfont.svg?20521014#segoe-cursivai-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'segeo-symbol-webfont';
+  src: url('../font/segoe-font/segeo-symbol-webfont/segeo-ui-symbol-webfont.eot?20521014');
+  src: url('../font/segoe-font/segeo-symbol-webfont/segeo-ui-symbol-webfont.eot?20521014#iefix') format('embedded-opentype'),
+       url('../font/segoe-font/segeo-symbol-webfont/segeo-ui-symbol-webfont.woff?20521014') format('woff'),
+       url('../font/segoe-font/segeo-symbol-webfont/segeo-ui-symbol-webfont.ttf?20521014') format('truetype'),
+       url('../font/segoe-font/segeo-symbol-webfont/segeo-ui-symbol-webfont.svg?20521014#segeo-symbol-webfont') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoBlackItalic';
+    src: url('../font/Lato-font/Lato-BlaIta-webfont.eot');
+    src: url('../font/Lato-font/Lato-BlaIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-BlaIta-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-BlaIta-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-BlaIta-webfont.svg#LatoBlackItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoBlack';
+    src: url('../font/Lato-font/Lato-Bla-webfont.eot');
+    src: url('../font/Lato-font/Lato-Bla-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-Bla-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-Bla-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-Bla-webfont.svg#LatoBlack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoBoldItalic';
+    src: url('../font/Lato-font/Lato-BolIta-webfont.eot');
+    src: url('../font/Lato-font/Lato-BolIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-BolIta-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-BolIta-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-BolIta-webfont.svg#LatoBoldItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoBold';
+    src: url('../font/Lato-font/Lato-Bol-webfont.eot');
+    src: url('../font/Lato-font/Lato-Bol-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-Bol-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-Bol-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-Bol-webfont.svg#LatoBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoItalic';
+    src: url('../font/Lato-font/Lato-RegIta-webfont.eot');
+    src: url('../font/Lato-font/Lato-RegIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-RegIta-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-RegIta-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-RegIta-webfont.svg#LatoItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoRegular';
+    src: url('../font/Lato-font/Lato-Reg-webfont.eot');
+    src: url('../font/Lato-font/Lato-Reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-Reg-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-Reg-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-Reg-webfont.svg#LatoRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoLightItalic';
+    src: url('../font/Lato-font/Lato-LigIta-webfont.eot');
+    src: url('../font/Lato-font/Lato-LigIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-LigIta-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-LigIta-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-LigIta-webfont.svg#LatoLightItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoLight';
+    src: url('../font/Lato-font/Lato-Lig-webfont.eot');
+    src: url('../font/Lato-font/Lato-Lig-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-Lig-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-Lig-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-Lig-webfont.svg#LatoLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoHairlineItalic';
+    src: url('../font/Lato-font/Lato-HaiIta-webfont.eot');
+    src: url('../font/Lato-font/Lato-HaiIta-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-HaiIta-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-HaiIta-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-HaiIta-webfont.svg#LatoHairlineItalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'LatoHairline';
+    src: url('../font/Lato-font/Lato-Hai-webfont.eot');
+    src: url('../font/Lato-font/Lato-Hai-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato-font/Lato-Hai-webfont.woff') format('woff'),
+         url('../font/Lato-font/Lato-Hai-webfont.ttf') format('truetype'),
+         url('../font/Lato-font/Lato-Hai-webfont.svg#LatoHairline') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Regular';
+    src: url('../font/Lato/Lato-Regular.eot');
+    src: url('../font/Lato/Lato-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato/Lato-Regular.woff') format('woff'),
+         url('../font/Lato/Lato-Regular.ttf') format('truetype'),
+         url('../font/Lato/Lato-Regular.svg#Lato-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato-Semibold';
+    src: url('../font/Lato/Lato-Semibold.eot');
+    src: url('../font/Lato/Lato-Semibold.eot?#iefix') format('embedded-opentype'),
+         url('../font/Lato/Lato-Semibold.woff') format('woff'),
+         url('../font/Lato/Lato-Semibold.ttf') format('truetype'),
+         url('../font/Lato/Lato-Semibold.svg#Lato-Semibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UVNTinTucHep';
+    src: url('../font/UVNTinTucHep/UVNTinTucHep.eot');
+    src: url('../font/UVNTinTucHep/UVNTinTucHep.eot?#iefix') format('embedded-opentype'),
+         url('../font/UVNTinTucHep/UVNTinTucHep.woff') format('woff'),
+         url('../font/UVNTinTucHep/UVNTinTucHep.ttf') format('truetype'),
+         url('../font/UVNTinTucHep/UVNTinTucHep.svg#UVNTinTucHep') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'uvngiaytrang';
+    src: url('../font/uvngiaytrang/uvngiaytrang_b-webfont.eot');
+    src: url('../font/uvngiaytrang/uvngiaytrang_b-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/uvngiaytrang/uvngiaytrang_b-webfont.woff') format('woff'),
+         url('../font/uvngiaytrang/uvngiaytrang_b-webfont.ttf') format('truetype'),
+         url('../font/uvngiaytrang/uvngiaytrang_b-webfont.svg#uvngiaytrang_b-webfont') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MyriadPro-Regular';
+    src: url('../font/MyriadPro-Regular/MyriadPro-Regular.eot');
+    src: url('../font/MyriadPro-Regular/MyriadPro-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../font/MyriadPro-Regular/MyriadPro-Regular.woff') format('woff'),
+         url('../font/MyriadPro-Regular/MyriadPro-Regular.ttf') format('truetype'),
+         url('../font/MyriadPro-Regular/MyriadPro-Regular.svg#MyriadPro-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'UTMEremitage';
+    src: url('../font/UTMEremitage/UTMEremitage.eot');
+    src: url('../font/UTMEremitage/UTMEremitage.eot?#iefix') format('embedded-opentype'),
+         url('../font/UTMEremitage/UTMEremitage.woff') format('woff'),
+         url('../font/UTMEremitage/UTMEremitage.ttf') format('truetype'),
+         url('../font/UTMEremitage/UTMEremitage.svg#UTMEremitage') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

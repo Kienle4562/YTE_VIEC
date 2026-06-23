@@ -1,0 +1,348 @@
+<?php 
+$arraySource = array(
+		'dist/component/congty/dangtuyen.css' => 'css',
+		'dist/component/congty/bootstrap-tagsinput.css' => 'css',
+		'dist/component/congty/bootstrap-tagsinput.min.js' => 'js',
+		'dist/component/congty/bootstrap-markdown.js' => 'js',
+	);
+	$core_class->loadSource($arraySource);
+?>
+<style>
+	.bootstrap-tagsinput{
+		width: 100%;
+	}
+	.m-typeahead .twitter-typeahead{
+		position: relative;
+		display: inline-block !important;
+		width: 100px;
+	}
+	#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:360px;position: absolute;z-index: 99;}
+	#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+	#country-list li:hover{background:#ece3d2;cursor: pointer;}
+	#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+</style>
+<form class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed" 
+	role="form" method="post" id="formDataInsert">
+	<div class="m-portlet__body">
+		<div class="form-group m-form__group row">
+   <div class="col-lg-4">
+      <label class="required">Tên công ty:</label>
+		<input type="text" id="tencongty" name="tencongty" onchange="autocompleter()" class="form-control m-input" placeholder="Tên công ty" required="" maxlength="100">
+		<div id="suggesstion-box"></div>
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="required">Loại hình hoạt động:</label>
+		<?php
+			echo $core_class->createSelectBox5(
+				"mst_loaihinhhoatdong",
+				"loaihinhhoatdong_id",
+				"tenloaihinhhoatdong",
+				"required", // $attribute
+				"form-control",
+				"loaihinhhoatdong_id", // name
+				"", // where
+				array(),
+				""
+			);
+		?>
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="">Loại hình hoạt động khác:</label>
+		<input type="text" id="loaihinhhoatdongkhac" name="loaihinhhoatdongkhac" class="form-control m-input" placeholder="Loại hình hoạt động khác" maxlength="100">
+		
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="">Email:</label>
+      <div class="input-group">
+         <input type="email" id="email" name="email" class="form-control m-input" placeholder="Email" maxlength="100">
+         <div class="input-group-append">
+			<span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
+		</div>
+      </div>
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="">Mật khẩu:</label>
+      <div class="input-group">
+         <input type="password" id="password" name="password" class="form-control m-input" placeholder="Mật khẩu" maxlength="100">
+         <div class="input-group-append">
+			<span class="input-group-text"><i class="fa fa-lock"></i></span>
+		 </div>
+      </div>
+      <p class="has-error"></p>
+   </div>
+    <div class="col-lg-4">
+      <label class="required">Người liên hệ:</label>
+		<input type="text" id="nguoilienhe" name="nguoilienhe" class="form-control m-input" placeholder="Người liên hệ" required="" maxlength="100">
+		
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="">Trạng thái(activer):</label>
+      <div class="m-checkbox-list">
+		<label class="m-checkbox">
+			<input id="trangthai" name="trangthai" value="1" type="checkbox" checked> Check vào ô<span></span>
+		</label>
+	 </div>
+      <p class="has-error"></p>
+   </div>
+    <div class="col-lg-4">
+      <label class="">Hiển thị:</label>
+      <div class="m-checkbox-list">
+		<label class="m-checkbox">
+			<input id="hien_thi" name="hien_thi" value="1" type="checkbox"> Check vào ô<span></span>
+		</label>
+	 </div>
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label>Gửi mail:</label>
+      <div class="m-checkbox-list">
+		<label class="m-checkbox"><input id="guimail" name="guimail" value="1" type="checkbox"> Check vào ô<span></span></label>
+	  </div>
+      <p class="has-error"></p>
+   </div>
+ 
+   <div class="col-lg-4">
+      <label class="">Hàng đầu:</label>
+      <div class="m-checkbox-list"><label class="m-checkbox"><input id="bvhangdau" name="bvhangdau" value="1" type="checkbox"> Check vào ô<span></span></label></div>
+    
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="">Ghim vị trí:</label>
+      <div class="m-checkbox-list">
+		<label class="m-checkbox">
+			<input id="pin" name="pin" value="1" type="checkbox"> Check vào ô<span></span>
+		</label>
+	 </div>
+      <p class="has-error"></p>
+   </div>
+   
+   <div class="col-lg-4">
+      <label class="required">Quy mô công ty:</label>
+      <?php
+			echo $core_class->createSelectBox5(
+				"mst_quymo",
+				"quymo_id",
+				"tenquymo",
+				"required", // $attribute
+				"form-control",
+				"quymo_id", // name
+				"", // where
+				array(),
+				""
+			);
+		?>
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="">Website công ty:</label>
+      <div class="input-group">
+         <input type="url" id="web" name="web" class="form-control m-input" placeholder="Nhập theo định hạng http://...." maxlength="100">
+         <div class="input-group-append"><span class="input-group-text"><i class="fa fa-globe"></i></span></div>
+      </div>
+     
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="required">Địa chỉ công ty:</label><input type="text" id="diachicongty" name="diachicongty" class="form-control m-input" placeholder="Địa chỉ công ty" required="" maxlength="100">
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="">Chủ đề:</label><input id="chude" name="chude" type="color">
+	  
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="required">Số điện thoại:</label><input type="text" id="sdthoai" name="sdthoai" class="form-control m-input" placeholder="Số điện thoại" required="" maxlength="20">
+      <p class="has-error"></p>
+   </div>
+   <div class="col-lg-4">
+      <label class="required">Tỉnh thành:</label>
+			
+			 <?php
+				echo $core_class->createSelectBox5(
+					"mst_tinhthanh",
+					"id",
+					"ten_tinhthanh",
+					"required", // $attribute
+					"form-control",
+					"tinhthanh_id", // name
+					"", // where
+					array(),
+					""
+				);
+		?>
+		  <p class="has-error"></p>
+	</div>
+	<div class="col-lg-4">
+		  <label class="">Facebook:</label>
+		  <div class="input-group">
+			 <input type="url" id="urlfacebook" name="urlfacebook" class="form-control m-input" placeholder="Nhập theo định hạng http://...." maxlength="100">
+			 <div class="input-group-append"><span class="input-group-text"><i class="fa fa-globe"></i></span></div>
+		  </div>
+		
+		  <p class="has-error"></p>
+	</div>
+	   <div class="col-lg-4">
+			<label class="">Logo:</label><input accept="image/*" type="file" id="file_hinhanh" name="file_hinhanh" class="form-control" placeholder="Logo">
+			<div style="display:none" class="progressLoadImg_hinhanh m-loader m-loader--danger"></div>
+			<div class="loadImg"><img class="m_top_10" id="hinhanh" width="100%" src="image/noimage.jpg"></div>
+			<input id="hinhanh" name="hinhanh" type="hidden">
+			<p class="has-error"></p>
+	   </div>
+	   <div class="col-lg-4">
+		  <label class="">Banner công ty:</label><input accept="image/*" type="file" id="file_banner" name="file_banner" class="form-control" placeholder="Banner công ty">
+		  <div style="display:none" class="progressLoadImg_banner m-loader m-loader--danger"></div>
+		  <div class="loadImg"><img class="m_top_10" id="banner" width="100%" src="image/noimage.jpg"></div>
+		  <input id="banner" name="banner" type="hidden">
+		  
+		  <p class="has-error"></p>
+	   </div>
+	   <div class="col-lg-4">
+		  <label class="">Giấy phép kinh doanh:</label><input accept="image/*" type="file" id="file_gpkd" name="file_gpkd" class="form-control" placeholder="Giấy phép kinh doanh">
+		  <div style="display:none" class="progressLoadImg_banner m-loader m-loader--danger"></div>
+		  <div class="loadImg"><img class="m_top_10" id="gpkd" width="100%" src="image/noimage.jpg"></div>
+		  <input id="gpkd" name="gpkd" type="hidden">
+		  
+		  <p class="has-error"></p>
+	   </div>
+	   
+	   <div class="col-lg-4">
+		  <label class="">Hình ảnh công ty 1:</label>
+		  <input accept="image/*" type="file" id="file_hinhanhcongty1" name="file_hinhanhcongty1" class="form-control" placeholder="Hình ảnh công ty 1">
+		  <div style="display:none" class="progressLoadImg_hinhanhcongty1 m-loader m-loader--danger"></div>
+		  <div class="loadImg"><img class="m_top_10" id="hinhanhcongty1" width="100%" src="image/noimage.jpg"></div>
+		  <input id="hinhanhcongty1" name="hinhanhcongty1" type="hidden">
+		  <p class="has-error"></p>
+	   </div>
+	   <div class="col-lg-4">
+		  <label class="">Hình ảnh công ty 2:</label><input accept="image/*" type="file" id="file_hinhanhcongty2" name="file_hinhanhcongty2" class="form-control" placeholder="Hình ảnh công ty 2">
+		  <div style="display:none" class="progressLoadImg_hinhanhcongty2 m-loader m-loader--danger"></div>
+		  <div class="loadImg"><img class="m_top_10" id="hinhanhcongty2" width="100%" src="image/noimage.jpg"></div>
+		  <input id="hinhanhcongty2" name="hinhanhcongty2" type="hidden">
+		 
+		  <p class="has-error"></p>
+	   </div>
+	   <div class="col-lg-4">
+		  <label class="">Hình ảnh công ty 3:</label><input accept="image/*" type="file" id="file_hinhanhcongty3" name="file_hinhanhcongty3" class="form-control" placeholder="Hình ảnh công ty 3">
+		  <div style="display:none" class="progressLoadImg_hinhanhcongty3 m-loader m-loader--danger"></div>
+		  <div class="loadImg"><img class="m_top_10" id="hinhanhcongty3" width="100%" src="image/noimage.jpg"></div>
+		  <input id="hinhanhcongty3" name="hinhanhcongty3" type="hidden">
+		 
+		  <p class="has-error"></p>
+	   </div>
+	   <div class="col-lg-12">
+		  <label class="required">Giới thiệu ngắn:</label>
+			<textarea  id="gioithieungan" name="gioithieungan" class="form-control" data-provide="markdown" rows="10"></textarea>
+		  <p class="has-error"></p>
+	   </div>
+	    <div class="col-lg-12">
+		  <label class="required">Ghi chú nội bộ:</label>
+			<textarea  id="ghi_chu_nb" name="ghi_chu_nb" class="form-control" data-provide="markdown" rows="10"></textarea>
+		  <p class="has-error"></p>
+	   </div>
+	</div>
+	</div>
+	<input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION["session"]["Id"] ?>">
+	<input type="hidden" name="act" value="Insert">
+</form>
+<script>
+	$('#formDataInsert .m_selectpicker').val();
+	$('#formDataInsert .m_selectpicker').selectpicker();
+	$(".currency").keyup(function(){
+		$(this).val(format($(this).val()));
+	});
+	jQuery(document).ready(function(){
+		$('#btnInsert, .btnInsert').click(function(event){
+			insertData(event, '<?php echo $com_name ?>', this.id);
+		});
+		$('#formDataInsert input[type=file]').on('change', function(event){
+			uploadImage(event, '<?php echo $com_name ?>', this.id, 0);
+		});
+		
+		$("textarea").markdown({
+			target_form   : ".markdown"
+		});
+
+		$("input, select, textarea").change(function(){
+			$(this).parents("div[class^='col']").find("p.has-error").html('');
+		})
+		
+		var danhmuccv_id = $("[name=danhmuccv_id]").val();
+
+		loadChuyenKhoa(danhmuccv_id);
+		$("[name=danhmuccv_id]").change(function(){
+			var values = $(this).val();
+			if(values == 1)
+			{
+				$('.lbaction').text("Chọn chuyên khoa");
+			}else if(values == 99)
+			{
+				$('.lbaction').text("Nhập chuyên ngành");
+			}else
+			{
+				$('.lbaction').text("Chọn chuyên ngành");
+			}
+			loadChuyenKhoa(values);
+		})
+		
+		$("input:checkbox[required]").change(function(){
+			var nameElm = $(this).attr("name");
+			var groupChecked = $("[name='"+nameElm+"']:checked").length;
+			if(groupChecked > 0){
+				$(this).parents("div[class^='col']").find("input:checkbox").removeAttr("required");
+			}else{
+				$(this).parents("div[class^='col']").find("input:checkbox").prop("required", true);
+			}
+		})
+	});
+		
+	function substringMatcher(strs) {
+            return function findMatches(q, cb) {
+                var matches, substringRegex;
+                // an array that will be populated with substring matches
+                matches = [];
+                // regex used to determine if a string contains the substring `q`
+                substrRegex = new RegExp(q, 'i');
+                // iterate through the pool of strings and for any string that
+                // contains the substring `q`, add it to the `matches` array
+                $.each(strs, function(i, str) {
+                    if (substrRegex.test(str)) {
+                        matches.push(str);
+                    }
+                });
+                cb(matches);
+            };
+        };
+	
+ $(document).ready(function(){
+	$("#tencongty").keyup(function(){
+		$.ajax({
+		type: "POST",
+		url: "Model_congty.ajax",
+		data: {
+				act: "load_real_company",
+				value_search: $(this).val(),
+		    },
+		beforeSend: function(){
+			$("#tencongty").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+		},
+		success: function(data){
+			$("#suggesstion-box").show();
+			$("#suggesstion-box").html(data);
+			$("#tencongty").css("background","#FFF");
+		}
+		});
+	});
+});
+function autocompleter()
+{
+	$("#suggesstion-box").hide();
+}
+
+</script>

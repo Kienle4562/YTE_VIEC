@@ -1,0 +1,325 @@
+<?php defined( '_VALID_MOS' ) or die( include_once("../../404.php") );
+
+    include_once("mod_menumobile.models.php");
+
+    if (empty($params) || $params == "undefine") {
+
+        $params = array(
+
+            'menu_type_id' => 0,
+
+            'max_level' => 0,
+
+            'class' => '',
+
+            'show_icon' => FALSE
+
+        );
+
+    }
+
+    else {
+
+        $params = unserialize($params);
+
+    } 
+
+    if (empty($params['show_icon'])) {
+
+		$params['show_icon'] = FALSE;
+
+    }
+
+	$myproces = new process_menumobile();
+
+?>
+
+<style>
+
+	.m_submenu{
+
+		display: none;
+
+	}
+
+	.m_submenu li.active a {
+
+		color: #f7941d;
+
+	}
+
+</style>
+
+	
+
+<div class="splitter global__splitter-menu check_active_link_mobile" id="global__splitter-menu" hidden>
+
+	<div class="splitter-side">
+
+		<ul class="menu">
+
+			<li class="secondary-level-menu">
+
+				<ul>
+
+					<?php $myproces->menumobile( 0, $params['menu_type_id'], $GLOBALS['EXT'], $params['max_level'], 1, $params ); ?>
+
+						<?php 
+
+							
+
+						if(!isset($_SESSION["career"]["email"]) && !isset($_SESSION["session"]["Id"])){
+
+						?>
+
+						<li>
+
+							<a onclick="globalLogInModal.showModal();" class="clickable" rel="nofollow">
+
+								<i class="fa fa-lg fa-sign-in fa-fw"></i>
+
+								<span>Đăng Nhập</span>
+
+							</a>
+
+						</li>
+
+						<li>
+
+							<a onclick="globalRegistrationModal.showModal();" class="clickable" rel="nofollow">
+
+								<i class="fa fa-lg fa-user fa-fw"></i>
+
+								<span>Đăng Ký</span>
+
+							</a>
+
+						</li>
+
+					</ul>
+
+						</li>
+
+						<li class="horizontal-navbar__employer-site">
+
+							<a target="_blank" href="employeer.html">
+
+								<strong class="text-white">NHÀ TUYỂN DỤNG</strong><br/>
+
+								<span class="text-white">Đăng Tuyển & Kiếm Nhân Tài</span>
+
+							</a>
+
+						</li>
+
+						<?php }else if(isset($_SESSION["career"]["email"])) { ?>
+
+							<li id="CBlinkMobile" class="horizontal-navbar__employer-site">
+
+								<a target="_blank" href="employeer.html">
+
+									<strong class="text-white"><?php echo $_SESSION["career"]["fullname"]; ?></strong>
+
+									<i style="color: #FFF" class="fa fa-angle-down"></i>
+
+									<br/>
+
+									<span class="text-white">Quản lý thông tin</span>
+
+								 </a>
+
+							 
+
+									<li>
+
+										<a href="profile.html" class="clickable" rel="nofollow">
+
+											<i class="fa fa-fw fa-lg fa-user"></i> Thông tin tài khoản
+
+										</a>
+
+									</li>
+
+									
+
+									<li>
+
+										<a href="myjob.html" class="clickable" rel="nofollow">
+
+											<i class="fa fa-fw fa-lg fa-heart"></i> Việc làm của tôi
+
+										</a>
+
+									</li>
+
+									<li>
+
+										<a href="view-cv.html" class="clickable" rel="nofollow">
+
+											<i class="fa fa-fw fa-lg fa-address-card"></i> CV của tôi
+
+										</a>
+
+									</li>
+
+									<li>
+
+										<a href="dang-xuat.html" class="clickable" rel="nofollow">
+
+											<i class="fa fa-fw fa-lg fa-sign-out"></i>Đăng xuất
+
+										</a>
+
+									</li>
+
+						<?php }else { ?>
+
+							<li id="CBlinkMobile" class="horizontal-navbar__employer-site">
+
+								<a target="_blank" href="employeer.html">
+
+									<strong class="text-white"><?php echo $_SESSION["session"]["tencongty"]; ?></strong>
+
+									<i style="color: #FFF" class="fa fa-angle-down"></i>
+
+									<br/>
+
+									<span class="text-white">Quản lý thông tin</span>
+
+								</a>
+
+							
+
+									<li>
+
+										<a href="tim-ung-vien.html" class="clickable" rel="nofollow">
+
+											<i class="fa fa-fw fa-lg fa-user"></i> Tìm kiếm ứng viên
+
+										</a>
+
+									</li>
+
+									<li>
+
+										<a href="#" class="clickable" rel="nofollow">
+
+											<i class="fa fa-fw fa-lg fa-address-card"></i>CV đã chọn
+
+										</a>
+
+									</li>
+
+									<li>
+
+										<a href="dang-xuat.html" class="clickable" rel="nofollow">
+
+											<i class="fa fa-fw fa-lg fa-sign-out"></i>Đăng xuất
+
+										</a>
+
+									</li>
+
+						<?php } ?>	
+
+					
+
+		</ul>
+
+	</div>
+
+	<div class="splitter-overlay"></div>
+
+</div>
+
+
+
+<script>
+
+	function menumobile(){
+
+		var visible = $('#global__splitter-menu').is(":visible");
+
+		if(!visible){
+
+			$('#global__splitter-menu').find('.splitter-side').attr('class', 'splitter-side animated fadeInLeft');
+
+			$('#global__splitter-menu').show();
+
+		}else{
+
+			$('#global__splitter-menu').find('.splitter-side').attr('class', 'splitter-side animated fadeOutLeft');
+
+			$('#global__splitter-menu').hide();
+
+		}
+
+	}
+
+
+
+	$(".splitter-overlay").click(function(){
+
+		var visible = $('#global__splitter-menu').is(":visible");
+
+		if(!visible){
+
+			$('#global__splitter-menu').find('.splitter-side').attr('class', 'splitter-side animated fadeInLeft');
+
+			$('#global__splitter-menu').show();
+
+		}else{
+
+			$('#global__splitter-menu').find('.splitter-side').attr('class', 'splitter-side animated fadeOutLeft');
+
+			$('#global__splitter-menu').hide('slow');
+
+		}
+
+	})
+
+
+
+	function opensubmenu(elm){
+
+		var sub_menu = $(elm).next();
+
+		var visible = $(sub_menu).is(":visible");
+
+		if(!visible){
+
+			$(sub_menu).show('slow');
+
+		}else{
+
+			$(sub_menu).hide('slow');
+
+		}
+
+	}
+
+
+
+	check_active_link_mobile();
+
+	function check_active_link_mobile(){
+
+		jQuery('.check_active_link_mobile a[href="' + location.href + '"]').parents('li').addClass('active');
+
+		var sub_menu = $('.check_active_link_mobile li.active > a').next();
+
+		var visible = $(sub_menu).is(":visible");
+
+		if(!visible){
+
+			$(sub_menu).show('slow');
+
+		}else{
+
+			$(sub_menu).hide('slow');
+
+		}
+
+	}
+
+</script>

@@ -1,0 +1,314 @@
+<html lang="en">
+<head>
+	<?php
+		include_once("components/com_career/template/5/css/app.php");
+		include_once("components/com_career/template/5/css/cv.php");
+		include_once("components/com_career/template/5/css/print.php");
+		include_once("components/com_career/template/5/css/reset.php");
+		include_once("components/com_career/template/5/css/style.php");
+		$myprocess = new process();
+		$profile = 0;
+		$email = "";
+		$temp = 0;
+		$career_id = 0;
+        if(!empty($_REQUEST['idProfile']) && $_SESSION["session"]["Id"] != NULL)
+		{
+			
+			$result = $myprocess->getThongTinCaNhan($_REQUEST['idProfile']);
+			$row = $result->fetch();
+			
+		}else{
+			return false;
+		}
+	?>
+	<meta charset="utf8">
+</head>
+<style>
+.cvo-document .cvo-subpage {
+    padding: 5mm;
+    min-height: 295mm;
+}
+#cv-layout-viewer {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+</style>
+<body id="cv-viewer">
+    <div id="cv-layout-viewer">
+        <div id="cvo-document-root">
+            <div id="cvo-document" class="cvo-document">
+                <div class="cvo-page">
+                    <div class="cvo-subpage">
+                        <div id="cvo-body">
+
+                            <div id="cvo-main">
+
+                                <div id="group-header">
+
+                                    <div class="cvo-block" id="cvo-profile">
+                                        <table id="profile-table">
+                                            <tr>
+                                                <td>
+												
+                                                    <span id="cvo-profile-fullname"><?php echo $row['firstname'] ?> <?php echo $row['lastname'] ?></span>
+                                                </td>
+                                                <td class="avatar-wraper" rowspan="9" class="avatar" id="avatar">
+													<img  id="cvo-profile-avatar" src="<?php echo $row['hinhanh'] ?>">
+                                                   
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="profile-label">Ngày sinh</span>
+                                                    <span class="profile-field" id="cvo-profile-dob"><?php echo $row['birthday'] ?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="profile-label">Giới tính</span>
+                                                    <span class="profile-field" id="cvo-profile-gender"> <?php echo $row['gender'] ?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="profile-label">Điện thoại</span>
+                                                    <span class="profile-field" id="cvo-profile-phone"><?php echo $row['mobile'] ?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="profile-label">Email</span>
+                                                    <span class="profile-field" id="cvo-profile-email"><?php echo $row['email'] ?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="profile-label">Địa chỉ</span>
+                                                    <span class="profile-field" id="cvo-profile-address"> <?php echo $row['diachi'] ?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <span class="profile-label">Hôn nhân  </span>
+                                                    <span class="profile-field" id="cvo-profile-website"><?php echo $row['tinhtranghonnhan'] ?> </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div id="group-content">
+                                    
+                                    <div class="cvo-block" id="cvo-education">
+                                        <h3 class="cvo-block-title"><span id="cvo-education-blocktitle">Học vấn</span></h3>
+                                        <div id="education-table">
+											<?php
+														$truongkhoahoc = explode("|", $row['truongkhoahoc']);
+														$bangcap1 = explode("|", $row['bangcap1']);
+														$bangcap1khac = explode("|", $row['bangcap1khac']);
+														$bangcap2 = explode("|", $row['bangcap2']);
+														$bangcap2khac = explode("|", $row['bangcap2khac']);
+														$thoigianhoc = explode("|", $row['thoigianhoc']);
+														$motachitiet = explode("|", $row['motachitiet']);
+														for($num_ = 0; $num_ < count($truongkhoahoc); $num_++){
+															$arrTGH = explode(" đến ", $thoigianhoc[$num_]);
+															$arrDateStart = explode("/", $arrTGH[0]);
+															$arrDateEnd = explode("/", $arrTGH[1]);
+													?>
+                                            <div class="row ">
+                                                <div class="time">
+                                                    <p class="cvo-education-start start"><?php echo $thoigianhoc[$num_]?></p>
+                                                
+                                                </div>
+                                                <div class="school">
+                                                    <p class="cvo-education-school"><?php echo $truongkhoahoc[$num_] ?></p>
+													<?php 
+														if($bangcap1[$num_] == 'Khác')
+														{
+															$bangcap1[$num_] = 'Bằng cấp khác';
+														}
+														echo $bangcap1[$num_] ?> <?php if(!empty($bangcap2[$num_])){ ?> - Chuyên ngành : <?php echo $bangcap2[$num_] ?> <?php } ?> <br>
+													<?php if(!empty($bangcap1khac[$num_])) { ?>
+														  <div class="time">
+															<?php echo $bangcap1khac[$num_] ?><br>
+														</div>
+													<?php } ?>
+                                                </div>
+                                                <div style="clear: both"></div>
+                                            </div>
+											<?php }?>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="cvo-block" id="cvo-additional-info">
+                                        <h3 class="cvo-block-title"><span id="cvo-additional-info-blocktitle">Công việc mong muốn</span></h3>
+                                        <div class="block-body">
+                                            <div id="cvo-additional-information-details">
+                                                - Cấp bậc mong muốn: <?php echo $row['capbacmongmuon'] ?>
+                                                <br />- Mức lương: <?php echo $row['mucluong'] ?>
+                                                <br />- Hình thức làm việc: <?php echo $row['hinhthuclamviec'] ?>
+                                                <br />- Nơi làm việc mong muốn: <?php echo $row['noilamviecmongmuon'] ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cvo-block" id="cvo-experience">
+                                        <h3 class="cvo-block-title"><span id="cvo-experience-blocktitle">Kinh nghiệm làm việc <?php if(!empty($row['kinhnghiem'])){ ?>( <?php echo $row['kinhnghiem'] ?> năm) <?php } ?></span></h3>
+                                        <div id="experience-table">
+											     <?php
+														$vitrichucdanh = explode("|", $row['vitrichucdanh']);
+														$congty = explode("|", $row['congty']);
+														$thoigianlamviec = explode("|", $row['thoigianlamviec']);
+														$motacongviec = explode("|", $row['motacongviec']);
+														for($num_ = 0; $num_ < count($vitrichucdanh); $num_++){
+													?>
+                                            <div class="row ">
+                                                <div class="time">
+                                                    <span class="cvo-experience-start start"><?php echo $thoigianlamviec[$num_] ?></span>
+                                           
+                                                </div>
+                                                <div class="company">
+                                                    <span class="cvo-experience-company"><?php echo $congty[$num_] ?></span>
+                                                    <span class="cvo-experience-position"><?php echo $vitrichucdanh[$num_] ?></span>
+                                                    <div class="cvo-experience-details">
+														<p><?php echo $motacongviec[$num_] ?></p>
+                                                    </div>
+                                                    <div style="clear: both"></div>
+                                                </div>
+                                                <div style="clear: both"></div>
+                                            </div>
+											<?php }?>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="cvo-block" id="cvo-certification">
+                                        <h3 class="cvo-block-title"><span id="cvo-certification-blocktitle">Bằng cấp</span></h3>
+                                        <div id="certification-table">
+												<?php
+														$truongkhoahoc = explode("|", $row['truongkhoahoc']);
+														$bangcap = explode("|", $row['bangcap1']);
+														$thoigianhoc = explode("|", $row['thoigianhoc']);
+														for($num_ = 0; $num_ < count($truongkhoahoc); $num_++){
+							
+													?>
+															<div class="row ">
+																<div class="time">
+																	<span class="cvo-certification-time"><?php echo $thoigianhoc[$num_]?></span>
+																</div>
+																<div class="details">
+																	<span class="cvo-certification-title"><?php echo $truongkhoahoc[$num_] ?> - <?php echo $bangcap[$num_] ?></span>
+																</div>
+																<div style="clear: both"></div>
+															</div>
+												<?php } ?>
+                                        </div>
+                                    </div>
+                                   <div class="cvo-block" id="cvo-skillgroup">
+                                        <h3 class="cvo-block-title"><span id="cvo-award-blocktitle">Ngoại Ngữ</span></h3>
+                                         <div id="skill-table">
+											<?php
+													$arrTDNN = explode(",", $row['trinhdongoaingu']);
+													foreach($arrTDNN as $key => $value){
+														$arrVal = explode(":", $value);
+														$star = 0;
+														if($arrVal[1] == 'Bản ngữ'){
+																			$star = 'Sơ cấp';
+																		}else if($arrVal[1] == 'Sơ cấp'){
+																			$star = 'Sơ cấp';
+																		}else if($arrVal[1] == 'Trung cấp'){
+																			$star = 'Trung cấp';
+																		}else if($arrVal[1] == 'Cao cấp'){
+																			$star = 'Cao cấp';
+																		}
+											?>
+												<div class="row ">
+													  <div>
+															<span class="cvo-skillgroup-area"><?php echo $arrVal[0] ?> </span>
+														</div>
+													<div>
+														<span class="cvo-skillgroup-skill-description">
+															<?php echo $star ?>
+														</span>
+													</div> 
+													<div style="clear: both"></div>
+												</div>
+											<?php } ?>
+                                        </div>
+                                    </div>
+                                    <!--<div class="cvo-block" id="cvo-skillgroup">
+                                        <h3 class="cvo-block-title"><span id="cvo-skillgroup-blocktitle">Các kỹ năng</span></h3>
+                                        <div id="skill-table">
+											<?php
+												$kynangchuyenmon = explode("|", $row['kynangchuyenmon']);
+												$mucdo = explode("|", $row['mucdo']);
+												for($num_ = 0; $num_ < count($kynangchuyenmon); $num_++){
+											?>
+                                            <div class="row">
+                                                <div>
+                                                    <span class="cvo-skillgroup-area"><?php echo $kynangchuyenmon[$num_] ?></span>
+                                                </div>
+                                                <div>
+                                                    <span class="cvo-skillgroup-skill-description">
+																		<?php
+																			for($star=1;$star<=$mucdo[$num_];$star++){
+																		?>
+																		*
+																		<?php }?></span>
+                                                </div>
+                                                <div style="clear: both"></div>
+                                            </div>
+                                         	<?php }?>
+                                        </div>
+                                    </div> -->
+									<div class="cvo-block" id="cvo-objective">
+                                        <h3 class="cvo-block-title"><span id="cvo-objective-blocktitle">Mục tiêu nghề nghiệp</span></h3>
+                                        <div class="block-body">
+                                            <div id="cvo-objective-objective">
+                                              <?php echo $row['muctieunghenghiep'] ?>
+                                            </div>
+                                        </div>
+                                    </div>
+									<?php if(!empty($row['thanhtichnoibat'])) {?>
+										 <div class="cvo-block" id="cvo-additional-info">
+											<h3 class="cvo-block-title"><span id="cvo-additional-info-blocktitle">Thành tích nỗi bật</span></h3>
+											<div class="block-body">
+												<div id="cvo-additional-information-details">
+												   <?php echo $row['thanhtichnoibat'] ?>
+												</div>
+											</div>
+										</div>
+									<?php } ?>
+									<?php if(!empty($row['tennguoithamkhao'])) {?>
+									 <div class="cvo-block" id="cvo-skillgroup">
+										 <h3 class="cvo-block-title"><span id="cvo-skillgroup-blocktitle">Người tham khảo</span></h3>
+										<?php
+														$tennguoithamkhao = explode("|", $row['tennguoithamkhao']);
+														$chucvunguoithamkhao = explode("|", $row['chucvunguoithamkhao']);
+														$congtynguoithamkhao = explode("|", $row['congtynguoithamkhao']);
+														$dienthoainguoithamkhao = explode("|", $row['dienthoainguoithamkhao']);
+														$emailnguoithamkhao = explode("|", $row['emailnguoithamkhao']);
+														for($num_ = 0; $num_ < count($tennguoithamkhao); $num_++){
+													?>
+													<div class="text-edt">
+														<div class="title"><strong> <?php echo $tennguoithamkhao[$num_] ?></strong></div>
+														<div class="content_fck">
+															<p>Chức vụ: <?php echo $chucvunguoithamkhao[$num_] ?></p>
+															<p>Công ty: <?php echo $congtynguoithamkhao[$num_] ?></p>
+															<p>Điện thoại: <?php echo $dienthoainguoithamkhao[$num_] ?></p>
+															<p>Email: <?php echo $emailnguoithamkhao[$num_] ?></p>
+														</div>
+													</div>
+											<?php }?>
+									 </div>
+									 <?php } ?>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

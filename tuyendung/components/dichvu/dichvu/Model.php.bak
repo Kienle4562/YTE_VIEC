@@ -1,0 +1,643 @@
+<?php defined( '_VALID_MOS' ) or die( include("404.php") );
+    class process
+    {
+        public $dbObj;
+        
+        function __construct()
+        {
+            $this->dbObj = new classDb();
+        }
+		function generateRandomString($length = 6) {
+			$characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+			$charactersLength = strlen($characters);
+			$randomString = '';
+			for ($i = 0; $i < $length; $i++) {
+				$randomString .= $characters[rand(0, $charactersLength - 1)];
+			}
+			return $randomString;
+		}
+		
+		
+		private function array2list($arr)
+			{
+				$list = '';
+				foreach($arr as $value) {
+					$list .= ',' . $value;
+				}
+				if ($value != '') {
+					$list = substr($list, 1);
+				}
+				return $list;
+			}
+		public function is_product_exist($id)
+
+        {
+
+            $result = $this->dbObj->SqlQueryOutputResult("
+
+            
+
+                SELECT
+
+                        COUNT(*) as `count`
+
+                FROM
+
+                        `mst_service`
+
+                WHERE
+
+                        `service_id` = ?
+
+            ", array($id));
+
+            if ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+
+                return intval($row['count']);
+
+            }
+
+            else {
+
+                return 0;
+
+            }
+
+        }
+		
+		public function get_cart_data($cart_array)
+			{	
+				if (!empty($cart_array)) {
+					$id = array_keys($cart_array);
+				}else {
+					$id = array();
+				}					
+				if (count($id) > 0){
+					$id_list = $this->array2list($id);
+					//echo $id_list;
+					return $this->dbObj->SqlQueryOutputResult("
+						SELECT
+							mst_service.service_id,
+							mst_service.id_function,
+							mst_service.code_function,
+							mst_service.service_name,
+							mst_service.service_code,
+							mst_service.note,
+							mst_service.service_price,
+							mst_service.operation,
+							mst_service.description,
+							mst_service.discount,
+							mst_service.type_discount
+						FROM
+							mst_service
+						WHERE
+								`service_id` IN ({$id_list})
+					", array());
+				}else{
+					return null;
+				}
+			}
+		
+		 public function add_to_cart($id, $qty)
+			{			
+
+				if (!is_array($_SESSION['cart'])) {
+
+					$_SESSION['cart'] = array();
+
+				}
+
+				if (!empty($_SESSION['cart'][$id])) {
+
+					$_SESSION['cart'][$id]["qty"] += $qty;
+
+				}
+				else {
+
+					$_SESSION['cart'][$id]["qty"] = $qty;
+
+				}
+				
+
+			}
+			
+			public function get_km($code)
+				{
+					$sql = "SELECT
+								mst_khuyen_mai.*
+							FROM
+								mst_khuyen_mai
+								WHERE mst_khuyen_mai.code_km = ? AND mst_khuyen_mai.ngay_het_han  > SYSDATE()";
+					
+					return $this->dbObj->SqlQueryOutputResult($sql, array($code));
+				}
+		
+		public function get_detail_customer($email)
+				{
+					$sql = "SELECT
+							trn_customer.customer_id, 
+							trn_customer.ma_don_hang, 
+							trn_customer_detail.name_function,
+							trn_customer_detail.customer_detail_id, 
+							trn_customer_detail.service_id, 
+							trn_customer_detail.qty AS so_luong, 
+							trn_customer_detail.qty_ext AS da_su_dung, 
+							DATE_FORMAT(expiry_date, '%d/%m/%Y') AS ngayhethan,
+				     	    DATE_FORMAT(activation_date, '%d/%m/%Y') AS ngaykichhoat,
+							trn_customer_detail.id_post
+						FROM
+							trn_customer
+							INNER JOIN
+							trn_customer_detail
+							ON 
+								trn_customer.customer_id = trn_customer_detail.customer_id
+							WHERE trn_customer.congty_id = ? ";
+					
+					return $this->dbObj->SqlQueryOutputResult($sql, array($email));
+				}
+			
+		public function get_job_customer($ID_post)
+				{
+					$sql = "SELECT
+							trn_congviec.tencongviec, 
+							trn_congviec.congviec_id, 
+							DATE_FORMAT(ngaydang, '%d/%m/%Y') AS ngaydang,
+							DATE_FORMAT(ngayhethan, '%d/%m/%Y') AS ngayhethan,
+							trn_congviec.luotxem, 
+							trn_congviec.power_job, 
+							trn_congviec.hot_job, 
+							trn_congviec.post_basic, 
+							trn_congviec.trangthai
+						FROM
+							trn_congviec
+							WHERE trn_congviec.congviec_id IN ($ID_post)";
+					
+					return $this->dbObj->SqlQueryOutputResult($sql, array(0));
+				}		
+		public function get_order_detail($id)
+        {
+            $sql = "
+				SELECT
+					trn_customer.ma_don_hang,
+					trn_customer.congty_id,
+					trn_customer.ten_cong_ty,
+					trn_customer.email_cong_ty,
+					trn_customer.phone,
+					trn_customer.nguoilienhe,
+					FORMAT(tong_tien,0) AS tong_tien,
+					FORMAT(gia_tri_giam,0) AS gia_tri_giam,
+					FORMAT(giam_km,0) AS giam_km,
+					trn_customer.ma_giam,
+					trn_customer.kieu_giam  AS style_giam,
+					trn_customer.payment_stt,
+					trn_customer.payment_method,
+					trn_customer.`status`,
+					DATE_FORMAT(expiry_date, '%d/%m/%Y') AS ngayhethan,
+					DATE_FORMAT(activation_date, '%d/%m/%Y') AS ngaykichhoat,
+					from_unixtime(registration_date, '%d/%m/%Y') AS ngaydangky,
+					trn_customer.customer_id,
+					mst_service.service_name,
+					trn_customer_detail.service_id,
+					trn_customer_detail.qty,
+					trn_customer_detail.giam_gia,
+					trn_customer_detail.kieu_giam,
+					trn_customer_detail.thanh_tien,
+					mst_service.service_code,
+					trn_customer_detail.don_gia
+				FROM
+					trn_customer
+				INNER JOIN trn_customer_detail ON trn_customer.customer_id = trn_customer_detail.customer_id
+				INNER JOIN mst_service ON trn_customer_detail.service_id = mst_service.service_id
+				WHERE
+					trn_customer.customer_id = ? AND
+					trn_customer.DELETE_FLG = 0";
+            
+            return $this->dbObj->SqlQueryOutputResult($sql, array($id));
+        }
+		public function order_insert($result,$ma_don_hang,$congty_id,$ten_cong_ty,$email_cong_ty,$phone,$nguoilienhe,$tong_tien,$ma_giam,$kieu_giam,$gia_tri_giam,$giam_km,$payment_stt,$payment_method)
+
+        {
+
+            if ($result == null || $result->rowCount() == 0) {
+
+                return false;
+
+            }
+
+            // Sử dụng session_id() và time() làm khoá để Query lại những thông tin
+
+            // của đơn đặt hàng mới sau khi nó đã được thêm vào CSDL.
+
+            $session_id = session_id() . microtime(true);
+
+            $current_time = time();
+			$INSERT_DATE = date('Y-m-d H:i:s');
+            // Tạo đơn đặt hàng mới
+            $is_order_added = $this->dbObj->SqlQueryInputResult(
+                "INSERT INTO 
+                        `trn_customer` ( `ma_don_hang`, `congty_id`, `ten_cong_ty`, `email_cong_ty`, `phone`, `nguoilienhe`, `registration_date`, `tong_tien`,`ma_giam`,`kieu_giam`,`gia_tri_giam`,`giam_km`,`payment_stt`, `payment_method`,`status`,`session_id`,`DISORDER`)
+                        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", 
+
+                array($ma_don_hang, $congty_id, $ten_cong_ty,$email_cong_ty,$phone,$nguoilienhe,$current_time,$tong_tien,$ma_giam,$kieu_giam,$gia_tri_giam,$giam_km,$payment_stt,$payment_method,0,$session_id,$INSERT_DATE)
+
+            );
+            // Kiểm tra xem quá trình tạo đơn đặt hàng có thành công hay không?
+            if ($is_order_added)
+
+            {
+
+                // Query lại những thông tin của đơn đặt hàng mới để lấy ID và xác nhận chắc
+
+                // chắn rằng nó đã tồn tại trong CSDL.
+
+                $new_order_result = $this->dbObj->SqlQueryOutputResult(
+
+                    "SELECT * FROM `trn_customer` WHERE `session_id` = ? AND `registration_date` = ?", 
+
+                    array($session_id, $current_time)
+
+                );
+                // Lấy thông tin đơn đặt hàng mới lưu vào biến $new_order
+
+                if ($new_order = $new_order_result->fetch(PDO::FETCH_ASSOC))
+
+                {
+
+                    $order_detail_sql = "INSERT INTO `trn_customer_detail` (customer_id,service_id,name_function,function_id,qty,don_gia,giam_gia,kieu_giam,thanh_tien,trang_thai,INSERT_DATE) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+
+                    $total = 0;
+                    $sub_total = 0;
+					$giamgia_pt = $row['discount'];
+					$kieugiam = 1 ;
+					
+                    // Thêm chi tiết đơn đặt hàng vào CSDL
+
+                    while ($row = $result->fetch(PDO::FETCH_ASSOC))
+
+                    {
+
+                        $qty = $_SESSION['cart'][$row['service_id']]["qty"];
+                        $discount = $row['discount'];
+                        if ($discount !=0) {
+
+                            if ($row['type_discount'] == 2) {
+								$giatien     = $row['service_price'] - $discount;
+								$total 		  = $giatien * $qty;
+                            }
+                            elseif ($row['type_discount'] == 1) {
+								$giampt  = ($row['service_price'] * $discount)/100;
+								$giatien = $row['service_price'] - $giampt;
+								$total 	  = $giatien * $qty;
+                            }
+
+                        }else
+						{
+							$total = $row['service_price'] * $qty;
+						}
+                            if($qty == 1)
+													{
+														$giamgia_pt = 0 ;
+													    $sogiampt =  0;
+														$total = $total - $sogiampt;
+													}else if($qty == 2)
+													{
+														$giamgia_pt = 10 ;
+													    $sogiampt =  ($total* $giamgia_pt)/100;
+														$total = $total - $sogiampt;
+													}else if($qty == 3 || $qty == 4)
+													{
+														$giamgia_pt = 15 ;
+													    $sogiampt =  ($total* $giamgia_pt)/100;
+														$total = $total - $sogiampt;
+													}else if($qty >= 5 || $qty <= 9)
+													{
+														$giamgia_pt = 20 ;
+													    $sogiampt =  ($total* $giamgia_pt)/100;
+														$total = $total - $sogiampt;
+													}else if($qty >= 10 || $qty <= 19)
+													{
+														$giamgia_pt = 25 ;
+													    $sogiampt =  ($total* $giamgia_pt)/100;
+														$total = $total - $sogiampt;
+													}else if($qty >= 20 || $qty <= 49)
+													{
+														$giamgia_pt = 30 ;
+													    $sogiampt =  ($total* $giamgia_pt)/100;
+														$total = $total - $sogiampt;
+													}else if($qty >= 50)
+													{
+														$giamgia_pt = 50 ;
+													    $sogiampt =  ($total* $giamgia_pt)/100;
+														$total = $total - $sogiampt;
+													}
+                        $this->dbObj->SqlQueryInputResult(
+
+                            $order_detail_sql,
+							array($new_order['customer_id'],$row['service_id'],$row['code_function'],$row['id_function'],$qty,$row['service_price'],$giamgia_pt,$kieugiam,$total,0,$INSERT_DATE)
+                        
+                        );
+
+                    }
+                    /*
+
+                    // Cập nhật lại giá trị đơn đặt hàng
+
+                    $this->dbObj->SqlQueryInputResult(
+
+                        "UPDATE `book_order` SET `total_order` = ? WHERE `id` = ?",
+
+                        array($total, $new_order['id'])
+
+                    );
+
+                    */
+                    $_SESSION['POST'] = $_POST;
+
+					$_SESSION['order_info']['session_id'] = $session_id;
+
+					$_SESSION['order_info']['current_time'] = $current_time;
+
+					$_SESSION['order_info']['order_id'] = $new_order['id'];
+
+					$_SESSION['order_info']['total'] = $total;
+
+					$_SESSION['order_info']['email'] = $email;
+
+                    return true;
+
+                }
+
+                else
+
+                {
+
+                    return false;
+
+                }
+
+            }
+
+            else
+
+            {
+
+                return false;
+
+            }
+
+        }
+		
+		
+    }
+	
+	// Khai báo chung
+    $com_name = "dichvu";
+	$title = "Danh sách đơn hàng";
+	$title_2 = "Đăng ký dịch vụ";
+	$mota = "danh sách đơn hàng";
+	$db_name = "trn_customer";
+	$primary_key = "customer_id";
+	$where_common =  $primary_key."='" . $_POST[$primary_key] . "'";
+    /*  ___________________________
+       |                           |
+       |          HANDLER          |
+       |___________________________|
+    */
+    
+    switch(@$_REQUEST["act"]){
+
+        case "";
+        	//Action rỗng thì không làm gì cả
+        break;
+		case 'add_to_cart':
+			//var_dump($_POST);
+			$myprocess = new process();
+			
+			$productId       = $_POST['productId'];
+			$qty             = $_POST['qty'];
+			
+			$myObj = new \stdClass();
+			 if ($myprocess->is_product_exist($_POST['productId']))
+
+                {
+					$myprocess->add_to_cart($productId, $qty);
+					$myObj->isError = 0;
+					$myObj->msg = 'Đến trang thanh toán!';
+					$myObj->focus = '';
+					$myJSON = json_encode($myObj);
+					echo $myJSON;
+					exit();
+					
+				}else
+				{
+					$myObj->isError = 1;
+					$myObj->msg = 'Payment error !';
+					$myObj->focus = '';
+					$myJSON = json_encode($myObj);
+					echo $myJSON;
+					exit();
+				}
+			
+		    break;
+			
+		   case 'remove-item':
+            {
+				$myprocess = new process();
+				$myObj = new \stdClass();
+
+                if (isset($_SESSION['cart'][$_POST['productId']]))
+
+                {
+					// remove item form cart
+                    unset($_SESSION['cart'][$_POST['productId']]);
+					
+					$myObj->isError = 0;
+					$myObj->msg = 'Xóa thành công !';
+					$myObj->focus = '';
+					$myJSON = json_encode($myObj);
+					echo $myJSON;
+					exit();
+
+                }else
+				{
+					$myObj->isError = 1;
+					$myObj->msg = 'Không xóa được!';
+					$myObj->focus = '';
+					$myJSON = json_encode($myObj);
+					echo $myJSON;
+					exit();
+				}
+
+            }
+			
+		 case 'change_qty':
+
+            {
+
+                // <--1.1.2.1
+				$myprocess = new process();
+				$myObj = new \stdClass();
+			
+                if (!empty($_SESSION['cart'][$_POST['productId']]))
+
+                {
+
+                    $qty = 1;
+
+                    if (is_numeric($_POST['quantity']) && $_POST['quantity'] > 0) {
+
+                        $qty = $_POST['quantity'];
+
+                    }
+                    $_SESSION['cart'][$_POST['productId']]["qty"] = $qty;
+					
+					$myObj->isError = 0;
+					$myObj->msg = 'Cập nhật thành công !';
+					$myObj->focus = '';
+					$myJSON = json_encode($myObj);
+					echo $myJSON;
+					exit();
+
+                }else
+				{
+					$myObj->isError = 1;
+					$myObj->msg = 'Cập nhật lỗi!';
+					$myObj->focus = '';
+					$myJSON = json_encode($myObj);
+					echo $myJSON;
+					exit();
+				}
+
+                // 1.1.2.1-->
+
+            }
+
+         break;
+		 case "load_modal_view_service";
+			include_once("view.detail.php");
+		 break;
+		  case "load_detail_view";
+			include_once("view.detailcustomer.php");
+		 break;
+		case "LoadList";
+			$sql = "SELECT
+							trn_customer.customer_id,
+							trn_customer.customer_id AS action_id,
+							trn_customer.ma_don_hang,
+							trn_customer.ten_cong_ty,
+							trn_customer.email_cong_ty,
+							trn_customer.phone,
+							trn_customer.nguoilienhe,
+							DATE_FORMAT(expiry_date, '%d/%m/%Y') AS ngayhethan,
+							DATE_FORMAT(activation_date, '%d/%m/%Y') AS ngaykichhoat,
+							from_unixtime(registration_date, '%d/%m/%Y') AS ngaydangky,
+							FORMAT(tong_tien,0) AS tong_tien,
+							FORMAT(gia_tri_giam,0) AS gia_tri_giam,
+							FORMAT(giam_km,0) AS giam_km,
+							trn_customer.ma_giam,
+							trn_customer.kieu_giam  AS style_giam,
+							trn_customer.payment_stt,
+							trn_customer.payment_method,
+							trn_customer.`status` as trangthai
+						FROM
+							trn_customer
+						WHERE
+						trn_customer.congty_id = '".$_SESSION["session"]["Id"]."' AND
+						trn_customer.DELETE_FLG = 0";
+			echo $core_class->sqlToJSON($sql);
+		break;
+		case 'process-km':
+			 {
+				//var_dump($_POST);	
+				$myprocess = new process();
+				$myObj = new \stdClass();
+				$process_km = $myprocess->get_km($_POST['ma_km']);
+				if($rowkm = $process_km->fetch())
+				{
+					//echo $rowkm['ten_km'];
+					$_SESSION["khuyen-mai"] = array( 
+					"khuyenmai_id" => $rowkm["khuyenmai_id"],
+					"code_km" => $rowkm["code_km"],
+					"ten_km" => $rowkm["ten_km"],
+					"loai_giam_km" => $rowkm["loai_giam_km"],
+					"gia_tri_giam" => $rowkm["gia_tri_giam"],
+					"ngay_het_han" => $rowkm["ngay_het_han"],
+					"so_luong_ma" => $rowkm["so_luong_ma"]
+                    );
+					    $myObj->isError = 0;
+						$myObj->msg = 'Mã KM tồn tại';
+						$myObj->focus = '';
+						$myJSON = json_encode($myObj);
+						echo $myJSON;
+						exit();
+				}else
+				{
+					    $myObj->isError = 1;
+						$myObj->msg = 'Mã KM không tồn tại';
+						$myObj->focus = '';
+						$myJSON = json_encode($myObj);
+						echo $myJSON;
+						exit();	
+				}
+			 }
+		 break;
+		case 'payment-process':
+			 {
+				     //var_dump($_POST);
+				 
+					$myprocess = new process();
+					$myObj = new \stdClass();
+					$cart_data = $myprocess->get_cart_data($_SESSION['cart']);
+					$payment_method = $_POST['delivery'];
+					$payment_stt = $_POST['payment_ok'];
+					$phone = $_POST['phone'];
+					$nguoilienhe = $_POST['nguoilienhe'];
+					$congty_id = $_SESSION["session"]['Id'];
+					$ten_cong_ty = $_SESSION["session"]['tencongty'];
+					$email_cong_ty = $_SESSION["session"]['Tendangnhap'];
+					$nguoilienhe = $_POST['nguoilienhe'];
+					$tong_tien = $_POST['tong_tien'];
+					$ma_don_hang = $myprocess->generateRandomString();
+					
+					$ma_giam = $_POST['ma_giam'];
+					$giam_km = $_POST['giam_km'];
+					$kieu_giam = $_POST['kieu_giam'];
+					$gia_tri_giam = $_POST['gia_tri_giam'];
+					
+					$subject = "Đơn hàng Yteviec";
+					//$emailArray = array("Customer" => $email_cong_ty, "Admin" => "yteviec@gmail.com","Sales" => "hoanh.pham@yteviec.com",);
+					$emailArray = array("Customer" => $email_cong_ty, "Admin" => "mtvtrung2@gmail.com","Sales" => "stiventhanh@gmail.com",);
+					//echo count($emailArray);
+					if($myprocess->order_insert($cart_data,$ma_don_hang,$congty_id,$ten_cong_ty,$email_cong_ty,$phone,$nguoilienhe,$tong_tien,$ma_giam,$kieu_giam,$gia_tri_giam,$giam_km,$payment_stt,$payment_method))
+					{
+						//print_r($_APP['config']['admin-email']);
+						 ob_start();
+						$cart_data = $myprocess->get_cart_data($_SESSION['cart']);
+						include_once("send_emai_order.php");
+						$_html_order_information = ob_get_contents();	
+						ob_end_clean();
+						$core_class->smtpSendMail_Multiple($subject, $_html_order_information, $emailArray);
+						unset($_SESSION['cart']); 
+						unset($_SESSION["khuyen-mai"]); 
+						$myObj->isError = 0;
+						$myObj->msg = 'Đặt hàng thành công';
+						$myObj->focus = '';
+						$myJSON = json_encode($myObj);
+						echo $myJSON;
+						exit();
+					}else
+					{
+						$myObj->isError = 1;
+						$myObj->msg = 'Đặt hàng lỗi';
+						$myObj->focus = '';
+						$myJSON = json_encode($myObj);
+						echo $myJSON;
+						exit();
+					} 
+			 }
+			 break;
+			 
+        default:
+            $core_class->_redirect(".");
+        break;
+    }

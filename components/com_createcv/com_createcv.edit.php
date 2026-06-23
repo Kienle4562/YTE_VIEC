@@ -1,0 +1,2845 @@
+<?php defined( '_VALID_MOS' ) or die( include_once("../../404.php") );
+
+	include_once('com_createcv.models.php');
+
+	include_once('protected/paging.php');
+
+	$myprocess =  new process();
+
+	$thongtincanhan_id = $_REQUEST["id"];
+
+	$profileCV = $_REQUEST["profile"];
+
+	$arrayListBC1 = array(
+
+		'Bác Sĩ Đa Khoa' => 'Bác Sĩ Đa Khoa',
+
+		'Bác Sĩ CK1 -Truyền Nhiễm' => 'Bác Sĩ CK1 -Truyền Nhiễm',
+
+		'Bác Sĩ CK2' => 'Bác Sĩ CK2',
+
+		'Bác Sĩ Nội Trú' => 'Bác Sĩ Nội Trú',
+
+		'Cử Nhân Điều Dưỡng Đa Khoa' => 'Cử Nhân Điều Dưỡng Đa Khoa',
+
+		'Cử Nhân Điều Dưỡng (chuyên ngành hộ sinh)' => 'Cử Nhân Điều Dưỡng (chuyên ngành hộ sinh)',
+
+		'Cử Nhân Dinh Dưỡng' => 'Cử Nhân Dinh Dưỡng',
+
+		'Cử Nhân Y tế Công Cộng' => 'Cử Nhân Y tế Công Cộng',
+
+		'Dược Sĩ' => 'Dược Sĩ',
+
+		'Thạc Sĩ' => 'Thạc Sĩ',
+
+		'Tiến Sĩ' => 'Tiến Sĩ',
+
+		'Kĩ Thuật Phục Hình Răng' => 'Kĩ Thuật Phục Hình Răng',
+
+		'Kỹ Thuật Xét Nghiệm Y Học' => 'Kỹ Thuật Xét Nghiệm Y Học',
+
+		'Kĩ Thuật Hình Ảnh Y Học' => 'Kĩ Thuật Hình Ảnh Y Học',
+
+		'Kỹ Thuật Phục Hồi Chức Năng' => 'Kỹ Thuật Phục Hồi Chức Năng',
+
+		'Khác' => 'Khác',
+
+	);
+
+
+
+	$arrayListBC2 = array(
+
+		'Chẩn Đoán Hình Ảnh' => 'Chẩn Đoán Hình Ảnh',
+
+		'Chấn Thương Chỉnh Hình' => 'Chấn Thương Chỉnh Hình',
+
+		'Da Liễu' => 'Da Liễu',
+
+		'Gây Mê Hồ Sức' => 'Gây Mê Hồ Sức',
+
+		'Giải Phẩu Học' => 'Giải Phẩu Học',
+
+		'Giải Phẩu Bệnh Pháp Y' => 'Giải Phẩu Bệnh Pháp Y',
+
+		'Ký Sinh Trùng' => 'Ký Sinh Trùng',
+
+		'Lao' => 'Lao',
+
+		'Mắt' => 'Mắt',
+
+		'Mô Phôi' => 'Mô Phôi',
+
+		'Nội' => 'Nội',
+
+		'Ngoại' => 'Ngoại',
+
+		'Nhi' => 'Nhi',
+
+		'Phục Hồi Chức Năng' => 'Phục Hồi Chức Năng',
+
+		'Sản' => 'Sản',
+
+		'Sinh Lý Học' => 'Sinh Lý Học',
+
+		'Sinh Lý Bệnh - Miễn Dịch' => 'Sinh Lý Bệnh - Miễn Dịch',
+
+		'Sinh Hóa' => 'Sinh Hóa',
+
+		'Truyền Nhiễm' => 'Truyền Nhiễm',
+
+		'Tâm Thần' => 'Tâm Thần',
+
+		'Thần Kinh' => 'Thần Kinh',
+
+		'Tai Mũi Họng' => 'Tai Mũi Họng',
+
+		'Ung Bứu' => 'Ung Bứu',
+
+		'Y Học Cổ Truyền' => 'Y Học Cổ Truyền',
+
+		'Y Học Gia Đình' => 'Y Học Gia Đình',
+
+		'Vi Sinh' => 'Vi Sinh',
+
+		'Khác' => 'Khác',
+
+	);
+
+
+
+	$arrayListKyNang = array(
+
+		'Kỹ năng tin học' => 'Kỹ năng tin học',
+
+		'Kỹ năng office văn phòng' => 'Kỹ năng office văn phòng',
+
+		'Kỹ năng tổ chức' => 'Kỹ năng tổ chức',
+
+		'Kỹ năng giao tiếp' => 'Kỹ năng giao tiếp',
+
+		'Kỹ năng làm việc theo nhóm' => 'Kỹ năng làm việc theo nhóm',
+
+		'Kỹ năng giải quyết vấn đề' => 'Kỹ năng giải quyết vấn đề',
+
+		'Kỹ năng lãnh đạo' => 'Kỹ năng lãnh đạo',
+
+		'Kỹ năng thuyết trình' => 'Kỹ năng thuyết trình',
+
+		'Kỹ năng chịu áp lực' => 'Kỹ năng chịu áp lực',
+
+		'Lập kế hoạch' => 'Lập kế hoạch',
+
+		'Quản lý thời gian hiệu quả' => 'Quản lý thời gian hiệu quả',
+
+		'Dễ dàng thích nghi với môi trường mới' => 'Dễ dàng thích nghi với môi trường mới',
+
+		'Tư duy sáng tạo' => 'Tư duy sáng tạo',
+
+		'Kỹ năng khác' => 'Kỹ năng khác',
+
+	);
+
+
+
+	if(!empty($_SESSION["career"]["career_id"]) && $_SESSION["career"]["career_id"] !=NULL){
+
+		$row = $core_class->find("trn_thongtincanhan", array(
+
+			'thongtincanhan_id', 
+
+			'fileresume', 
+
+			'career_id', 
+
+ 			'hinhanh', 
+
+			'lastname', 
+
+		    'firstname', 
+
+		    'birthday', 
+
+			'loai_hoso', 
+
+			'gender', 
+
+		    'mobile', 
+
+  			'email', 
+
+			'tinhtranghonnhan', 
+
+			'tinhthanhpho', 
+
+			'diachi', 
+
+			'muctieunghenghiep', 
+
+			'tieudehoso', 
+
+			'capbacmongmuon', 
+
+			'mucluong', 
+
+			'hinhthuclamviec', 
+
+			'nganhnghe', 
+
+			'noilamviecmongmuon', 
+
+			'kinhnghiem', 
+
+			'capbachientai', 
+
+			'not_experence', 
+
+			'vitrichucdanh', 
+
+			'kinhnghiemkhac', 
+
+			'congty', 
+
+			'thoigianlamviec', 
+
+  			'motacongviec', 
+
+			'bangcapcaonhat', 
+
+			'trinhdongoaingu', 
+
+			'truongkhoahoc', 
+
+			'bangcap', 
+
+			'bangcap1',
+
+			'bangcap1khac', 
+
+			'bangcap2', 
+
+			'bangcap2khac', 
+
+			'thoigianhoc', 
+
+  			'motachitiet', 
+
+			'kynangchuyenmon', 
+
+			'motakynang', 
+
+			'mucdo',
+
+			'thanhtichnoibat', 
+
+			'tennguoithamkhao', 
+
+			'chucvunguoithamkhao', 
+
+			'congtynguoithamkhao', 
+
+			'dienthoainguoithamkhao', 
+
+			'emailnguoithamkhao', 
+
+		), array(
+
+			'thongtincanhan_id' => $thongtincanhan_id
+
+		));
+
+
+
+?>
+
+<style>
+
+	.d_none{
+
+		display: none !important;
+
+	}
+
+</style>
+
+
+
+
+
+<div class="sitemap-container container m_bottom_20 pv-profile-section-body">
+
+    <div class="clearfix m_xs_bottom_10">
+
+		<div class="bg_white p_15 r_corners m_bottom_20">
+
+			<h1 class="sitemap-header text-primary color_green"> <a href="view-cv.html" class="cls-green" ><i class="fa fa-arrow-left" aria-hidden="true"></i></a>  CHỈNH SỬA THÔNG TIN</h1>
+
+        	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 f_none">
+
+                <form autocomplete="off" class="awe-check" name="formCV" method="post" id="formCV">
+
+					<header class="card-header">
+
+						<h2 class="card-heading">
+
+							<span class="iconheading">
+
+								<i class="fa fa-user"></i>
+
+							</span>
+
+							Thông tin cá nhân
+
+						</h2>
+
+					</header>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Họ và Tên
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8">
+
+							<input value="<?php echo $row['lastname'] ?>" required type="text" style="text-transform:uppercase" class="form-control" name="lastname" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div style="display:none" class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Tên
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8">
+
+							<input value="<?php echo $row['firstname'] ?>" type="text" class="form-control" name="firstname" id="firstname" maxlength="100">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Giới tính
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8">
+
+							<label>
+
+								<input <?php echo $row['gender'] == 'Nam' ? 'checked' : '' ?> required type="radio" name="gender" value="Nam">
+
+								Nam
+
+								<p class="has-error"></p>
+
+							</label>
+
+							<label>
+
+								<input <?php echo $row['gender'] == 'Nữ' ? 'checked' : '' ?> required type="radio" name="gender" value="Nữ">
+
+								Nữ
+
+								<p class="has-error"></p>
+
+							</label>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Ngày sinh
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8 datebox">
+
+							
+
+						    <input type="text" required name="birthday" id="ngay_sinh" value="<?php echo date("d/m/Y", strtotime($row['birthday'])) ?>" placeholder="dd/mm/yy" class="form-control m-input datepicker">
+
+							
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Số điện thoại
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8 datebox">
+
+							<input value="<?php echo $row['mobile'] ?>" required type="number" class="form-control" name="mobile" id="mobile">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Email
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8 datebox">
+
+							<input type="email" class="form-control" name="email" readonly value="<?php echo $_SESSION['career']['email'] ?>"> 
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Tình trạng hôn nhân
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8 datebox">
+
+							<select class="form-control" name="tinhtranghonnhan">
+
+								<option <?php echo $row['tinhtranghonnhan'] == 'Độc thân' ? 'selected' : '' ?> value="Độc thân">Độc thân</option>
+
+								<option <?php echo $row['tinhtranghonnhan'] == 'Đã kết hôn' ? 'selected' : '' ?> value="Đã kết hôn">Đã kết hôn</option>
+
+							</select>
+
+						</div>
+
+					</div>
+
+					<!--<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Tỉnh / Thành phố
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8 datebox">
+
+							<?php echo $core_class->createSelectBox4("tinhthanh_id", "required", $row['tinhthanhpho'], "tinhthanhpho"); ?>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>-->
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-4">
+
+							Địa chỉ lưu trú
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-8 datebox">
+
+							<input value="<?php echo $row['diachi'] ?>" required type="text" class="form-control" name="diachi" id="diachi" maxlength='100'>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<header class="card-header">
+
+						<h2 class="card-heading">
+
+							<span class="iconheading">
+
+								<i class="fa fa-list"></i>
+
+							</span>
+
+							Học vấn & Bằng Cấp
+
+						</h2>
+
+					</header>
+
+					<div class="row">
+
+					</div>
+
+				<?php
+
+					$truongkhoahoc = explode("|", $row['truongkhoahoc']);
+
+					$bangcap1 = explode("|", $row['bangcap1']);
+
+					$bangcap1khac = explode("|", $row['bangcap1khac']);
+
+					$bangcap2 = explode("|", $row['bangcap2']);
+
+					$bangcap2khac = explode("|", $row['bangcap2khac']);
+
+					$thoigianhoc = explode("|", $row['thoigianhoc']);
+
+					for($num_ = 0; $num_ < count($truongkhoahoc); $num_++){
+
+						$arrTGH = explode(" đến ", $thoigianhoc[$num_]);
+
+						$arrDateStart = explode("/", $arrTGH[0]);
+
+						$arrDateEnd = explode("/", $arrTGH[1]);
+
+				?>
+
+				<div class="education">
+
+					<i class="btn-remove-row deleteRow"></i>
+
+					<div class="row">
+
+						<div class="col-md-12">
+
+							<label class="col-xs-12 col-sm-1">
+
+								Từ
+
+							</label>
+
+							<div class="col-xs-12 col-sm-2">
+
+								<?php echo $core_class->createSelectBoxMonth("Tháng", "required", $arrDateStart[0], "fromDateBangCapMonth"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<div class="col-xs-12 col-sm-3">
+
+								<?php echo $core_class->createSelectBoxYear("Năm", "required", $arrDateStart[1], "fromDateBangCapYear"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<label class="col-xs-12 col-sm-1">
+
+								Đến
+
+							</label>
+
+							<div class="col-xs-12 col-sm-2">
+
+								<?php echo $core_class->createSelectBoxMonth("Tháng", "required", $arrDateEnd[0], "toDateBangCapMonth"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<div style="padding-right: 0px;" class="col-xs-12 col-sm-3">
+
+								<?php echo $core_class->createSelectBoxYear("Năm", "required", $arrDateEnd[1], "toDateBangCapYear"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<input style="display:none" value="<?php echo $thoigianhoc[$num_] ?>" type="text" name="thoigianhoc[]">
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Trường
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $truongkhoahoc[$num_] ?>" required type="text" class="form-control" name="truongkhoahoc[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Bằng cấp
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-5">
+
+							<?php echo $core_class->createSelectBoxWithArray($arrayListBC1, "bangcap1[]", "required", $bangcap1[$num_]); ?>
+
+							<p class="has-error"></p>
+
+						</div>
+
+						<div class="col-xs-12 col-sm-4">
+
+							<?php echo $core_class->createSelectBoxWithArray($arrayListBC2, "bangcap2[]", "required", $bangcap2[$num_]); ?>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row bcKhac">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Khác <span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-5">
+
+							<textarea maxlength="200" rows="5" class="form-control" name="bangcap1Khac[]"><?php echo $bangcap1khac[$num_] ?></textarea>
+
+							<p class="has-error"></p>
+
+						</div>
+
+						<div class="col-xs-12 col-sm-4">
+
+							<textarea maxlength="200" rows="5" class="form-control" name="bangcap2Khac[]"><?php echo $bangcap2khac[$num_] ?></textarea>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<?php }?>
+
+				<?php  if($row['loai_hoso']=='ONLINE') { ?>
+
+					<div class="row">
+
+						<div class="col-xs-12 text-center">
+
+							<button type="button" class="btn-add-more" id="education">Thêm</button>
+
+						</div>
+
+					</div>
+
+				
+					<header class="card-header">
+
+						<h2 class="card-heading">
+
+							<span class="iconheading">
+
+								<i class="fa fa-briefcase"></i>
+
+							</span>
+
+							Kinh nghiệm làm việc
+
+						</h2>
+
+					</header>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Số năm kinh nghiệm
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-4">
+
+							<input <?php echo $row['not_experence'] == "1" ? "readonly" : "" ?> value="<?php echo $row['kinhnghiem'] ?>" required type="number" class="form-control" name="kinhnghiem" id="kinhnghiem" max="30">
+
+							<p class="has-error"></p>
+
+						</div>
+
+						<div class="col-xs-12 col-sm-4">
+
+							<label>
+
+								<input type="checkbox" <?php echo $row['not_experence'] == "1" ? "checked" : "" ?> value="1" id="not_experence" name="not_experence">
+
+								  Chưa có kinh nghiệm
+
+							</label>
+
+						</div>
+
+					</div>
+
+					<!--<div style="display:none" class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Cấp bậc hiện tại
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<?php echo $core_class->createSelectBox4("capbac_id", "", $row['capbachientai'], "capbachientai"); ?>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>-->
+
+				<?php
+
+					$vitrichucdanh = explode("|", $row['vitrichucdanh']);
+
+					$congty = explode("|", $row['congty']);
+
+					$thoigianlamviec = explode("|", $row['thoigianlamviec']);
+
+					$motacongviec = explode("|", $row['motacongviec']);
+
+					$kinhnghiemkhac = explode("|", $row['kinhnghiemkhac']);
+
+					for($num_ = 0; $num_ < count($vitrichucdanh); $num_++){
+
+				?>
+
+				<div class="experienceSectionAppend">
+
+					<i class="btn-remove-row deleteRow"></i>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Vị trí / Chức danh
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $vitrichucdanh[$num_] ?>" type="text" class="form-control" name="vitrichucdanh[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div style="display:none" class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Khác
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $kinhnghiemkhac[$num_] ?>" type="text" class="form-control" name="kinhnghiemkhac[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Công ty
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $congty[$num_] ?>" <?php echo $row['not_experence'] != "1" ? "required" : "" ?> type="text" class="form-control" name="congty[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<?php
+
+							$arrTGLV = explode(" đến ", $thoigianlamviec[$num_]);
+
+							$arrDateStart = explode("/", $arrTGLV[0]);
+
+							$arrDateEnd = explode("/", $arrTGLV[1]);
+
+						?>
+
+						<label class="col-xs-12 col-sm-3">
+
+							Thời gian làm việc
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div style="padding-left: 0px" class="col-md-7">
+
+							<div class="col-xs-12 col-sm-2">
+
+								<?php echo $core_class->createSelectBoxMonth("Tháng", $row['not_experence'] != "1" ? "required" : "", $arrDateStart[0], "rexp_month_start"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<div class="col-xs-12 col-sm-3">
+
+								<?php echo $core_class->createSelectBoxYear("Năm", $row['not_experence'] != "1" ? "required" : "", $arrDateStart[1], "rexp_year_start"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<label class="col-xs-12 col-sm-1">
+
+								Đến
+
+							</label>
+
+							<div class="col-xs-12 col-sm-3">
+
+								<?php echo $core_class->createSelectBoxMonth("Tháng", $row['not_experence'] != "1" ? "required" : "", $arrDateEnd[0], "rexp_month_end"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<div class="col-xs-12 col-sm-3">
+
+								<?php echo $core_class->createSelectBoxYear("Năm", $row['not_experence'] != "1" ? "required" : "", $arrDateEnd[1], "rexp_year_end"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<input style="display:none" value="<?php echo $thoigianlamviec[$num_] ?>" type="text" name="thoigianlamviec[]">
+
+						</div>
+
+						<div class="col-md-2">
+
+							<label>
+
+								<input type="checkbox" <?php if($arrTGLV[1] == "hiện nay"){ ?>checked<?php }?> value="1" name="current_time_job">
+
+								Hiện nay
+
+							</label>
+
+						</div>
+
+					</div>
+
+					
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Mô tả công việc
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<?php  			
+
+									$breaks = array("<br />","<br>","<br/>");  
+
+									$motacongviec[$num_] = str_ireplace($breaks,"\n",$motacongviec[$num_]);  
+
+						?>
+
+							<textarea rows="9" <?php echo $row['not_experence'] != "1" ? "required" : "" ?> type="text" class="form-control" name="motacongviec[]" maxlength="4000" placeholder="Vui lòng nhập tối đa không quá 4.000 ký tự"><?php echo $motacongviec[$num_] ?></textarea>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+				</div>
+
+				<?php }?>
+
+					<div class="row">
+
+						<div class="col-xs-12 text-center">
+
+							<button type="button" class="btn-add-more" id="experienceSectionAppend">Thêm</button>
+
+						</div>
+
+					</div>
+
+					<?php	} ?>
+
+					<header class="card-header">
+
+					<h2 class="card-heading">
+
+						<span class="iconheading">
+
+							<i class="fa fa-list"></i>
+
+						</span>
+
+						Trình độ ngoại ngữ
+
+						
+
+					</h2>
+
+				</header>
+
+				<div class="row">
+
+					<label class="col-xs-12 col-sm-3">
+
+						Trình độ ngoại ngữ
+
+						<span class="red">*</span>
+
+					</label>
+
+					<div class="col-sm-9">
+
+						<?php
+
+							$arrTDNN = explode(",", $row['trinhdongoaingu']);
+
+							foreach($arrTDNN as $key => $value){
+
+								$arrVal = explode(":", $value);
+
+						?>
+
+						<div class="row showLVNN">
+
+							<div class="col-xs-12 col-sm-4">
+
+								<?php echo $core_class->createSelectBox5("ngoaingu_id", "required", $arrVal[0], "trinhdonn"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<label class="t_align_r col-xs-12 col-sm-2">
+
+								Trình độ:
+
+							</label>
+
+							<div class="col-xs-12 col-sm-4">
+
+								<?php echo $core_class->createSelectBox5("levelbangcap_id", "required", $arrVal[1], "levelbangcap"); ?>
+
+								<p class="has-error"></p>
+
+							</div>
+
+							<div class="col-xs-12 col-sm-2">
+
+								<div class="fl_left" style="padding-top: 10px"> 
+
+									<span class="ic_add"></span>
+
+									<span class="addlangauge">
+
+										<a href="javascript:void(0);" class="addLang">Thêm </a>
+
+									</span>
+
+								</div>
+
+								<div class="fl_left" style="padding-top: 10px">
+
+									<span class="ic_remove"></span>
+
+									<span class="addlangauge">
+
+										<a href="javascript:void(0);" class="removeLang">Xóa</a>
+
+									</span>
+
+								</div>
+
+							</div>
+
+						</div>
+
+						<?php }?>
+
+					</div>
+
+					<input style="display:none" value="<?php echo $row['trinhdongoaingu'] ?>" type="text" name="trinhdongoaingu">
+
+				</div>
+
+
+
+					<header class="card-header">
+
+						<h2 class="card-heading">
+
+							<span class="iconheading">
+
+								<i class="fa fa-briefcase"></i>
+
+							</span>
+
+							Công việc mong muốn
+
+						</h2>
+
+					</header>
+
+					<div style="display:none" class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Tiêu đề hồ sơ
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9 datebox">
+
+							<input value="<?php echo $row['tieudehoso'] ?>" type="text" class="form-control" name="tieudehoso" maxlength='100'>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Vị trí / chức danh
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9 datebox">
+
+						<input value="<?php echo $row['capbacmongmuon'] ?>" type="text" class="form-control" name="capbacmongmuon" maxlength='100'>
+
+							<?php //echo $core_class->createSelectBox4("capbac_id", "required", $row['capbacmongmuon'], "capbacmongmuon"); ?>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Hình thức làm việc
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-sm-9 htlv">
+
+							<div class="form-group">
+
+								<label class="checkbox-inline">
+
+									<input type="checkbox" class="hinhthuclamviec" value="Chính thức (Full time)"/>Chính thức (Full time)
+
+								</label>
+
+								<label class="checkbox-inline">
+
+									<input type="checkbox" class="hinhthuclamviec" value="Ngoài giờ/Theo giờ (Part time)" />Ngoài giờ/Theo giờ (Part time)
+
+								</label>
+
+							</div>
+
+							<div class="form-group">
+
+								<label class="checkbox-inline">
+
+									<input type="checkbox" class="hinhthuclamviec" value="Thực tập"/>Thực tập
+
+								</label>
+
+							</div>
+
+							<input style="display:none" required value="<?php echo $row['hinhthuclamviec'] ?>" type="text" name="hinhthuclamviec">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Nơi làm việc mong muốn
+
+							<span class="red">*</span>
+
+						</label>
+
+						<?php
+
+							$arrNLVMM = explode(",", $row["noilamviecmongmuon"]);
+
+						?>
+
+						<div class="col-xs-12 col-sm-4">
+
+							<select required class="form-control" id="blvmm_tt" name="noilamviecmongmuon">
+
+								<option data-quanhuyen="" value="">Chọn</option>
+
+							<?php
+
+								$resultTT = $myprocess->noiLamViecMM();
+
+								while($rowTT = $resultTT->fetch()){
+
+									$quanhuyen = $myprocess->noiLamViecMM_QuanHuyen($rowTT['tinhthanh_id']);
+
+							?>
+
+								<option <?php echo $arrNLVMM[0] == $rowTT['ten_tinhthanh'] ? 'selected' : '' ?> data-quanhuyen="<?php echo $quanhuyen ?>" value="<?php echo $rowTT['ten_tinhthanh'] ?>"><?php echo $rowTT['ten_tinhthanh'] ?></option>
+
+							<?php }?>
+
+							</select>
+
+							<p class="has-error"></p>
+
+						</div>
+
+						<!--<label class="col-xs-12 col-sm-2">
+
+							Quận/Huyện
+
+						</label>
+
+						<div class="col-xs-12 col-sm-3">
+
+							<select required class="form-control" id="blvmm_qh">
+
+								<option value="">Chọn</option>
+
+							<?php
+
+								$resultQH = $myprocess->noiLamViecQH($arrNLVMM[0]);
+
+								while($rowQH = $resultQH->fetch()){
+
+							?>
+
+								<option <?php echo $arrNLVMM[1] == $rowQH['ten_quanhuyen'] ? 'selected' : '' ?> value="<?php echo $rowQH['ten_quanhuyen'] ?>"><?php echo $rowQH['ten_quanhuyen'] ?></option>
+
+							<?php } ?>
+
+							</select>
+
+							<p class="has-error"></p>
+
+						</div>-->
+
+						<!--<input style="display:none" value="<?php echo $row['noilamviecmongmuon'] ?>" type="text" name="noilamviecmongmuon">-->
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Mức lương
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-3 col-sm-3">
+
+							<select class="form-control" id="level_id">
+
+								<option value="Thỏa thuận">Thỏa thuận</option>
+
+								<option value="VNĐ">VNĐ</option>
+
+								<option value="USD">USD</option>
+
+							</select>
+
+						</div>
+
+						<div class="col-xs-1 col-sm-1">
+
+							<label>Từ</label>
+
+						</div>
+
+						<div class="col-xs-2 col-sm-2">
+
+							<input type="text" class="form-control formatnumber" id="levelFrom" maxlength="10">
+
+							<p class="has-error"></p>
+
+						</div>
+
+						<div class="col-xs-1 col-sm-1">
+
+							<label>Đến</label>
+
+						</div>
+
+						<div class="col-xs-2 col-sm-2">
+
+							<input type="text" class="form-control formatnumber" id="levelTo" maxlength="10">
+
+							<p class="has-error"></p>
+
+						</div>
+
+						<label class="col-xs-12 col-sm-3"></label>
+
+						<label class="col-xs-12 col-sm-9">
+
+							<div class="note">Vui lòng nhập mức lương mong muốn hàng tháng</div>
+
+						</label>
+
+						<input style="display:none" value="<?php echo $row['mucluong'] ?>" required type="text" name="mucluong">
+
+						<p class="has-error"></p>
+
+					</div>
+
+					
+
+					<div style="display:none" class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Ngành nghề
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9 datebox">
+
+							<?php echo $core_class->createSelectBox4("nganhnghe_id", "", $row['nganhnghe'], "nganhnghe"); ?>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+				<?php 
+
+					/*<header class="card-header">
+
+					<h2 class="card-heading">
+
+						<span class="iconheading">
+
+							<i class="fa fa-list"></i>
+
+						</span>
+
+						Kỹ năng
+
+					</h2>
+
+				</header>
+
+				<?php
+
+					$kynangchuyenmon = explode("|", $row['kynangchuyenmon']);
+
+					$motakynang = explode("|", $row['motakynang']);
+
+					$mucdo = explode("|", $row['mucdo']);
+
+					for($num_ = 0; $num_ < count($kynangchuyenmon); $num_++){
+
+				?>
+
+				<div class="skill">
+
+					<i class="btn-remove-row deleteRow"></i>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Kỹ năng
+
+							<span class="red">*</span>
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<?php echo $core_class->createSelectBoxWithArray($arrayListKyNang, "kynangchuyenmon[]", "required", $kynangchuyenmon[$num_]); ?>
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+
+
+					<!--<div class="row mtkn <?php if($kynangchuyenmon[$num_] != "Kỹ năng khác"){ ?>d_none<?php } ?>">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Mô tả kỹ năng
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<textarea rows="9" class="form-control" name="motakynang[]" maxlength="150"><?php echo $motakynang[$num_] ?></textarea>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Mức độ
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9 relative">
+
+							<div class="rangesliderFill"></div>
+
+							<input value="<?php echo $mucdo[$num_] ?>" type="range" min="0" max="5" value="3" name="mucdo[]" class="slider">
+
+							<span>3/5</span>
+
+						</div>
+
+					</div>-->
+
+				</div>
+
+				<?php }?>
+
+					<div class="row">
+
+						<div class="col-xs-12 text-center">
+
+							<button type="button" class="btn-add-more" id="skill">Thêm</button>
+
+						</div>
+
+					</div>*/
+
+				?>
+
+				<?php if($row['loai_hoso']=='ONLINE') { ?>
+
+					<header class="card-header">
+
+						<h2 class="card-heading">
+
+							<span class="iconheading">
+
+								<i class="fa fa-trophy"></i>
+
+							</span>
+
+							    Kỹ Năng & Thành tích nổi bật
+
+						</h2>
+
+					</header>
+
+					<div <?php if(empty($row['thanhtichnoibat'])){ ?>style="display:none"<?php }?> class="row thanh_tich_noi_bat">
+
+						<?php  			$breaks = array("<br />","<br>","<br/>");  
+
+										$thanhtichnoibat = str_ireplace($breaks,"\n",$row['thanhtichnoibat']);  
+
+										?>
+
+						<div class="col-xs-12 col-sm-12">
+
+							<textarea onkeyup="countCharSkill(this)" rows="9" class="form-control" name="thanhtichnoibat" id="thanhtichnoibat" maxlength="4000"><?php  echo $thanhtichnoibat; ?></textarea>
+
+						</div>
+						<div id="charNumSkill" class="badge bg-success countChar"></div>
+
+					</div>
+
+					<?php if(empty($row['thanhtichnoibat'])){ ?>
+
+						<div class="row">
+
+							<div class="col-xs-12 text-center">
+
+								<button type="button" class="btn-add-more" id="thanh_tich_noi_bat">Thêm</button>
+
+							</div>
+
+						</div>
+
+					<?php } ?>
+
+					<header class="card-header">
+
+						<h2 class="card-heading">
+
+							<span class="iconheading">
+
+								<i class="fa fa-flag"></i>
+
+							</span>
+
+							Mục tiêu nghề nghiệp
+
+						</h2>
+
+					</header>
+
+					<div class="row">
+
+						<?php  			
+
+							$breaks = array("<br />","<br>","<br/>");  
+
+							$muctieunghenghiep = str_ireplace($breaks,"\n",$row['muctieunghenghiep']);  
+
+						?>
+
+						<div class="col-xs-12 col-sm-12">
+
+							<textarea onkeyup="countCharTarget(this)" rows="9" class="form-control" name="muctieunghenghiep" id="muctieunghenghiep"><?php echo $muctieunghenghiep ?></textarea>
+
+						</div>
+						<div id="charNumTarget" class="badge bg-success countChar"></div>
+					</div>
+
+
+				 <?php } ?>
+
+					
+
+
+
+					<!--<header class="card-header">
+
+						<h2 class="card-heading">
+
+							<span class="iconheading">
+
+								<i class="fa fa-book"></i>
+
+							</span>
+
+							Người tham khảo
+
+						</h2>
+
+					</header> -->
+
+				<?php
+
+					$tennguoithamkhao = explode("|", $row['tennguoithamkhao']);
+
+					$chucvunguoithamkhao = explode("|", $row['chucvunguoithamkhao']);
+
+					$congtynguoithamkhao = explode("|", $row['congtynguoithamkhao']);
+
+					$dienthoainguoithamkhao = explode("|", $row['dienthoainguoithamkhao']);
+
+					$emailnguoithamkhao = explode("|", $row['emailnguoithamkhao']);
+
+					for($num_ = 0; $num_ < count($tennguoithamkhao); $num_++){
+
+				?>
+
+				<!--<div <?php if(count($tennguoithamkhao) == 1) {?> style="display:none"<?php }?> class="references">
+
+					<i class="btn-remove-row deleteRow"></i>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Họ & tên
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $tennguoithamkhao[$num_] ?>" type="text" class="form-control" name="tennguoithamkhao[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Chức vụ
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $chucvunguoithamkhao[$num_] ?>" type="text" class="form-control" name="chucvunguoithamkhao[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Công ty
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $congtynguoithamkhao[$num_] ?>" type="text" class="form-control" name="congtynguoithamkhao[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Điện thoại
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $dienthoainguoithamkhao[$num_] ?>" type="text" class="form-control" name="dienthoainguoithamkhao[]" maxlength="12">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+					<div class="row">
+
+						<label class="col-xs-12 col-sm-3">
+
+							Email
+
+						</label>
+
+						<div class="col-xs-12 col-sm-9">
+
+							<input value="<?php echo $emailnguoithamkhao[$num_] ?>" type="text" class="form-control" name="emailnguoithamkhao[]" maxlength="50">
+
+							<p class="has-error"></p>
+
+						</div>
+
+					</div>
+
+				</div> -->
+
+				<?php }?>
+
+					<!--<div class="row">
+
+						<div class="col-xs-12 text-center">
+
+							<button type="button" class="btn-add-more" id="references">Thêm</button>
+
+						</div>
+
+					</div> -->
+
+					<div class="row">
+
+						<div class="col-sm-4"></div>
+
+                        <div style="text-align:center" class="col-sm-12">
+
+                            <div class="form-group">
+
+								<input type="hidden" name="do" value="editcv" />
+
+								<input type="hidden" name="thongtincanhan_id" value="<?php echo $_REQUEST['id'] ?>"  />
+
+								<input type="hidden" name="hinhanh" value="<?php echo $row['hinhanh'] ?>" />
+
+								<input type="hidden" name="profilecv_id" value="<?php echo $_REQUEST['profile'] ?>" />
+
+								<input type="hidden" name="loai_hoso" value="<?php echo $row['loai_hoso'] ?>" />
+
+								<button type="button" id="editcv" class="btn btn-primary btn-lg bg_green">
+
+									<span>LƯU LẠI</span>
+
+								</button>
+
+								<!--<button type="button" onclick="xem_truoc()" class="btn btn-primary btn-lg bg_green">
+
+									<span>XEM TRƯỚC KHI TẢI VỀ</span>
+
+								</button> -->
+
+								<!--<a target='_blank' href='downloadcv?temp=<?php echo $_SESSION["career"]["temp"] ?>&career_id=<?php echo $_SESSION["career"]["career_id"] ?>&profile=<?php echo $_REQUEST['profile'] ?>&email=<?php echo $_SESSION["career"]["email"] ?>' class="btn btn-primary btn-lg bg_green">
+
+									<span>TẢI VỀ</span>
+
+								</a> -->
+
+							</div>
+
+						</div>
+
+						<div class="col-sm-4"></div>
+
+					</div>
+
+                </form> 
+
+			</div>
+
+			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 f_none">
+
+				<div style="border:0px" class="tabmenulinks">
+
+					<div class="col-md-12">
+
+						<form id="formUpload" method="post">
+
+							<div class="EntityPhoto-circle-8">
+
+								<img style="width:100%" src="<?php echo $row['hinhanh'] ?>">
+
+							</div>
+
+							<input style="margin-top:10px" class="form-control" type="file" name="uploadImage" id="uploadImage">
+
+						</form>
+
+					</div>
+
+				</div>
+
+				<div style="display:none" class="tabmenulinks">
+
+					<ul>
+
+						<li class="active"><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#personalinfo-section" class="passChk">Thông tin cá nhân</a></li>
+
+						<li class=""><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#objective-job-section" class="passChk">Mục tiêu nghề nghiệp</a></li>
+
+						<li class=""><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#desired-job-section" class="passChk">Thông tin công việc</a></li>
+
+						<li class=""><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#experience-section" class="passChk">Kinh nghiệm làm việc</a></li>
+
+						<li class=""><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#education-section" class="passChk">Học vấn</a></li>
+
+						<li class=""><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#skill-section" class="passChk">Kỹ năng chuyên môn</a></li>
+
+						<li class=""><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#award-section" class="passChk">Thành tích nổi bật</a></li>
+
+						<li class=""><a href="<?php echo $_SERVER['REQUEST_URI'] ?>#references-section" class="passChk">Người tham khảo</a></li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+        </div>
+
+	</div>
+
+</div>
+
+
+
+
+<div class="modal fade global__sign-in-modal" id="preview_modal" tabindex="-1" role="dialog">
+
+	<div class="modal-dialog md_login modal-lg" role="document">
+
+		<div class="modal-content step-1">
+
+			<div style="padding: 10px" class="modal-body">
+
+				<div class="step-1 animated fadeIn">
+
+					<button type="button" class="close">
+
+						<span aria-hidden="true">&times;</span>
+
+					</button>
+
+					<h3 class="sitemap-header text-primary">XEM TRƯỚC</h3> <small>(thực hiện thao tác lưu trước để xem nội dung mới thay đổi)</small>
+
+				</div>
+
+				<div class="bg_white p_15 r_corners m_bottom_20">
+
+					<div class="preview_content">
+
+						<iframe src="/preview" id="previewCV" title="Preview CV" width="100%" height="600"></iframe>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
+
+
+<script src="myeditor/ckeditor.js"></script>
+
+<script type="text/javascript">
+
+var flagLoad = true;
+
+
+$(function(){
+	// Validate kinh nghiệm 
+	$('#kinhnghiem').blur(function(){
+		var exp = $('#kinhnghiem').val();
+		if(exp <= 0)
+		{
+			swal({
+			title: "Thông tin lỗi", text: "Số năm kinh nghiệm không hợp lệ", type: "error"},
+		);
+		$(this).val(''); // claer dữ liệu không hợp lệ
+		}else {return true;}
+	});
+
+	// Validate số điện thoại, mặc định số điện thoại 10 số
+	$('#mobile').blur(function(){
+		var mobile = $('#mobile').val();
+		if(mobile.length == 10){ 	
+			return true;	 
+		}else{
+			swal({
+			title: "Thông tin lỗi", text: "Số điện thoại không hợp lệ", type: "error"},);
+			$(this).val(''); // claer dữ liệu không hợp lệ
+		}
+	});
+})
+
+
+function countCharSkill(val) {
+	var len = $("#thanhtichnoibat").val().length; // Lấy độ dài hiện tại
+	var max = 4000; // Định nghĩa max ký tự
+	var minus = max - len; 
+	if(minus <= 0){ 
+		swal({
+		title: "Cảnh báo", text: "Vui lòng nhập tối đa không quá 4000 ký tự", type: "warning"},);
+		val.value = val.value.substring(0, max);
+	}else{
+		$('#charNumSkill').text('Còn lại ' + minus +' ký tự');
+	}
+};
+
+
+// Đếm số kí tự hợp lệ
+function countCharTarget(val) {
+	var len = $("#muctieunghenghiep").val().length; // Lấy độ dài hiện tại
+	var max = 2000; // Định nghĩa max ký tự
+	var minus = max - len; 
+	if(minus <= 0){ 
+		swal({
+		title: "Cảnh báo", text: "Vui lòng nhập tối đa không quá 4000 ký tự", type: "warning"},);
+		val.value = val.value.substring(0, max);
+	}else{
+		$('#charNumTarget').text('Còn lại ' + minus +' ký tự');
+	}
+};
+
+
+$(function(){
+
+	loadSlider();
+
+	setHinhThucLamViec();
+
+	setKNLamViec();
+
+	setTenProfileCv();
+
+
+
+	$(document).on("input mousemove", ".slider", function(){
+
+		var values = $(this).val();
+
+		var widths = $(this).width();
+
+		$(this).next().html(values + "/" + $(this).attr("max"));
+
+		var widthPercent = widths/$(this).attr("max");
+
+		var widthFill = widthPercent*values;
+
+		$(this).prev(".rangesliderFill").css("width", widthFill);
+
+	})
+
+
+
+	$('#formUpload input[type=file]').on('change', function(event){
+
+		uploadImage();
+
+	});
+
+})
+
+
+
+function loadSlider(){
+
+	$(".rangesliderFill").each(function(){
+
+		var slider = $(this).next("input[type=range]");
+
+		var values = slider.val();
+
+		var widths = slider.width();
+
+		slider.next().html(values + "/" + slider.attr("max"));
+
+		var widthPercent = widths/slider.attr("max");
+
+		var widthFill = widthPercent*values;
+
+		$(this).css("width", widthFill);
+
+	})
+
+}
+
+$("#editcv").click(function(){
+
+	var btn = $(this);
+
+    var frm = $("form[name=formCV]");
+
+    if($(frm)[0].checkValidity()) {
+
+		$.ajax({
+
+            url: 'editcv',
+
+            type: 'POST',
+
+            dataType: 'JSON',
+
+            data: $(frm).serialize(),
+
+            beaforeSend: function(){
+
+            	btn.prop("disabled", true);
+
+            },
+
+            success: function(response){}
+			}).done(function(response) {
+				if(response.status == 1)
+				{
+					btn.prop("disabled", false)
+					swal({
+						title: "Cập nhật hồ sơ", text: "Cập nhật hồ sơ thành công", type: "success"},
+						function(){ 
+							// window.location = 'view-cv.html';
+							{ location.reload();}
+						}
+					);
+				}
+				else if(response.status == 0)
+				{
+					var elementError = $("input[name="+response.toastr+"]");
+
+                    elementError.addClass('required').focus();
+
+                    elementError.nextAll("p.has-error").html(response.message)
+				}
+				else{
+					btn.prop("disabled", false);
+
+					alert(response.message);
+				}
+
+			})
+			.error(function(response) {
+				swal({
+					title: "Thất bại", text: "Đã xảy ra lỗi", type: "error"},
+					function(){ 
+						window.location = 'view-cv.html';
+					}
+				);
+			});
+
+			}else{
+
+				$(frm).find(":invalid").addClass('required').first().focus();
+
+				$(frm).find(":invalid").each(function(index, node) {
+
+					$(this).next("p.has-error").html(node.validationMessage);
+
+				})
+
+				event.preventDefault();
+
+			}
+
+	})
+
+                // if(response.status == 1){
+
+				// 	btn.prop("disabled", false);
+
+				// 	alert(response.message);
+
+				// 	location.reload();
+
+                // }else if(response.status == 0){
+
+                //     var elementError = $("input[name="+response.toastr+"]");
+
+                //     elementError.addClass('required').focus();
+
+                //     elementError.nextAll("p.has-error").html(response.message);
+
+                // }else{
+
+                //     btn.prop("disabled", false);
+
+                //     alert(response.message);
+
+                // }
+				
+        
+$("input:checkbox").click(function(event){
+
+	var elmName = $(this).attr("class");
+
+	$("input[name="+elmName+"]").val($("."+elmName+":checked").map(function(){
+
+		return this.value;
+
+	}).get().join("|"));
+
+});
+
+
+
+$("#levelFrom, #levelTo").change(function(){
+
+	var type = $("#level_id").val();
+
+	var levelFrom = $("#levelFrom").val();
+
+	var levelTo = $("#levelTo").val();
+
+	var levelFrom_remove = levelFrom;
+
+	var levelFrom_remove = Number(levelFrom_remove.replace(/[^0-9\.-]+/g,""));
+
+	var levelTo_remove = levelTo;
+
+	var levelTo_remove = Number(levelTo_remove.replace(/[^0-9\.-]+/g,""));
+
+	if(levelFrom_remove < levelTo_remove)
+
+	{
+
+		 var mucluong = levelFrom + " đến " + levelTo + " " + type;
+
+	     $("input[name=mucluong]").val(mucluong);
+
+		 return true;
+
+	}else
+
+	{
+		swal(
+          'Thông tin lỗi!',
+          'Thông tin về lương chưa đúng, vui lòng kiểm tra lại',
+          'error'
+        )
+
+		$("#levelTo").val("");
+
+		return false;
+
+	}
+
+})
+
+
+
+setMucLuong();
+
+$("#level_id").change(function(){
+
+	setMucLuong();
+
+})
+
+
+
+$("#blvmm_tt").change(function(){
+
+	var arrQuanHuyen = $(this).find("option:selected").attr("data-quanhuyen").split(",");
+
+	var strOption = '<option value="">Chọn</option>';
+
+	arrQuanHuyen.forEach(function(elm){
+
+		strOption += '<option value="'+elm+'">' + elm + '</option>';
+
+	});
+
+	$("#blvmm_qh").html(strOption);
+
+	var workWA = $(this).val() + ", " + $("#blvmm_qh").val();
+
+	$("input[name=noilamviecmongmuon]").val(workWA);
+
+})
+
+
+
+$("#blvmm_qh").change(function(){
+
+	var workWA = $("#blvmm_tt").val() + ", " + $(this).val();
+
+	$("input[name=noilamviecmongmuon]").val(workWA);
+
+})
+
+
+
+$(document).on("change", "select[name=rexp_month_start]," +
+
+	"select[name=rexp_year_start]," +
+
+	"select[name=rexp_month_end]," +
+
+	"select[name=rexp_year_end]"
+
+, function(){
+
+	var parent = $(this).parents("div.row").first();
+
+	var rexp_month_start = parent.find("select[name=rexp_month_start]").val();
+
+	var rexp_yeah_start = parent.find("select[name=rexp_year_start]").val();
+
+	var rexp_month_end = parent.find("select[name=rexp_month_end]").val();
+
+	var rexp_year_end = parent.find("select[name=rexp_year_end]").val();
+
+	var values = "";
+
+	if ((Date.parse(rexp_yeah_start) >= Date.parse(rexp_year_end))) {
+
+        swal(
+          'Thông tin lỗi!',
+          'Thời gian làm việc chưa đúng, vui lòng kiểm tra lại!',
+          'error'
+        )
+
+		$("select[name=rexp_year_start]").val("");
+
+		$("select[name=rexp_year_end]").val("");
+
+		return false;
+
+    }
+
+	if(rexp_month_end != "" && rexp_year_end != ""){
+
+		values = rexp_month_start + "/" + rexp_yeah_start + " đến " + rexp_month_end + "/" + rexp_year_end;
+
+	}else{
+
+		values = rexp_month_start + "/" + rexp_yeah_start + " đến hiện nay";
+
+	}
+
+	var input = parent.find("input[name='thoigianlamviec[]']").first();
+
+	input.val(values);
+
+})
+
+$(document).on('click', 'input[type="checkbox"]', function() {      
+
+    $('input[type="checkbox"]').not(this).prop('checked', false);      
+
+});
+
+
+
+$(document).on("change", "select[name=fromDateBangCapMonth]," +
+
+	"select[name=fromDateBangCapYear]," +
+
+	"select[name=toDateBangCapMonth]," +
+
+	"select[name=toDateBangCapYear]"
+
+, function(){
+
+	var parent = $(this).parents("div.row").first();
+
+	var fromDateBangCapMonth = parent.find("select[name=fromDateBangCapMonth]").val();
+
+	var fromDateBangCapYear = parent.find("select[name=fromDateBangCapYear]").val();
+
+	var toDateBangCapMonth = parent.find("select[name=toDateBangCapMonth]").val();
+
+	var toDateBangCapYear = parent.find("select[name=toDateBangCapYear]").val();
+
+	var values = "";
+
+	if ((Date.parse(fromDateBangCapYear) >= Date.parse(toDateBangCapYear))) {
+
+		swal(
+          'Thông tin lỗi!',
+          'Năm học kết thúc phải lớn hơn bắt đầu',
+          'error'
+        )
+        
+		$("select[name=fromDateBangCapYear]").val("");
+
+		$("select[name=toDateBangCapYear]").val("");
+
+		return false;
+
+    }
+
+	if(toDateBangCapMonth != "" && toDateBangCapYear != ""){
+
+		values = fromDateBangCapMonth + "/" + fromDateBangCapYear + " đến " + toDateBangCapMonth + "/" + toDateBangCapYear;
+
+	}else{
+
+		values = fromDateBangCapMonth + "/" + fromDateBangCapYear + " đến hiện nay";
+
+	}
+
+	var input = parent.find("input[name='thoigianhoc[]']").first();
+
+	input.val(values);
+
+})
+
+
+
+$(document).on("change", "select[name=slbangcap]," +
+
+	"select[name=bcmonth]," +
+
+	"select[name=bcyear]"
+
+, function(){
+
+	var parent = $(this).parents("div.row").first();
+
+	var slbapcap = parent.find("select[name=slbangcap]").val();
+
+	var bcmonth = parent.find("select[name=bcmonth]").val();
+
+	var bcyear = parent.find("select[name=bcyear]").val();
+
+	var values = slbapcap + ":" + bcmonth + "/" + bcyear;
+
+	var input = parent.find("input[name='bangcap[]']").first();
+
+	input.val(values);
+
+})
+
+
+
+$("#experienceSectionAppend, #skill, #education").click(function(){
+
+	var className = $(this).attr("id");
+
+	var content = document.getElementsByClassName(className)[0].outerHTML;
+
+	$("." + className).last().after(content);
+
+	clearAllValues(className);
+
+	loadSlider();
+
+	setBCKhac();
+
+})
+
+
+
+$("#references").click(function(){
+
+	var references = $(".references");
+
+	if(references.length == 1 && references.attr("style") == "display:none"){
+
+		$(".references").show();
+
+	}else{
+
+		var className = $(this).attr("id");
+
+		var content = document.getElementsByClassName(className)[0].outerHTML;
+
+		$("." + className).last().after(content);
+
+		clearAllValues(className);
+
+		loadSlider();
+
+	}
+
+})
+
+
+
+$(document).on("click", ".deleteRow", function(){
+
+	var parents = $(this).parents("div").first();
+
+	parents.remove();
+
+})
+
+
+
+$(document).on("change", ".trinhdonn, .levelbangcap", function(){
+
+	addLang();
+
+})
+
+
+
+setBCKhac();
+
+$(document).on("change", "[name='bangcap1[]']", function(){
+
+	var arrayList2 = ['Bác Sĩ CK1','Bác Sĩ CK2','Thạc Sĩ','Bác Sĩ Nội Trú'];
+
+	if($(this).val() == "Khác"){
+
+		$(this).parents(".row").first().next(".bcKhac").removeClass("hidBC1").find("[name='bangcap1Khac[]']").show().prop("required", true).val('');
+
+	}else{
+
+		$(this).parents(".row").first().next(".bcKhac").addClass("hidBC1").find("[name='bangcap1Khac[]']").hide().prop("required", false).val('');
+
+	}
+
+	if(arrayList2.indexOf($(this).val()) >= 0){
+
+		$(this).parents(".row").first().find("[name='bangcap2[]']").show().prop('required', true);
+
+	}else{
+
+		$(this).parents(".row").first().find("[name='bangcap2[]']").val('').hide().prop('required', false);
+
+		$(this).parents(".row").first().next(".bcKhac").addClass("hidBC2").find("[name='bangcap2Khac[]']").val('').prop('required', false).hide();
+
+	}
+
+	setTenProfileCv();
+
+})
+
+
+
+$(document).on("change", "[name='bangcap2[]']", function(){
+
+	if($(this).val() == "Khác"){
+
+		$(this).parents(".row").first().next(".bcKhac").removeClass("hidBC2").find("[name='bangcap2Khac[]']").show().prop("required", true).val('');
+
+	}else{
+
+		$(this).parents(".row").first().next(".bcKhac").addClass("hidBC2").find("[name='bangcap2Khac[]']").hide().prop("required", false).val('');
+
+	}
+
+	setTenProfileCv();
+
+})
+
+
+
+$(document).on("change", "[name='kynangchuyenmon[]']", function(){
+
+	if($(this).val() == "Kỹ năng khác"){
+
+		$(this).parents(".row").first().next(".mtkn").removeClass("d_none").find("[name='motakynang[]']").show().prop("required", true).val('');
+
+	}else{
+
+		$(this).parents(".row").first().next(".mtkn").addClass("d_none").find("[name='motakynang[]']").hide().prop("required", false).val('');
+
+	}
+
+	setTenProfileCv();
+
+})
+
+
+
+function setTenProfileCv(){
+
+	var tenprofile = "";
+
+	var bangcap1 = $("[name='bangcap1[]']:first-child option:selected").text();
+
+	var bangcap2 = $("[name='bangcap2[]']:first-child option:selected").text();
+
+	tenprofile = bangcap1 + " - " + bangcap2;
+
+	$("[name=tenprofilecv]").val(tenprofile);
+
+}
+
+
+
+function addLang(){
+
+	$("input[name=trinhdongoaingu]").val($(".trinhdonn").map(function(){
+
+		return this.value + ":" + $(this).parents("div.showLVNN").find(".levelbangcap").val();
+
+	}).get().join(","));
+
+}
+
+
+
+$(document).on("click", ".addLang", function(){
+
+	var content = document.getElementsByClassName("showLVNN")[0].outerHTML;
+
+	$(".showLVNN").last().after(content);
+
+})
+
+
+
+$(document).on("click", ".removeLang", function(){
+
+	var parents = $(this).parents("div.showLVNN").first();
+
+	parents.remove();
+
+	addLang();
+
+})
+
+
+
+$(document).on("click", "[name=current_time_job]", function(){
+
+	var elm = $(this).closest("div").parent("div");
+
+	var rexp_month_end = elm.find("[name=rexp_month_end]");
+
+	var rexp_year_end = elm.find("[name=rexp_year_end]");
+
+	var rexp_month_start = elm.find("select[name=rexp_month_start]").val();
+
+	var rexp_yeah_start = elm.find("select[name=rexp_year_start]").val();
+
+	var values = rexp_month_start + "/" + rexp_yeah_start + " đến hiện nay";
+
+	var input = elm.find("input[name='thoigianlamviec[]']").first();
+
+	if($(this).is(":checked")){
+
+		rexp_month_end.val('').removeAttr('required').prop('disabled', true);
+
+		rexp_year_end.val('').removeAttr('required').prop('disabled', true);
+
+		input.val(values);
+
+	}else{
+
+		rexp_month_end.prop('required', true).prop('disabled', false);
+
+		rexp_year_end.prop('required', true).prop('disabled', false);
+
+	}
+
+})
+
+setExp();
+
+$("#not_experence").click(function(){
+
+		if($(this).is(":checked")){
+
+		$("[name=kinhnghiem]").first().val(0).prop("readonly", true);
+
+		$("[name='congty[]']").prop("required", false);
+
+		$("[name='rexp_month_start']").prop("required", false);
+
+		$("[name='rexp_year_start']").prop("required", false);
+
+		$("[name='rexp_month_end']").prop("required", false);
+
+		$("[name='rexp_year_end']").prop("required", false);
+
+		$("[name='motacongviec[]']").prop("required", false);
+
+	}else{
+
+		$("[name=kinhnghiem]").first().prop("readonly", false);
+
+		$("[name='congty[]']").prop("required", true);
+
+		$("[name='rexp_month_start']").prop("required", true);
+
+		$("[name='rexp_year_start']").prop("required", true);
+
+		$("[name='rexp_month_end']").prop("required", true);
+
+		$("[name='rexp_year_end']").prop("required", true);
+
+		$("[name='motacongviec[]']").prop("required", true);
+
+	}
+
+	setExp();
+
+})
+
+
+
+$("#thanh_tich_noi_bat").click(function(){
+
+	$(".thanh_tich_noi_bat").show();
+
+	$(this).remove();
+
+})
+
+
+
+function setExp(){
+
+	var notExp = $("#not_experence");
+
+	if(notExp.is(":checked")){
+
+		notExp.parents(".row").first().next().hide();
+
+		$(".experienceSectionAppend, #experienceSectionAppend").hide();
+
+	}else{
+
+		notExp.parents(".row").first().next().show();
+
+		$(".experienceSectionAppend, #experienceSectionAppend").show();
+
+	}
+
+}
+
+
+
+function setMucLuong(){
+
+	if(flagLoad){
+
+		var values = $("input[name=mucluong]").val();
+
+		if(values == "Thỏa thuận"){
+
+			$("#level_id option[value='Thỏa thuận']").prop('selected', true);
+
+		}else{
+
+			$("#level_id option[value='VNĐ']").prop('selected', true);
+
+		}
+
+		var arrValues = values.replace(" VNĐ","").split(" đến ");
+
+		$("#levelFrom").val(arrValues[0]);
+
+		$("#levelTo").val(arrValues[1]);
+
+		flagLoad = false;
+
+	}
+
+	if($("#level_id").val() == "Thỏa thuận"){
+
+		$("#levelFrom").val('').prop("disabled", true);
+
+		$("#levelTo").val('').prop("disabled", true);
+
+		$("#levelFrom").prop("required", false);
+
+		$("#levelTo").prop("required", false);
+
+		$("input[name=mucluong]").val('Thỏa thuận');
+
+	}else {
+
+		$("#levelFrom").prop("disabled", false);
+
+		$("#levelTo").prop("disabled", false);
+
+		$("#levelFrom").prop("required", true);
+
+		$("#levelTo").prop("required", true);
+
+	}
+
+}
+
+
+
+function setHinhThucLamViec(){
+
+	var valuesArr = $("input[name=hinhthuclamviec]").val().split("|");
+
+	valuesArr.forEach(function(value){
+
+		$(".hinhthuclamviec[value='"+value+"']").prop('checked', true);
+
+	})
+
+}
+
+
+
+function setKNLamViec(){
+
+	$("[name=current_time_job]").each(function(){
+
+		if($(this).is(":checked")){
+
+			$(this).closest("div").parent("div").find("[name=rexp_month_end]").removeAttr('required').prop('disabled', true);
+
+			$(this).closest("div").parent("div").find("[name=rexp_year_end]").removeAttr('required').prop('disabled', true);
+
+		}
+
+	})
+
+}
+
+
+
+function setBCKhac(){
+
+	var arrayList2 = ['Bác Sĩ CK1','Bác Sĩ CK2','Thạc Sĩ','Bác Sĩ Nội Trú'];
+
+	$("[name='bangcap1[]']").each(function(){
+
+		if($(this).val() == "Khác"){
+
+			$(this).parents(".row").first().next(".bcKhac").removeClass("hidBC1").find("[name='bangcap1Khac[]']").show();
+
+		}else{
+
+			$(this).parents(".row").first().next(".bcKhac").addClass("hidBC1").find("[name='bangcap1Khac[]']").hide();
+
+		}
+
+
+
+		if(arrayList2.indexOf($(this).val()) >= 0){
+
+			$(this).parents(".row").first().find("[name='bangcap2[]']").show().prop('required', true);
+
+		}else{
+
+			$(this).parents(".row").first().find("[name='bangcap2[]']").val('').hide().prop('required', false);
+
+			$(this).parents(".row").first().next(".bcKhac").addClass("hidBC2").find("[name='bangcap2Khac[]']").val('');
+
+		}
+
+	})
+
+
+
+	$("[name='bangcap2[]']").each(function(){
+
+		if($(this).val() == "Khác"){
+
+			$(this).parents(".row").first().next(".bcKhac").removeClass("hidBC2").find("[name='bangcap2Khac[]']").show();
+
+		}else{
+
+			$(this).parents(".row").first().next(".bcKhac").addClass("hidBC2").find("[name='bangcap2Khac[]']").hide();
+
+		}
+
+	})
+
+}
+
+
+
+function xem_truoc(){
+
+	$.ajax({
+
+		url: 'preview',
+
+		data: {},
+
+		type: 'POST',
+
+		success: function(rs){
+
+			var iframe = $('#previewCV');
+
+			iframe.attr('src', '/preview');
+
+			$("#preview_modal").modal('show');
+
+		}
+
+	})
+
+}
+
+</script>
+
+<?php }else{?>
+
+<div style="max-width: 600px" class="sitemap-container container m_bottom_20">
+
+    <div class="clearfix m_xs_bottom_10">
+
+		<div class="bg_white p_15 r_corners m_bottom_20">
+
+			<div class="col-lg-12 col-md-12 col-sm-12 f_none" style="margin:0 auto;">
+
+				<div class="step-1 animated fadeIn">
+
+					<h1 class="sitemap-header text-primary">ĐĂNG NHẬP</h1>
+
+				</div>
+
+				<div class="bg_white p_15 r_corners m_bottom_20">
+
+					<div class="col-lg-12 col-md-12 col-sm-12 f_none" style="margin:0 auto;">
+
+						<form autocomplete="off" class="awe-check" name="frmLogin" id="frmLogin" method="post">
+
+							<div class="row">
+
+								<div class="col-sm-12">
+
+									<div class="form-group">
+
+										<label>Email</label>
+
+										<input type="email" name="loginemail" class="form-control" required>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="col-sm-12">
+
+									<div class="form-group">
+
+										<label>Mật khẩu</label>
+
+										<input maxlength="50" type="password" name="loginpassword" class="form-control" required>
+
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="col-md-12 col-xs-12 text-right">
+
+									<a class="inline m-t-sm forgot-password clickable" onclick="event.preventDefault(); globalForgotPasswordModal.showModal();">Quên mật khẩu?</a>
+
+								</div>
+
+							</div>
+
+							<div class="row">
+
+								<div class="col-sm-12">
+
+									<div class="form-group">
+
+										<button type="button" class="career_login btn btn-primary full-width btn-lg">
+
+											<span>Đăng nhập</span>
+
+										</button>
+
+									</div>
+
+								</div>
+
+							</div>
+
+						</form> 
+
+					</div>
+
+					<hr class="hidden-xs"/>
+
+					<div class="">
+
+						<p class="text-center m-b-none sign-in">&nbsp;</p>
+
+					</div>
+
+				</div>
+
+        	</div>
+
+        </div>
+
+	</div>
+
+</div>
+
+<?php }?>

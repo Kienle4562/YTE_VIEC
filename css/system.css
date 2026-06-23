@@ -1,0 +1,92 @@
+/* CSS Document */
+.content_module_tooltip{
+	position:absolute;
+	top:10px;
+	right:0px;
+	z-index:1;
+	text-align:left;
+}
+ul.module_tooltip{
+	display:none;
+	position:absolute;
+	right:0px;
+}
+ul.module_tooltip {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 200px; /* Width of Menu Items */
+	border-bottom: 1px solid #ccc;
+	background: #fff;
+	font-weight:normal;
+	padding-left:5px;
+	border: 4px solid #ccc;
+}
+	
+ul.module_tooltip li {
+	position: relative;
+}
+	
+ul.module_tooltip li ul {
+	position: absolute;
+	left: 160px; /* Set 1px less than menu width */
+	top: 0;
+	width: 200px;
+	display: none;
+	background: #fff;
+	padding-left:5px;
+	border: 4px solid #ccc;
+}
+ 
+/* Styles for Menu Items */
+ul.module_tooltip li a:link {
+	display: block;
+	text-decoration: none;
+	color: #777;	
+	padding: 5px;	
+	border-bottom: 0;
+}
+ul.module_tooltip li a:hover {
+	font-weight:bold;
+}
+	
+/* Holly Hack. IE Requirement \*/
+* html ul.module_tooltip li { float: left; height: 1%; }
+* html ul.module_tooltip li a { height: 1%; }
+/* End */
+ 
+ul.module_tooltip li:hover ul, ul#module_tooltip li.over ul { display: block; } /* The magic */
+
+.content_module{
+	position:relative;
+}
+
+.content_module li.icon_edit {
+	background: url(../images/icons/pencil_16.png) 0px 5px no-repeat;
+	padding-left:20px;
+}
+
+.content_module li.icon_translate {
+	background: url(../images/icons/selection_input.jpg) 0px 5px no-repeat;
+	padding-left:20px;
+}
+
+.content_module li.icon_delete {
+	background: url(../images/icons/delete_16.png) 0px 5px no-repeat;
+	padding-left:20px;
+}
+
+.content_module li.icon_up {
+	background: url(../images/icons/up_16.png) 0px 5px no-repeat;
+	padding-left:20px;
+}
+
+.content_module li.icon_down {
+	background: url(../images/icons/down_16.png) 0px 5px no-repeat;
+	padding-left:20px;
+}
+
+.content_module li.icon_move {
+	background: url(../images/icons/windowlist.png) 0px 5px no-repeat;
+	padding-left:20px;
+}

@@ -1,0 +1,388 @@
+<style>
+.cvo-document {
+	font-family: arial, sans-serif, tahoma;
+	font-size: 10pt
+}
+.cvo-document .cvo-page {
+	padding: 15mm;
+	margin: 0 auto;
+	box-shadow: 0 0 1px rgba(0, 0, 0, .25);
+	background-color: #fff;
+	position: relative
+}
+.cvo-document .cvo-block {
+	padding-bottom: .7cm;
+	padding-left: 4mm;
+	padding-right: 4mm
+}
+.cvo-document .cvo-block .row:last-child {
+	padding-bottom: 0
+}
+.cvo-document .cvo-block-title {
+	color: #000;
+	font-size: 12pt;
+	line-height: 18pt;
+	margin-bottom: 5pt;
+	border-bottom: 1pt solid #333;
+	text-transform: uppercase;
+	font-weight: 700
+}
+.cvo-document .cvo-block-title span {
+	width: 100%
+}
+.cvo-document .cvo-block-body {
+	padding-top: .2cm
+}
+.cvo-document #cvo-profile {
+	padding-top: 3mm
+}
+.cvo-document #cvo-profile table {
+	margin: 0;
+	border-collapse: collapse;
+	width: 100%
+}
+.cvo-document #cvo-profile th,
+.cvo-document #cvo-profile td {
+	padding: .1cm;
+	line-height: 14pt;
+	vertical-align: middle
+}
+.cvo-document #cvo-profile td.avatar-wraper {
+	width: 4.2cm;
+	min-height: 4.2cm;
+	vertical-align: top
+}
+.cvo-document #cvo-profile-avatar {
+	border: 0;
+	width: 3cm;
+	height: auto;
+	margin: 0 auto
+}
+.cvo-document #cvo-profile-fullname {
+	display: block;
+	font-size: 24pt;
+	line-height: 24pt;
+	font-weight: 700;
+	color: #0e2452;
+	text-transform: capitalize
+}
+.cvo-document #cvo-profile-title {
+	display: block;
+	font-size: 11pt;
+	line-height: 12pt;
+	color: #000050;
+	vertical-align: top
+}
+.cvo-document #cvo-profile span.profile-field {
+	display: inline-block;
+	min-width: 3cm;
+	max-width: 8.7cm
+}
+.cvo-document #cvo-profile span.profile-label {
+	display: inline-block;
+	width: 2.8cm;
+	font-weight: 700;
+	font-style: normal;
+	vertical-align: top
+}
+.cvo-document #cvo-objective-objective {
+	display: block;
+	line-height: 15pt;
+	min-width: 12cm;
+	text-align: justify
+}
+.cvo-document #education-table {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: .2cm
+}
+.cvo-document #education-table .row {
+	border-bottom: .05cm solid #eee;
+	line-height: 15pt;
+	padding: .15cm 0
+}
+.cvo-document #education-table .cvo-education-time {
+	padding: 1mm 0;
+	width: 5cm;
+	float: left
+}
+.cvo-document #education-table .school {
+	width: 11cm;
+	float: left
+}
+.cvo-document #education-table .cvo-education-school {
+	font-weight: 700;
+	min-width: 5cm;
+	display: block
+}
+.cvo-document #education-table .cvo-education-name,
+.cvo-document #education-table .cvo-education-title,
+.cvo-document #education-table .cvo-education-details {
+	min-width: 5cm;
+	display: block
+}
+.cvo-document #experience-table .row {
+	vertical-align: top
+}
+.cvo-document #experience-table {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: .2cm
+}
+.cvo-document #experience-table .row {
+	border-bottom: .05cm solid #eee;
+	line-height: 15pt;
+	padding: .15cm 0
+}
+.cvo-document #experience-table .cvo-experience-time {
+	padding: 1mm 0;
+	width: 5cm;
+	float: left
+}
+.cvo-document #experience-table .company {
+	width: 11cm;
+	padding: 1pt;
+	float: left
+}
+.cvo-document #experience-table .hidden-time .company {
+	width: 100%
+}
+.cvo-document #experience-table .cvo-experience-company {
+	font-weight: 700;
+	min-width: 5cm;
+	display: block
+}
+.cvo-document #experience-table .cvo-experience-position,
+.cvo-document #experience-table .cvo-experience-details {
+	min-width: 5cm;
+	display: block
+}
+.cvo-document #activity-table .row {
+	vertical-align: top
+}
+.cvo-document #activity-table {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: .2cm
+}
+.cvo-document #activity-table .row {
+	border-bottom: .05cm solid #eee;
+	line-height: 15pt;
+	padding: .15cm 0
+}
+.cvo-document #activity-table .cvo-activity-time {
+	padding: 1mm 0;
+	width: 5cm;
+	float: left
+}
+.cvo-document #activity-table .organization {
+	width: 11cm;
+	float: left;
+	padding: 1pt
+}
+.cvo-document #activity-table .cvo-activity-organization {
+	font-weight: 700;
+	min-width: 5cm;
+	display: block
+}
+.cvo-document #activity-table .cvo-activity-position,
+.cvo-document #activity-table .cvo-activity-details {
+	min-width: 5cm;
+	display: block
+}
+.cvo-document #skill-table .row {
+	vertical-align: top
+}
+.cvo-document #skill-table {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: .2cm
+}
+.cvo-document #skill-table .row {
+	border-bottom: .05cm solid #eee;
+	line-height: 15pt;
+	padding: .15cm 0
+}
+.cvo-document #skill-table .cvo-skillgroup-area {
+	width: 5cm;
+	color: #000;
+	font-weight: 700;
+	float: left;
+	padding-right: 2mm
+}
+.cvo-document #skill-table .cvo-skillgroup-skill-description {
+	float: left;
+	width: 11cm
+}
+.cvo-document #certification-table,
+.cvo-document #award-table {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: .2cm
+}
+.cvo-document #award-table .row,
+.cvo-document #certification-table .row {
+	border-bottom: .05cm solid #eee;
+	line-height: 15pt;
+	padding: .15cm 0
+}
+.cvo-document #award-table .cvo-award-time-wraper,
+.cvo-document #certification-table .cvo-certification-time-wraper {
+	padding: 1mm 0;
+	width: 5cm;
+	float: left
+}
+.cvo-document #award-table .cvo-award-time,
+.cvo-document #certification-table .cvo-certification-time {
+	min-width: 2cm
+}
+.cvo-document #award-table .details,
+.cvo-document #certification-table .details {
+	width: 11cm;
+	float: left
+}
+.cvo-document #award-table .cvo-award-title,
+.cvo-document #certification-table .cvo-certification-title {
+	padding: 1mm;
+	font-size: 10pt;
+	min-width: 5cm;
+	display: block
+}
+.cvo-document #reference-table .row {
+	vertical-align: top
+}
+.cvo-document #reference-table {
+	width: 100%;
+	margin: 0 auto;
+	margin-top: .2cm
+}
+.cvo-document #reference-table .row {
+	border-bottom: .05cm solid #eee;
+	line-height: 15pt;
+	padding: .15cm 0
+}
+.cvo-document #reference-table .cvo-reference-content {
+	width: 100%
+}
+#reference-table .row {
+	float: left;
+	width: 50%
+}
+#reference-table .row:nth-child(odd) {
+	padding-right: 10px
+}
+#reference-table .row:nth-child(even) {
+	padding-left: 10px
+}
+#reference-table .row:only-child {
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0
+}
+#cvo-additional-info #cvo-additional-information-details {
+	width: 100%;
+	display: inline-block
+}
+.start,
+.end {
+	min-width: 30px;
+	display: inline-block
+}
+#interests {
+	width: 100%
+}
+#cvo-interests-interests {
+	width: 100%
+}
+.cvo-document #education-table .row.hidden-time .school {
+	width: 100%;
+	padding: 1pt
+}
+.cvo-document #education-table .row.hidden-time .cvo-education-school,
+.cvo-document #education-table .row.hidden-time .cvo-education-title {
+	padding-left: 0
+}
+.cvo-document #experience-table .row.hidden-time .company {
+	width: 100%
+}
+.cvo-document #activity-table .row.hidden-time .organization {
+	width: 100%
+}
+.cvo-document #award-table .row.hidden-time .details {
+	width: 100%
+}
+.cvo-document #award-table .row.hidden-time .title {
+	padding-left: 0
+}
+#wartermark {
+	margin-top: 5px;
+	font-size: 11px;
+	color: #666;
+	text-align: right;
+	padding: 0 4mm
+}
+.projects .row {
+	margin-bottom: 8pt
+}
+.project_title {
+	padding: 10px 0
+}
+.project_title h4 {
+	font-size: 12pt;
+	line-height: 16pt;
+	font-weight: 700;
+	color: #000;
+	width: 100%;
+	margin-bottom: 1px
+}
+.project_details table {
+	width: 100%
+}
+.project_details table,
+.project_details th,
+.project_details td {
+	border: 1px solid #999
+}
+.project_details th,
+.project_details td {
+	padding: 3pt
+}
+.project_details th {
+	width: 24%;
+	font-weight: 700;
+	text-align: left
+}
+.project_details td {
+	width: 100%
+}
+.project_details .cvo-project-customer {}.project_details .cvo-project-description {}#project-table .start.cvoInvalidate,
+#project-table .end.cvoInvalidate {
+	min-width: 70px;
+	text-align: center
+}
+.project_details th {
+	vertical-align: middle
+}
+#cv-watermark {
+	position: absolute;
+	right: 15mm;
+	bottom: 5mm;
+	font-size: 13px;
+	color: #555
+}
+@media print {
+	.cvo-document .cvo-page {
+		position: initial
+	}
+	.cvo-document .cvo-block:last-child {
+		padding-bottom: 0
+	}
+	#cvo-main {
+		padding-bottom: 10mm
+	}
+	#cv-watermark {
+		right: 0;
+		bottom: 0
+	}
+}
+</style>

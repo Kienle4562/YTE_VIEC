@@ -1,0 +1,31 @@
+IndexIgnore *
+RewriteEngine on
+
+RewriteRule ^$ index.php
+#RewriteRule ^(.*).html$ index.php?params=$1&%{QUERY_STRING} [NC,L]
+RewriteRule ^(.*).ajax$ index2.php?params=$1&%{QUERY_STRING} [NC,L]
+
+RewriteRule ^index.html$ index.php?params=index&%{QUERY_STRING} [NC,L]
+
+# Module
+RewriteRule ^module/(.*).html$ modules_config.php?params=$1&%{QUERY_STRING} [NC,L]
+
+RewriteCond file_upload/%{SERVER_NAME}/$1 -F
+RewriteRule ^files/(.*)$ file_upload/%{SERVER_NAME}/$1
+
+# Index 2
+RewriteRule ^([a-zA-Z-_]+)$ index2.php?com=$1&%{QUERY_STRING} [NC]
+
+#Prevent users from access application data
+RedirectMatch 404 ^/application_data/.*$
+
+RewriteRule ^(.*).html$ index.php?params=$1&%{QUERY_STRING} [NC,L]
+
+# Tags
+RewriteRule ^tag/(.*)$ index.php?com=tag&params=$1&%{QUERY_STRING} [NC,L]
+
+
+#AuthType Basic
+#AuthName "Password Required Page"
+#AuthUserFile "/home/anta895d/public_html/.htpasswd"
+#Require valid-user

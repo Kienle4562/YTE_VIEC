@@ -1,0 +1,7 @@
+@media only screen and (max-width:767px){
+	.customlogo{
+		position: inherit;
+		top: auto;
+		height: 120px;
+	}
+}

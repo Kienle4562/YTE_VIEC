@@ -1,0 +1,368 @@
+.cl_nav_resize_close
+{
+	left: -1451px;
+	top: -3px;
+}
+.cl_nav_resize_open
+{
+	left: -1467px;
+	top: -3px;
+}
+.cl_nav_arrow
+{
+	left: -1483px;
+	top: -3px;
+}
+.cl_nav_bullet
+{
+	left: -1494px;
+	top: -3px;
+}
+.cl_nav_dots
+{
+	left: -1503px;
+	top: -3px;
+}
+body
+{
+	margin: 0;
+	padding-left: 0;
+	padding-right: 0;
+	word-wrap: break-word;
+}
+
+.navigation
+{
+	border-right: 1px Solid #bbb;
+	float: left;
+	margin-right: -1px;
+	overflow: hidden;
+	padding-bottom: 96px;
+	text-align: left;
+	vertical-align: top;
+	width: 280px;
+}
+.navigation .searchcontainer .searchBoxContainer
+{
+	width: auto;
+}
+.nav
+{
+	margin-top: 8px;
+	padding: 0;
+}
+.nav a
+{
+	overflow: hidden;
+	padding-bottom: 4pt;
+	padding-top: 4pt;
+	text-align: left;
+	text-decoration: none;
+	white-space: nowrap;
+}
+.nav a:hover
+{
+	text-decoration: underline;
+}
+.nav a:visited
+{
+	color: #960bb4;
+}
+.nav .toclevel0
+{
+	padding-left: 13px;
+}
+.nav .toclevel1
+{
+	padding-left: 16px;
+}
+.nav .toclevel1 .clip13x9.nav_dots_current
+{
+	margin-left: 6px;
+}
+.nav .toclevel2
+{
+	padding-left: 24px;
+}
+.nav .ancestry
+{
+}
+.nav .current
+{
+	height: 1.38em;
+	overflow: hidden;
+	padding-left: 0;
+	white-space: nowrap;
+}
+.nav .current a
+{
+	color: #e66a38;
+	font-weight: bold;
+}
+.nav .children
+{
+	padding-bottom: 13px;
+}
+.nav .children div,.nav .current div,.nav .related div
+{
+	height: 1.38em;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.nav .moreresource div
+{
+	overflow: hidden;
+	white-space: nowrap;
+}
+.nav .related
+{
+	float: left;
+	padding-left: 13px;
+	padding-top: 5px;
+}
+.nav .related .subheader,.nav .moreresource .subheader
+{
+	color: #3f529c;
+	font-weight: bold;
+	padding-bottom: 5px;
+}
+.nav .moreresource .results
+{
+	padding-left: 23px;
+}
+.nav .navSeperator
+{
+	float: left;
+	height: 5px;
+	width: 100%;
+}
+.searchBoxContainer
+{
+	border: none;
+	height: 23px;
+	margin: 13px;
+	margin-bottom: 0;
+	padding: 0;
+	white-space: nowrap;
+	width: 256px;
+}
+.searchBox
+{
+	border: none;
+	width: 100%;
+}
+.searchBox td
+{
+	border: none;
+	height: 21px;
+	margin: 0;
+	padding: 0;
+}
+.searchBox td.searchTextBoxTd
+{
+	width: 100%;
+}
+.searchBox td.searchButtonTd
+{
+	cursor: pointer;
+	width: 19px;
+}
+.searchTextBox
+{
+	border: 0 white solid;
+	color: #8a8a8a;
+	font-style: italic;
+	width: 100%;
+}
+.searchTextBoxTrue
+{
+	border: 1px white solid;
+	color: #000;
+	font-style: normal;
+	width: 100%;
+}
+.contentPlaceHolder
+{
+	border-bottom-style: none;
+	position:relative;
+	border-width: 1px;
+	overflow: auto;
+	text-align: left;
+	width: 100%;
+	min-height:800px;
+}
+.content
+{
+	border-bottom: 0;
+	border-left: 1px solid #bbb;
+	border-width: 1px;
+	overflow: auto;
+	padding-top: 10px;
+	text-align: left;
+	width: auto;
+}
+.content .summary
+{
+	color: #000;
+}
+.searchcontainer .searchBoxContainer
+{
+	border: 1px solid #bfbfbf;
+	border-radius: 4px;
+	height: 21px;
+	margin: 0;
+	margin-top: 13px;
+	moz-border-radius: 4px;
+	padding: 0 1px 0 2px;
+	vertical-align: middle;
+	webkit-border-radius: 4px;
+	width: 256px;
+}
+.navigation .searchcontainer .searchBoxContainer
+{
+	margin: 13px;
+}
+.searchContent
+{
+	padding-bottom: 96px;
+	padding-left: 13px;
+	padding-right: 13px;
+	padding-top: 17px;
+}
+.searchContent .line
+{
+	border-top-color: #bfbfbf;
+	border-top-style: solid;
+	border-top-width: 1px;
+	height: 1px;
+	margin-bottom: 22px;
+	margin-top: 16px;
+}
+.searchContent .sectionHeader
+{
+	padding-bottom: 13px;
+}
+.searchContent .pageTitle
+{
+	padding-bottom: 20px;
+}
+.searchContent .Search
+{
+	border-width: 0;
+	height: 24px;
+	margin-left: 0;
+	margin-right: 0;
+	padding-top: 0;
+	width: 256px;
+}
+.searchContent .info
+{
+	padding-bottom: 24px;
+	padding-top: 16px;
+}
+.searchContent .info .term
+{
+	color: #e66a38;
+	font-weight: bold;
+	padding-right: 15px;
+}
+.searchContent .info .invalidTerm
+{
+	color: #000;
+	font-weight: bold;
+}
+.searchContent .info .page
+{
+	color: #1364c4;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.searchContent .info a:hover
+{
+	color: #e66a38;
+}
+.searchContent .info .rangeStart,.searchContent .info .rangeEnd,.searchContent .info .totalCount
+{
+	font-weight: bold;
+}
+.searchContent .info .currentPage
+{
+	background-color: #eff5ff;
+	border: 1px solid #bbb;
+	color: #e66a38;
+	font-weight: bold;
+	min-height: 15px;
+	min-width: 15px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.searchContent .results
+{
+}
+.searchContent .results .result
+{
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+.searchContent .results .result a
+{
+	color: #1364c4;
+	font-weight: bold;
+}
+.searchContent .results .result a:visited
+{
+	color: #960bb4;
+	text-decoration: none;
+}
+.searchContent .results .result .abstract
+{
+}
+.searchContent .results .result .url
+{
+	color: #7d7d7d;
+	font-style: italic;
+}
+.searchContent .tips
+{
+	padding-top: 32px;
+}
+.searchContent .tips .tipsHeading
+{
+	font-weight: bold;
+	padding-top: 26px;
+}
+.searchContent .tips ul
+{
+	list-style-type: none;
+	margin-top: 0;
+	padding-left: 0;
+}
+.tocResize
+{
+	cursor: pointer;
+	height: 22px;
+	left: 281px;
+	overflow: hidden;
+	position: absolute;
+	top: 86px;
+	width: 7px;
+}
+.tocResize img
+{
+	border: none;
+	position: relative;
+}
+div.caption
+{
+	clear: both!important;
+	color: #3f529c;
+	font-size: 1.007em;
+	font-weight: bold;
+	height: 20px!important;
+}
+.nav_root
+{
+	float: left;
+	margin-right: 5px;
+	margin-top: 7px;
+}

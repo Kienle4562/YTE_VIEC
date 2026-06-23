@@ -1,0 +1,54 @@
+# === USER UPLOADS / MEDIA (stored on disk, NOT in git) ===
+# Frontend uploads (company logos, images) - 2.6GB
+/file_upload/
+!/file_upload/.gitkeep
+# Job seeker resumes/CVs - 546MB
+/hosoungvien/
+# Quanly portal uploads
+/quanly/file_upload/
+# Tuyendung portal uploads
+/tuyendung/file_upload/
+
+# === BACKUPS (never in git) ===
+*.tar.gz
+*.zip
+bk_*.tar.gz
+ytvsource.tar.gz
+
+# === DATABASE DUMPS ===
+*.sql
+*.sql.gz
+
+# === SECRETS / CREDENTIALS ===
+.htpasswd
+.env
+*.env
+
+# === LOGS ===
+*.log
+error_log
+error_log.*
+quantri/error_log
+
+# === CACHE / TEMP ===
+*.tmp
+*.cache
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# === DEAD DUPLICATE FOLDERS (legacy) ===
+*___/
+*____/
+*_bk/
+*_bk_*/
+*_old/
+*- Copy/
+*__/
+
+# === EDITOR / IDE ===
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

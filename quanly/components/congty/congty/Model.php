@@ -1,0 +1,341 @@
+<?php defined( '_VALID_MOS' ) or die( include("404.php") );
+
+    class process
+    {
+        public $dbObj;
+        
+        function __construct()
+        {
+            $this->dbObj = new classDb();
+        }
+		
+		public function getCompany($value_company){
+			$sql = "SELECT * FROM trn_congty WHERE tencongty like '%" .$value_company. "%' ORDER BY tencongty LIMIT 0,6";
+			return $this->dbObj->SqlQueryOutputResult($sql, array($value_company));
+		}
+		function Update_company(
+							$tencongty,
+							$loaihinhhoatdong_id,
+							$loaihinhhoatdongkhac,
+							$email,
+							$password,
+							$trangthai,
+							$hien_thi,
+							$guimail,
+							$nguoilienhe,
+							$quymo_id,
+							$bvhangdau,
+							$hinhanh,
+							$web,
+							$chude,
+							$diachicongty,
+							$sdthoai,
+							$tinhthanh_id,
+							$banner,
+							$gpkd,
+							$urlfacebook,
+							$gioithieungan,
+							$hinhanhcongty1,
+							$hinhanhcongty2,
+							$hinhanhcongty3,
+							$pin,
+							$user_update,
+							$ghi_chu_nb,
+							$congty_id
+							)
+        {	
+		    $sql = "Update trn_congty Set
+						tencongty = ?,
+						loaihinhhoatdong_id = ?,
+						loaihinhhoatdongkhac = ?,
+						email = ?,
+						password = ?,
+						trangthai = ?,
+						hien_thi = ?,
+						guimail = ?,
+						nguoilienhe = ?,
+						quymo_id = ?,
+						bvhangdau = ?,
+						hinhanh = ?,
+						web = ?,
+						chude = ?,
+						diachicongty = ?,
+						sdthoai = ?,
+						tinhthanh_id = ?,
+						banner = ?,
+						gpkd = ?,
+						urlfacebook = ?,
+						gioithieungan = ?,
+						hinhanhcongty1 = ?,
+						hinhanhcongty2 = ?,
+						hinhanhcongty3 = ?,
+						pin = ?,
+						user_update = ?,
+					   ghi_chu_nb = ?
+					  Where congty_id = ?
+				";
+            if ($this->dbObj->SqlQueryInputResult($sql, 
+				array($tencongty,
+							$loaihinhhoatdong_id,
+							$loaihinhhoatdongkhac,
+							$email,
+							$password,
+							$trangthai,
+							$hien_thi,
+							$guimail,
+							$nguoilienhe,
+							$quymo_id,
+							$bvhangdau,
+							$hinhanh,
+							$web,
+							$chude,
+							$diachicongty,
+							$sdthoai,
+							$tinhthanh_id,
+							$banner,
+							$gpkd,
+							$urlfacebook,
+							$gioithieungan,
+							$hinhanhcongty1,
+							$hinhanhcongty2,
+							$hinhanhcongty3,
+							$pin,
+							$user_update,
+							$ghi_chu_nb,
+							$congty_id
+							)
+					) <> FALSE
+				) 
+				{
+				   return true;
+				} else {
+				   return false;
+				}
+			}
+		}
+	
+	// Khai báo chung
+    $com_name = "congty";
+	$title = "CÔNG TY";
+	$mota = "danh sách công ty";
+	$db_name = "trn_congty";
+	$primary_key = "congty_id";
+	$where_common =  $primary_key."='" . $_POST[$primary_key] . "'";
+	
+    /*  ___________________________
+       |                           |
+       |          HANDLER          |
+       |___________________________|
+    */
+    
+    switch(@$_REQUEST["act"]){
+
+        case "";
+        	//Action rỗng thì không làm gì cả
+        break;
+		
+		case "load_modal_add":
+			include_once("Add.php");
+		break;
+
+		case "load_modal_edit":
+			include_once("Edit.php");
+		break;
+		
+		case "load_real_company":
+			include_once("readCompany.php");
+		break;
+		
+		case "Insert";
+			//var_dump($_POST);
+			$link ="http://tuyendung.yteviec.com/";
+			if(!empty($_POST['guimail'])){
+			$makichhoat = md5(sha1(md5(sha1($_POST['email']))));
+			$subject = "Kích hoạt tài khoản tại Y Tế Việc";
+			$mailHTML = "Chào ".$_POST['email'].",<br><br>";
+			$mailHTML .= "Chúc mừng bạn, dưới đây là thông tin tài khoản đã được tạo. <br>";
+			$mailHTML .= "Với mật khẩu là:".$_POST['password'].",<br><br>";
+			$mailHTML .= '<a style="background-color: #7087A3; font-size: 18px; padding: 15px 15px; color: #fff;display: table;margin: 10px auto; text-decoration: none;border-radius: 5px;">Tài khoản: '.$_POST['email'].'</a>';
+			$mailHTML .= "Chỉ thêm một bước nữa, bạn có thể tham gia vào cộng đồng tuyển dụng chuyên nghiệp lớn nhất Việt Nam, Hãy kích hoạt tài khoản của bạn và bắt đầu tuyển dụng ngay hôm nay<br>";
+			//$mailHTML .= '<a href="'.$$link.'?active='.$makichhoat.'" style="background-color: #f7941d; font-size: 18px; padding: 15px 15px; color: #fff; text-decoration: none;display: table;margin: 10px auto;border-radius: 5px;">KÍCH HOẠT TÀI KHOẢN</a>';
+
+			$mailContent = $core_class->sendMailWithTemplate($subject, $mailHTML);
+			$emailTo = $_POST['email'];
+				if(!empty($emailTo)){
+					$core_class->smtpSendMailCandidate($subject, $mailContent, $emailTo);
+				}
+			}
+			  $_POST["password"] = $core_class->enscriptPass($_POST['password']);
+			  
+			  if($core_class->insertTable($db_name)){
+				echo "1";
+			}else{
+				echo "0";
+			} 
+		break;
+		
+		case "Update";
+			//var_dump($_POST);
+			$pass_update ="";
+			$myprocess		      = new process();
+			$tencongty			  = $_POST['tencongty'];
+			$loaihinhhoatdong_id  = $_POST['loaihinhhoatdong_id'];
+			$loaihinhhoatdongkhac = $_POST['loaihinhhoatdongkhac'];
+			$email				  = $_POST['email'];
+			
+			if(!empty($_POST['password']))
+			{
+				$pass_update = $core_class->enscriptPass($_POST['password']);
+			}else 
+			{
+				$pass_update = $_POST['password_2'];
+			}
+			
+			$trangthai		      = $_POST['trangthai'];
+			$hien_thi		      = $_POST['hien_thi'];
+			$pin		          = $_POST['pin'];
+			$nguoilienhe          = $_POST['nguoilienhe'];
+			$quymo_id             = $_POST['quymo_id'];
+			$bvhangdau			  = $_POST['bvhangdau'];
+			$hinhanh			  = $_POST['hinhanh'];
+			$web				  = $_POST['web'];
+			$chude				  = $_POST['chude'];
+			$diachicongty		  = $_POST['diachicongty'];
+			$sdthoai			  = $_POST['sdthoai'];
+			$tinhthanh_id		  = $_POST['tinhthanh_id'];
+			$banner				  = $_POST['banner'];
+			$gpkd				  = $_POST['gpkd'];
+			$urlfacebook		  = $_POST['urlfacebook'];
+			$gioithieungan		  = $_POST['gioithieungan'];
+			$hinhanhcongty1		  = $_POST['hinhanhcongty1'];
+			$hinhanhcongty2		  = $_POST['hinhanhcongty2'];
+			$hinhanhcongty3		  = $_POST['hinhanhcongty3'];
+			$congty_id		 	  = $_POST['congty_id'];
+			$user_update		  = $_POST['user_update'];
+			$guimail		      = $_POST['guimail'];
+			$ghi_chu_nb		      = $_POST['ghi_chu_nb'];
+			$link ="http://tuyendung.yteviec.com/";
+			if($resultUpdate = $myprocess->Update_company($tencongty,
+												$loaihinhhoatdong_id,
+												$loaihinhhoatdongkhac,
+												$email,
+												$pass_update,
+												$trangthai,
+												$hien_thi,
+												$guimail,
+												$nguoilienhe,
+												$quymo_id,
+												$bvhangdau,
+												$hinhanh,
+												$web,
+												$chude,
+												$diachicongty,
+												$sdthoai,
+												$tinhthanh_id,
+												$banner,
+												$gpkd,
+												$urlfacebook,
+												$gioithieungan,
+												$hinhanhcongty1,
+												$hinhanhcongty2,
+												$hinhanhcongty3,
+												$pin,
+												$user_update,
+												$ghi_chu_nb,
+												$congty_id))
+			{
+				if(!empty($_POST['guimail'])){
+					$makichhoat = md5(sha1(md5(sha1($_POST['email']))));
+					$subject = "Kích hoạt tài khoản tại Y Tế Việc";
+					$mailHTML = "Chào ".$_POST['email'].",<br><br>";
+					$mailHTML .= "Chúc mừng bạn, dưới đây là thông tin tài khoản đã được tạo. <br>";
+					$mailHTML .= "Với mật khẩu là:".$_POST['password'].",<br><br>";
+					$mailHTML .= '<a style="background-color: #7087A3; font-size: 18px; padding: 15px 15px; color: #fff;display: table;margin: 10px auto; text-decoration: none;border-radius: 5px;">Tài khoản: '.$_POST['email'].'</a>';
+					$mailHTML .= "Chỉ thêm một bước nữa, bạn có thể tham gia vào cộng đồng tuyển dụng chuyên nghiệp lớn nhất Việt Nam, Hãy kích hoạt tài khoản của bạn và bắt đầu tuyển dụng ngay hôm nay<br>";
+					//$mailHTML .= '<a href="'.$link.'?active='.$makichhoat.'" style="background-color: #f7941d; font-size: 18px; padding: 15px 15px; color: #fff; text-decoration: none;display: table;margin: 10px auto;border-radius: 5px;">KÍCH HOẠT TÀI KHOẢN</a>';
+
+					$mailContent = $core_class->sendMailWithTemplate($subject, $mailHTML);
+					$emailTo = $_POST['email'];
+						if(!empty($emailTo)){
+							
+								if($core_class->smtpSendMailCandidate($subject, $mailContent, $emailTo))
+								{
+									echo "1";
+									
+								}else
+								{
+									echo "0";
+								}
+							}
+						}else
+						{
+							echo '1';
+						}
+			}else{
+				echo "0";
+			}
+			
+		break;
+		
+		case "Delete";
+			if($core_class->deleteTable($db_name, $primary_key." IN(" . $_REQUEST["id"] .")")){
+				echo "1";
+			}else{
+				echo "0";
+			}
+		break;
+		
+		case "Upload";
+			$core_class->uploadFile();
+		break;
+		
+		case "LoadDataEdit";
+			$core_class->loadJSONDataList2($db_name,"AND ".$primary_key."=".$_REQUEST["id"]);
+		break;
+		
+		case "LoadDataEdit";
+			 include_once("Edit.php");
+		break;
+		
+		case "LoadList";
+			$column = "tencongty,CASE WHEN Tendangnhap  IS NULL  THEN trn_congty.email ELSE Tendangnhap END Tendangnhap,trn_congty.hinhanh,diachicongty,DATE_FORMAT(trn_congty.DISORDER, '%d/%m/%Y %H:%i:%s') AS ngayposttin,user_id,trn_congty.email,ghi_chu_nb, ";
+			$join = "LEFT JOIN taikhoan ON trn_congty.user_id = taikhoan.taikhoan_id";
+			$column .= "congty_id,congty_id as action_id,congty_id as IDcty";
+			$condition = " ";
+			$trang_thai = " " ;
+			$user = " " ;
+			$tu_ngay = " ";
+			$den_ngay = " ";
+			if(isset($_REQUEST["status"]) && is_numeric($_REQUEST["status"])){
+				$trang_thai = $_REQUEST["status"];
+				$condition .= " AND trn_congty.trangthai ='".$trang_thai."'"; 
+			}
+			if(isset($_REQUEST["user"])){
+				$user = $_REQUEST["user"];
+				$condition .= " AND trn_congty.user_id ='".$user."'"; 
+			}
+			if(isset($_REQUEST["tu_ngay"])){
+				$tu_ngay = $_REQUEST["tu_ngay"];
+				$condition .= " AND trn_congty.DISORDER >='".$core_class->_formatdate($tu_ngay)." 00:00:00'"; 
+			}
+			if(isset($_REQUEST["den_ngay"])){
+				$den_ngay = $_REQUEST["den_ngay"];
+				$condition .= " AND trn_congty.DISORDER <='".$core_class->_formatdate($den_ngay)." 23:59:59'"; 
+			}
+			if($_SESSION["session"]['Id'] !=4)
+			{
+				$condition .='AND user_id ='.$_SESSION["session"]['Id'];
+			}
+			/*if($_SESSION["session"]['Id'] !=4)
+			{
+				$where ='AND user_id ='.$_SESSION["session"]['Id'];
+			}*/
+			$condition .=' ORDER BY trn_congty.DISORDER DESC';
+			//echo $condition;
+			echo $core_class->getValueFromTableToJSON_Multiple($db_name, $column,$join,$condition);
+		break;
+		
+        default:
+            $core_class->_redirect(".");
+        break;
+    }

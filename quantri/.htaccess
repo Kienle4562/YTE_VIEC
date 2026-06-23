@@ -1,0 +1,24 @@
+
+ RewriteEngine on
+# luu y: neu nhu them 2 dong duoi day thi truoc url that phai them ten thu muc root
+# nhu dong duoi day:
+# RewriteRule ^mod/([a-zA-Z-0-9]*) mekong360/urlrewrite.php?mod=$1
+# Options +FollowSymlinks
+# RewriteBase
+
+RewriteRule   ^$ index.php
+
+#(.*) nhan tat ca cac gia tri.
+#([0-9]*) chi nhan tat ca cac gia tri la so, tu 0-9.
+#([a-zA-Z]*) chi nha cac gia tri la chu cai, tu a-z và A-Z.
+#([a-zA-Z-0-9]*) nhan cac gia tri la chu va so
+
+# 1 vai qui tac tham khao:
+
+#RewriteEngine on
+#RewriteRule   ^news\/catnews\/([0-9]+).html$ index.php?mod=news&cat_id=$1 [L]
+#RewriteRule   ^news\/([0-9]+).html$ index.php?mod=news&news_id=$1 [L]
+#RewriteRule   ^news index.php?mod=news [L]
+
+#php_value upload_max_filesize 50M
+#php_value post_max_size 50M

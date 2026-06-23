@@ -1,0 +1,118 @@
+BODY {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, Helvetica, sans-serif;
+	background:url(dangnhap.png) top center repeat;
+}
+TD {
+	FONT-SIZE: 11px; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+FORM {
+	DISPLAY: inline; FONT-SIZE: 11px; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+.title_box {
+	FONT-WEIGHT: bold; FONT-SIZE: 13pt; COLOR: #990000; FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+HR {
+	HEIGHT: 1px
+}
+INPUT {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; FONT-SIZE: 11px; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+SELECT {
+	BORDER-RIGHT: 1px solid; BORDER-TOP: 1px solid; FONT-SIZE: 11px; BORDER-LEFT: 1px solid; BORDER-BOTTOM: 1px solid; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif
+}
+A:visited {
+	FONT-SIZE: 8pt; COLOR: #0033cc; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+A:link {
+	FONT-SIZE: 8pt; COLOR: #0033cc; FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif; TEXT-DECORATION: none
+}
+.bottom {
+	FONT-SIZE: 11px; COLOR: #4a4a4a
+}
+.bold {
+	FONT-WEIGHT: bold
+}
+.bold_login {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #4a4a4a
+}
+#btn_login {
+	FONT-WEIGHT: bold; COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#btn_login:link {
+	FONT-WEIGHT: bold; COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#btn_login:active {
+	FONT-WEIGHT: bold; COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#btn_login:visited {
+	FONT-WEIGHT: bold; COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#btn_login:hover {
+	COLOR: #0066cc
+}
+#link_bottom {
+	COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#link_bottom:link {
+	COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#link_bottom:active {
+	COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#link_bottom:visited {
+	COLOR: #4a4a4a; TEXT-DECORATION: none
+}
+#link_bottom:hover {
+	COLOR: #0066cc
+}
+.border_login {
+	BORDER-RIGHT: #fc7466 1px solid; BORDER-TOP: #fc7466 1px solid; BORDER-LEFT: #fc7466 1px solid; BORDER-BOTTOM: #fc7466 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.border_login_bottom {
+	BORDER-RIGHT: #fc7466 0px solid; BORDER-TOP: #fc7466 0px solid; BORDER-LEFT: #fc7466 1px solid; BORDER-BOTTOM: #fc7466 1px solid; BACKGROUND-COLOR: #ffffff
+}
+.border_textbox {
+	BORDER-RIGHT: #fc7466 1px solid; BORDER-TOP: #fc7466 1px solid; PADDING-LEFT: 2px; FONT-SIZE: 11px; BORDER-LEFT: #fc7466 1px solid; BORDER-BOTTOM: #fc7466 1px solid; HEIGHT: 18px
+}
+.welcome_admin {
+	PADDING-RIGHT: 20px; FONT-WEIGHT: bold; FONT-SIZE: 13px; COLOR: #ffffff
+}
+.title_admin {
+	PADDING-LEFT: 20px; FONT-WEIGHT: bold; FONT-SIZE: 16px; COLOR: #cc0000
+}
+.btn_detail A:link {
+	PADDING-RIGHT: 5px; DISPLAY: block; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 1em; PADDING-BOTTOM: 0px; COLOR: #cc0000; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+.btn_detail A:visited {
+	PADDING-RIGHT: 5px; DISPLAY: block; PADDING-LEFT: 5px; FONT-WEIGHT: bold; FONT-SIZE: 1em; PADDING-BOTTOM: 0px; COLOR: #cc0000; PADDING-TOP: 0px; TEXT-DECORATION: none
+}
+.btn_detail A:hover {
+	COLOR: #000099
+}
+.title_right {
+	PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 12px; TEXT-TRANSFORM: capitalize; COLOR: #333333
+}
+.name_user {
+	PADDING-LEFT: 10px; FONT-WEIGHT: bold; COLOR: #990000
+}
+.navigation_title {
+	PADDING-RIGHT: 8px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 12px; PADDING-BOTTOM: 5px; COLOR: #333333; PADDING-TOP: 5px; TEXT-ALIGN: right
+}
+.navigation_btn A:link {
+	FONT-WEIGHT: bold; FONT-SIZE: 0.9em; COLOR: #731e1e; TEXT-DECORATION: none
+}
+.navigation_btn A:visited {
+	FONT-WEIGHT: bold; FONT-SIZE: 0.9em; COLOR: #731e1e; TEXT-DECORATION: none
+}
+.navigation_btn A:hover {
+	COLOR: #330099
+}
+.border_CBAD95 {
+	BORDER-RIGHT: #cbad95 1px solid; BORDER-TOP: #cbad95 0px solid; BORDER-LEFT: #cbad95 1px solid; BORDER-BOTTOM: #cbad95 1px solid
+}
+.title_table {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 10px; FONT-WEIGHT: bold; FONT-SIZE: 13px; PADDING-BOTTOM: 0px; COLOR: #504f4a; PADDING-TOP: 2px
+}
+.padding_left_right {
+	PADDING-RIGHT: 5px; PADDING-LEFT: 5px; PADDING-BOTTOM: 0px; PADDING-TOP: 3px
+}

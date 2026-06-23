@@ -91,4 +91,5 @@
     $GLOBALS['INDEX'] = $index;
     $GLOBALS['COM'] = $front_end_com_folder;
     $GLOBALS['MULTI_LANG'] = FALSE; /* Under Construction */
+    $GLOBALS['LANG_LIST'] = isset($GLOBALS['LANG_LIST']) ? $GLOBALS['LANG_LIST'] : array();
     //$GLOBALS['LANG_LIST'] = $core_class->get_flags_list();

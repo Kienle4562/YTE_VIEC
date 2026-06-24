@@ -8,6 +8,14 @@
 			'db_password' => 'kb3ABFNzY',
 				'location' => '../',
 				'frontpage' => 'https://yteviec.blinkthor.com',
+        ),
+		'quanly.yteviec.com' => array(
+			'db_schema' => 'ytvco_data',
+			'db_host' => 'db',
+			'db_user' => 'ytvco_user',
+			'db_password' => 'kb3ABFNzY',
+				'location' => '../',
+				'frontpage' => 'https://yteviec.com',
         )
 	);
     // Đọc thông tin về website

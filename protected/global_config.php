@@ -7,6 +7,20 @@
                 'db_user' => 'ytvco_user',
                 'db_password' => 'kb3ABFNzY',
                 'template' => 'yteviec'
+        ),
+		'yteviec.com' => array(
+                'db_schema' => 'ytvco_data',
+                'db_host' => 'db',
+                'db_user' => 'ytvco_user',
+                'db_password' => 'kb3ABFNzY',
+                'template' => 'yteviec'
+        ),
+		'www.yteviec.com' => array(
+                'db_schema' => 'ytvco_data',
+                'db_host' => 'db',
+                'db_user' => 'ytvco_user',
+                'db_password' => 'kb3ABFNzY',
+                'template' => 'yteviec'
         )
 	);
     

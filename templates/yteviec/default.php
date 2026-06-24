@@ -26,13 +26,13 @@
 
     <meta name="format-detection" content="telephone=no">
 
-    <meta property="og:image" content="https://yteviec.com/images/logo2.jpg"/>
+    <meta property="og:image" content="https://yteviec.com/images/logo.png"/>
 
-	<meta property="og:image:secure_url" content="https://yteviec.com/images/logo2.jpg"/>
+	<meta property="og:image:secure_url" content="https://yteviec.com/images/logo.png"/>
 
-	<meta property="og:image:width" content="526"/>
+	<meta property="og:image:width" content="636"/>
 
-	<meta property="og:image:height" content="275"/>
+	<meta property="og:image:height" content="625"/>
 
 	<meta property="og:title" content="<!--wti>{meta_title}</wti-->"/>
 

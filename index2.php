@@ -231,8 +231,16 @@
 
 			// Render CV -> PDF via the internal Gotenberg service.
 			// (Replaces the dead external viecyte.com/param converter.)
-			$render_url = "https://" . $_SERVER['HTTP_HOST'] . "/download?temp=" . $temp . "&career_id=" . $career_id . "&profile=" . $profile . "&email=" . $email;
+			// The CV render page (template/<temp>/index.php) loads the candidate's
+			// data from the PHP session and only renders when idTheme is set, so we
+			// forward THIS logged-in user's session cookie to Gotenberg and add
+			// idTheme to the URL. session_write_close() first releases the session
+			// lock, otherwise the Gotenberg-triggered /download sub-request would
+			// deadlock waiting for the lock this request still holds.
+			$sid = session_id();
+			$render_url = "https://" . $_SERVER['HTTP_HOST'] . "/download?temp=" . $temp . "&idTheme=" . $temp . "&career_id=" . $career_id . "&profile=" . $profile . "&email=" . $email;
 			$paperWidth = ($webPageWidth > 0) ? round($webPageWidth / 96, 2) : 8.5;
+			session_write_close();
 			$ch = curl_init("http://yteviec-gotenberg:3000/forms/chromium/convert/url");
 			curl_setopt_array($ch, array(
 				CURLOPT_RETURNTRANSFER => true,
@@ -246,6 +254,7 @@
 					'marginLeft' => '0.2',
 					'marginRight' => '0.2',
 					'printBackground' => 'true',
+					'extraHttpHeaders' => '{"Cookie":"PHPSESSID=' . $sid . '"}',
 				),
 			));
 			$result = curl_exec($ch);

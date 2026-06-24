@@ -1,7 +1,7 @@
 <!-- begin::Quick Nav -->	
 <!--begin::Base Scripts -->
-<script src="dist/assets/vendors/base/vendors.bundle.js?ver=<?php echo date("dmyHis") ?>" type="text/javascript"></script>
-<script src="dist/assets/web/base/scripts.bundle.js?ver=<?php echo date("dmyHis") ?>" type="text/javascript"></script>
+<script src="<?php $core_class->latest_version("dist/assets/vendors/base/vendors.bundle.js"); ?>" type="text/javascript"></script>
+<script src="<?php $core_class->latest_version("dist/assets/web/base/scripts.bundle.js"); ?>" type="text/javascript"></script>
 <!--end::Base Scripts -->   
 <!--begin::Page Vendors -->
 <script src="dist/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
@@ -10,7 +10,7 @@
 	<script src="dist/assets/web/custom/components/forms/widgets/select2.js" type="text/javascript"></script>
 <!--end::Page Resources -->
 <!--begin::Page Snippets -->
-<script src="dist/assets/app/js/dashboard.js" type="text/javascript"></script>
+<script src="<?php $core_class->latest_version("dist/assets/app/js/dashboard.js"); ?>" type="text/javascript"></script>
 <script src="<?php $core_class->latest_version("dist/custom.js"); ?>" type="text/javascript"></script>
 <script src="<?php $core_class->latest_version("dist/func_common.js"); ?>" type="text/javascript"></script>
 <!--end::Page Snippets -->   

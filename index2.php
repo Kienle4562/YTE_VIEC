@@ -229,9 +229,33 @@
 			// Set parameters
 			$email_arr = explode('@', $_SESSION['career']['email']);
 
-			$apikey = '1b424579-7d5e-49f6-a677-2b080c3445ae';
-			$value = $_SERVER['HTTP_HOST'].'/download?temp='.$temp.'&career_id='.$career_id.'&profile='.$profile.'&email='.$email;
-			$result = file_get_contents("http://viecyte.com/param?api_key=".urlencode($apikey)."&url=" . urlencode($value) . "&fileName=&webPageWidth=".$webPageWidth);
+			// Render CV -> PDF via the internal Gotenberg service.
+			// (Replaces the dead external viecyte.com/param converter.)
+			$render_url = "https://" . $_SERVER['HTTP_HOST'] . "/download?temp=" . $temp . "&career_id=" . $career_id . "&profile=" . $profile . "&email=" . $email;
+			$paperWidth = ($webPageWidth > 0) ? round($webPageWidth / 96, 2) : 8.5;
+			$ch = curl_init("http://yteviec-gotenberg:3000/forms/chromium/convert/url");
+			curl_setopt_array($ch, array(
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_POST => true,
+				CURLOPT_TIMEOUT => 60,
+				CURLOPT_POSTFIELDS => array(
+					'url' => $render_url,
+					'paperWidth' => $paperWidth,
+					'marginTop' => '0.2',
+					'marginBottom' => '0.2',
+					'marginLeft' => '0.2',
+					'marginRight' => '0.2',
+					'printBackground' => 'true',
+				),
+			));
+			$result = curl_exec($ch);
+			$pdf_http = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			curl_close($ch);
+			if ($result === false || $pdf_http != 200 || substr($result, 0, 4) !== '%PDF') {
+				header('Content-Type: text/plain; charset=utf-8');
+				echo 'Không tạo được file PDF, vui lòng thử lại sau.';
+				break;
+			}
 			header('Content-Description: File Transfer');
 			header('Content-Type: application/pdf');
 			header('Expires: 0');

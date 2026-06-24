@@ -557,7 +557,7 @@
 					$mailHTML .= '<img style="display: block;float: left;margin-right: 5px;" src="http://quanly.yteviec.com/dist/email-img/social-facebook.png" alt="facebook" width="16">';
 					$mailHTML .= 'Chia sẻ để tuyển dụng nhanh hơn</a><br>';
 					$mailHTML .= "Bạn có thể kiểm tra tin đăng của bạn tại đường link dưới đây.<br>";
-					$mailHTML .= "Bạn có thể <a href='http://yteviec.com'>đăng nhập</a> vào tài khoản để cập nhật tài khoản và quản lý ứng viên ứng tuyển.<br>";
+					$mailHTML .= "Bạn có thể <a href='https://yteviec.com'>đăng nhập</a> vào tài khoản để cập nhật tài khoản và quản lý ứng viên ứng tuyển.<br>";
 					$mailHTML .= $link;
 					$mailContent = $core_class->sendMailWithTemplate($subject, $mailHTML);
 					

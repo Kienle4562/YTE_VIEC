@@ -147,7 +147,7 @@
                                 <td class="col_3"><?php echo $row_detail['fullname']; ?></td>
                                 <td class="col_3"><?php if($row_detail['gioitinh_id'] == 1){ echo 'Nam';} else { echo 'Nữ';} ?></td>
                                 <td class="col_5"><?php echo $row_detail['sodienthoai']; ?></td>
-                                <td class="col_5"><a href="http://yteviec.com/<?php echo $row_detail['hoso'] ?>" class="m-badge m-badge--accent m-badge--wide">Tải về</a></td>
+                                <td class="col_5"><a href="https://yteviec.com/<?php echo $row_detail['hoso'] ?>" class="m-badge m-badge--accent m-badge--wide">Tải về</a></td>
                                 
                                 <td class="col_5"><?php echo $row_detail['email']; ?></td>
 								<td class="col_5"><?php echo $row_detail['ten_tinhthanh']; ?></td>

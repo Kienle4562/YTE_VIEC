@@ -211,7 +211,7 @@
 		$meta_title = $_APP['config']['title'][$GLOBALS['LANG']];
 		$meta_keyword = $_APP['config']['meta-keyword'][$GLOBALS['LANG']];
 		$meta_description = $_APP['config']['meta-description'][$GLOBALS['LANG']];
-		$meta_img = 'http://anthy.net/files/images/logo.png';
+		$meta_img = $index . 'images/logo.png';
 		$meta_url = $index;
 		if (!empty($_SESSION['allow_edit_module']) && $_SESSION['allow_edit_module']) {
 			$GLOBALS['ADMIN_EDIT_MODULE'] = 1;

@@ -203,7 +203,7 @@ input:focus {
 												<label class="m-checkbox m-checkbox--focus">
 													<input type="checkbox" name="agree">
 													Bằng việc nhấp vào "Đăng Ký!", bạn đã đồng ý với các điều khoản ghi trong
-													<a href="http://yteviec.com/thoa-thuan-su-dung/n1366.html" class="m-link">
+													<a href="https://yteviec.com/thoa-thuan-su-dung/n1366.html" class="m-link">
 														Thỏa thuận dịch vụ của YTeViec.com
 													</a>
 													.

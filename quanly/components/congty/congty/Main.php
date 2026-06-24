@@ -389,7 +389,7 @@ var DatatableRecordSelection = function() {
 				title: 'ID',
 				width: 40,
 				template: function(row) {
-					return '<a href="http://yteviec.com/'+row.IDcty+'-client.html" target="_blank">' + row.IDcty + '</a>';
+					return '<a href="https://yteviec.com/'+row.IDcty+'-client.html" target="_blank">' + row.IDcty + '</a>';
 				}
 			}/* , {
 				field: 'hinhanh',

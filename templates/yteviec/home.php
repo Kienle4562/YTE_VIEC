@@ -26,9 +26,9 @@
 
     <meta name="format-detection" content="telephone=no">
 
-    <meta property="og:image" content="http://yteviec.com/images/logo2.jpg"/>
+    <meta property="og:image" content="https://yteviec.com/images/logo2.jpg"/>
 
-	<meta property="og:image:secure_url" content="http://yteviec.com/images/logo2.jpg"/>
+	<meta property="og:image:secure_url" content="https://yteviec.com/images/logo2.jpg"/>
 
 	<meta property="og:image:width" content="526"/>
 

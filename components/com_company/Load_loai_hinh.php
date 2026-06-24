@@ -26,7 +26,7 @@
 	</li>
 	<!--<li>
 		<label class="m-checkbox">
-			<input onchange="window.location.href='http://yteviec.com/benh-vien.html?key=benhvien'" type="checkbox" value="50" class="chkCheckBox "> Danh sách bệnh viện<span></span>
+			<input onchange="window.location.href='https://yteviec.com/benh-vien.html?key=benhvien'" type="checkbox" value="50" class="chkCheckBox "> Danh sách bệnh viện<span></span>
 		</label>
 		<span class="f_right">(0)</span>
 	</li>-->
@@ -43,7 +43,7 @@
 	  ?>
 	<!-- <li>
 		<label class="m-checkbox">
-			<input onchange="window.location.href='http://yteviec.com/phong-kham.html?key=phongkham'" type="checkbox" value="1" class="chkCheckBox ">Phòng khám<span></span>
+			<input onchange="window.location.href='https://yteviec.com/phong-kham.html?key=phongkham'" type="checkbox" value="1" class="chkCheckBox ">Phòng khám<span></span>
 		</label>
 		<span class="f_right">(0)</span>
 	</li>-->
@@ -67,7 +67,7 @@
 	</li>
 	<!--<li>
 		<label class="m-checkbox">
-			<input onchange="window.location.href='http://yteviec.com/phong-kham.html?key=phongkham'" type="checkbox" value="50" class="chkCheckBox "> Danh Sách Phòng Khám<span></span>
+			<input onchange="window.location.href='https://yteviec.com/phong-kham.html?key=phongkham'" type="checkbox" value="50" class="chkCheckBox "> Danh Sách Phòng Khám<span></span>
 		</label>
 		<span class="f_right">(0)</span>
 	</li>-->
@@ -81,7 +81,7 @@
   ?>
 	<!--<li>
 		<label class="m-checkbox">
-			<input onchange="window.location.href='http://yteviec.com/cong-ty.html?key=congtyyte'" type="checkbox" value="1" class="chkCheckBox "> Công Ty<span></span>
+			<input onchange="window.location.href='https://yteviec.com/cong-ty.html?key=congtyyte'" type="checkbox" value="1" class="chkCheckBox "> Công Ty<span></span>
 		</label>
 		<span class="f_right">(0)</span>
 	</li>-->
@@ -99,7 +99,7 @@
 	</li>
 	<!--<li>
 		<label class="m-checkbox">
-			<input onchange="window.location.href='http://yteviec.com/cong-ty-y-te.html?key=congtyyte'" type="checkbox" value="50" class="chkCheckBox "> Danh Sách Công Ty Y Tế<span></span>
+			<input onchange="window.location.href='https://yteviec.com/cong-ty-y-te.html?key=congtyyte'" type="checkbox" value="50" class="chkCheckBox "> Danh Sách Công Ty Y Tế<span></span>
 		</label>
 		<span class="f_right">(0)</span>
 	</li>-->
@@ -112,7 +112,7 @@
 	   ?>
    <!--<li>
 		<label class="m-checkbox">
-			<input onchange="window.location.href='http://yteviec.com/tra-cuu-co-so-y-te.html?key=timtruongyvacosoytekhac'" type="checkbox" value="1" class="chkCheckBox ">Khác<span></span>
+			<input onchange="window.location.href='https://yteviec.com/tra-cuu-co-so-y-te.html?key=timtruongyvacosoytekhac'" type="checkbox" value="1" class="chkCheckBox ">Khác<span></span>
 		</label>
 		<span class="f_right">(0)</span>
 	</li>-->
@@ -130,7 +130,7 @@
 	</li>
 	<!--<li>
 		<label class="m-checkbox">
-			<input onchange="window.location.href='http://yteviec.com/tra-cuu-co-so-y-te.html?key=timtruongyvacosoytekhac'" type="checkbox" value="50" class="chkCheckBox "> Tra Cứu Cơ Sở Y Tế<span></span>
+			<input onchange="window.location.href='https://yteviec.com/tra-cuu-co-so-y-te.html?key=timtruongyvacosoytekhac'" type="checkbox" value="50" class="chkCheckBox "> Tra Cứu Cơ Sở Y Tế<span></span>
 		</label>
 		<span class="f_right">(0)</span>
 	</li>-->

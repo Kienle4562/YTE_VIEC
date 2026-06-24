@@ -248,7 +248,7 @@ var DatatableRecordSelection = function() {
 				title: 'ID Công Việc',
 				width: 110,
 				template: function(row) {
-					return '<a href="http://yteviec.com/'+row.IDNews+'-cv.html" target="_blank">'+row.IDNews+'</a>';
+					return '<a href="https://yteviec.com/'+row.IDNews+'-cv.html" target="_blank">'+row.IDNews+'</a>';
 				}
 			},{
 				field: 'tencongty',
@@ -284,7 +284,7 @@ var DatatableRecordSelection = function() {
 				title: 'Hồ sơ ứng viên',
 				width: 140,
 				template: function (row) {
-					return '<a href="http://yteviec.com/'+row.hoso+'" class="m-badge m-badge--accent m-badge--wide">Tải về</a>';
+					return '<a href="https://yteviec.com/'+row.hoso+'" class="m-badge m-badge--accent m-badge--wide">Tải về</a>';
 				}
 			}],
 	};

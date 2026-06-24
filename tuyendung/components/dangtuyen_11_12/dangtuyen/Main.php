@@ -149,7 +149,7 @@
 												<strong><?php echo $rowcs['congviec_id'] ?></strong>
 											</td>
 											<td>
-											<a href="http://yteviec.com/<?php echo $rowcs['congviec_id'] ?>-cv.html" target="_blank"><?php echo $rowcs['tencongviec'] ?></a>
+											<a href="https://yteviec.com/<?php echo $rowcs['congviec_id'] ?>-cv.html" target="_blank"><?php echo $rowcs['tencongviec'] ?></a>
 												
 											</td>
 											<td>

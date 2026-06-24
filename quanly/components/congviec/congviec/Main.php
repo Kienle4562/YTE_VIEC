@@ -371,7 +371,7 @@
 									<?php echo $row['congviec_id'] ?>
 								</td>
 								<td nowrap>
-									<a href="http://yteviec.com/<?php echo $row['congviec_id'] ?>-cv.html" target="_blank"><?php echo $row['congviec_id'] ?></a>
+									<a href="https://yteviec.com/<?php echo $row['congviec_id'] ?>-cv.html" target="_blank"><?php echo $row['congviec_id'] ?></a>
 									
 								</td>
 								<td nowrap>

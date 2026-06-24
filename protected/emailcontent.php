@@ -399,7 +399,7 @@
                                 <tbody>
                                     <tr>
                                         <td align="center">
-                                            <a href="#" style="display: block;"><img style="display: block;" src="http://yteviec.com/images/logo.png" alt="logo" width="155"></a>
+                                            <a href="#" style="display: block;"><img style="display: block;" src="https://yteviec.com/images/logo.png" alt="logo" width="155"></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -446,7 +446,7 @@
         <tr>
             <td style="padding: 0 35px;" class="prefooter-subheader" align="left">
                 <b>Nếu có thắc mắc, vui lòng liên hệ chúng tôi: </b>
-                <div style="color: #7087A3">Website: http://yteviec.com/</div> 
+                <div style="color: #7087A3">Website: https://yteviec.com/</div> 
                 <div style="color: #7087A3">Facebook: https://www.facebook.com/YteViec/</div> 
                 <div style="color: #7087A3">Email: contact@yteviec.com</div><br>
                 <div><b>Trân trọng,</b></div>
@@ -473,7 +473,7 @@
                                                     </td>
                                                     <td>&nbsp;&nbsp;&nbsp;</td>
                                                     <td>
-                                                        <a style="display: block; width: 16px;" href="http://yteviec.com/"><img style="display: block;" src="http://yteviec.com/images/logo.png" alt="Y Tế Việc" width="16"></a>
+                                                        <a style="display: block; width: 16px;" href="https://yteviec.com/"><img style="display: block;" src="https://yteviec.com/images/logo.png" alt="Y Tế Việc" width="16"></a>
                                                     </td>
                                                     <td>&nbsp;&nbsp;&nbsp;</td>
                                                     <td>
@@ -504,15 +504,15 @@
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                        <a style="display: block;text-decoration: none;color: #7087A3;" href="http://yteviec.com/">Giới thiệu</a>
+                                                        <a style="display: block;text-decoration: none;color: #7087A3;" href="https://yteviec.com/">Giới thiệu</a>
                                                     </td>
                                                     <td>&nbsp;&nbsp;&nbsp;</td>
                                                     <td>
-                                                        <a style="display: block;text-decoration: none;color: #7087A3;" href="http://yteviec.com/">Liên hệ</a>
+                                                        <a style="display: block;text-decoration: none;color: #7087A3;" href="https://yteviec.com/">Liên hệ</a>
                                                     </td>
                                                     <td>&nbsp;&nbsp;&nbsp;</td>
                                                     <td>
-                                                        <a style="display: block;text-decoration: none;color: #7087A3;" href="http://yteviec.com/">Cẩm nang</a>
+                                                        <a style="display: block;text-decoration: none;color: #7087A3;" href="https://yteviec.com/">Cẩm nang</a>
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -60,7 +60,7 @@
 												<!-- Logo -->
 												<div class="logo-box">
 													<a href="<?php echo $link ?>" target="_blank" title="<?php echo $row["tencongviec"]. " - " . $row["tencongty"]; ?>">
-														<img class="img-responsive logo" src="http://yteviec.com/file_upload/20-11-07-13-36-51_a 2.png" alt="<?php echo $row["tencongviec"]; ?>">
+														<img class="img-responsive logo" src="https://yteviec.com/file_upload/20-11-07-13-36-51_a 2.png" alt="<?php echo $row["tencongviec"]; ?>">
 													</a>
 												</div>
 											</div>

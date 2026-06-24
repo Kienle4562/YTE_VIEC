@@ -414,7 +414,7 @@
                         <tbody>
 							<tr>
 								<td align="center">
-									<a href="#" style="display: block;"><img  style="display: block;" src="http://yteviec.com/images/logo.png" alt="logo" width="155"></a>
+									<a href="#" style="display: block;"><img  style="display: block;" src="https://yteviec.com/images/logo.png" alt="logo" width="155"></a>
 								</td>
 							</tr>
                         </tbody>

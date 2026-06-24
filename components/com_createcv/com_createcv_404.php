@@ -33,5 +33,5 @@
     </div>	
 </section>
 <div class="text-center">
-    <img src="http://yteviec.com/images/logo.png" class="img-responsive img" alt="">
+    <img src="https://yteviec.com/images/logo.png" class="img-responsive img" alt="">
 </div>
